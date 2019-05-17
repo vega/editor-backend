@@ -1,0 +1,29 @@
+{
+  "name": "vega-editor-backend",
+  "version": "1.0.0",
+  "description": "Backend for Vega Editor",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "tsc && node dist/index.js",
+    "format": "tslint --fix ./src/*.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vega/editor-backend.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/vega/editor-backend/issues"
+  },
+  "homepage": "https://github.com/vega/editor-backend#readme",
+  "devDependencies": {
+    "@types/express": "^4.16.1",
+    "tslint": "^5.16.0",
+    "typescript": "^3.4.5"
+  },
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "express": "^4.17.0"
+  }
+}

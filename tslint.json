@@ -1,0 +1,20 @@
+{
+    "tslint.options": {
+        "project": "tsconfig.json",
+        "typeCheck": true
+      },
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "rules": {
+        "quotemark": [true, "single", "jsx-double"],
+        "arrow-parens": [true, "ban-single-arg-parens"],
+        "no-console": [false, "log", "error"],
+        "no-bitwise": false,
+        "interface-name": false,
+        "no-var-requires": false,
+        "no-namespace": false,
+        "semicolon": [true, "never"]
+    }
+}
