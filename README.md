@@ -14,5 +14,5 @@
 
 ### Code formatting
 
-The project uses TSLint to format the code. Run `npm run format` to fix
+The project uses ESLint to format the code. Run `npm run format` to fix
 formatting of .ts files.
