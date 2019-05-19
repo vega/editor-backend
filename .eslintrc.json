@@ -21,6 +21,7 @@
       "semi": ["error", "never"],
       "space-before-blocks": ["error", "always"],
       "keyword-spacing": ["error", { "before": true, "after": true }],
+      "indent": [2, 2],
       "@typescript-eslint/indent": "off",
       "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/no-non-null-assertion": "off",
