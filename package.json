@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "start": "node dist/index.js",
+    "build":"tsc",
     "format": "eslint --fix src/*.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -26,6 +27,6 @@
   },
   "dependencies": {
     "dotenv": "^8.0.0",
-    "express": "^4.17.0"
+    "express": "^4.17.0",
   }
 }

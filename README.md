@@ -10,7 +10,7 @@
 
 4. Make a copy of `.env.sample` file as `.env` and edit the configurations.
 
-5. Run `npm start` to start the server.
+5. Run `npm run build` `npm start` to start the server.
 
 ### Code formatting
 
