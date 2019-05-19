@@ -9,7 +9,7 @@ yarn-error.log*
 node_modules/
 
 # Build output
-dist
+build
 
 # Environment related files
 .env
