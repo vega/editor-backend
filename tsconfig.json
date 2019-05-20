@@ -6,6 +6,6 @@
     "moduleResolution": "node",
     "sourceMap": true,
     "esModuleInterop": true,
-    "outDir": "dist"
+    "outDir": "build"
   }
 }
