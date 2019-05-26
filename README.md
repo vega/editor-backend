@@ -6,13 +6,13 @@
 
 2. cd `editor-backend`.
 
-3. Run `npm install`.
+3. Run `yarn install`.
 
 4. Make a copy of `.env.sample` file as `.env` and edit the configurations.
 
-5. Run `npm run dev` to start the server.
+5. Run `yarn dev` to start the server.
 
 ### Code formatting
 
-The project uses ESLint to format the code. Run `npm run format` to fix
+The project uses ESLint to format the code. Run `yarn format` to fix
 formatting of .ts files.
