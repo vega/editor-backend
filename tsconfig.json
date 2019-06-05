@@ -1,11 +1,18 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "module": "es2015",
+    "module": "commonjs",
     "lib": ["es2017", "dom"],
     "moduleResolution": "node",
     "sourceMap": true,
     "esModuleInterop": true,
     "outDir": "build"
-  }
+  },
+  "include": [
+    "src/**/*.ts",
+    "config"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
