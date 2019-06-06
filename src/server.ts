@@ -10,5 +10,5 @@ const port: number = parseInt(server.PORT) || 9000
  * @param {function} callback Callback function after the server is started
  */
 app.listen(port, () => {
-  console.log(`Vega-editor backend server listening on port ${port}`)
+  console.log(`Vega-editor backend server listening on port ${port} (http://localhost:${port}) ...`)
 })
