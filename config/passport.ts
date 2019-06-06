@@ -13,19 +13,19 @@ const GitHubStrategy = passportGitHub.Strategy
  * @param {function} done Method called internally by passport.js to resume
  * process
  */
-passport.serializeUser<any, any>((user, done) => {
-  done(null, user.id)
+passport.serializeUser((user, done) => {
+  done(null, user)
 })
 
 /**
  * Deserializes cookie sent to know which user is logged in
  *
- * @param {string} id The GitHub id of the user
+ * @param {object} user The GitHub profile of the user
  * @param {function} done Method called internally by passport.js to resume
  * process
  */
-passport.deserializeUser((id: string, done: Function) => {
-  done(null, id)
+passport.deserializeUser((user: object, done: Function) => {
+  done(null, user)
 })
 
 /**
@@ -39,7 +39,7 @@ passport.use(new GitHubStrategy({
   clientSecret: githubOauth.GITHUB_CLIENT_SECRET,
   callbackURL: authUrl.callback,
 }, (accessToken, refreshToken, profile, done) => {
-  done(null, profile)
+  done(null, {...profile, accessToken})
 }))
 
 /**
