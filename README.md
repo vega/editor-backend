@@ -1,5 +1,7 @@
 # editor-backend
 
+[![Build Status](https://travis-ci.com/vega/editor-backend.svg?branch=master)](https://travis-ci.com/vega/editor-backend)
+
 ### Setup Instructions
 
 1. Clone the project `git@github.com:vega/editor-backend.git`.
