@@ -5,11 +5,11 @@ import BaseController from './base'
 import { successfulRedirectUrl, authUrl } from '../urls'
 
 // Enables passport to recognize the configuration
-require('../../config/passport') 
+require('../../config/passport')
 
 /**
  * Controller for OAuthentication via GitHub
- * 
+ *
  * See [[IController]] for more details.
  */
 class AuthController implements BaseController {
@@ -26,7 +26,7 @@ class AuthController implements BaseController {
 
   /**
    * Initialization of routes of AuthController
-   * 
+   *
    * @private
    */
   private initializeRoutes = () => {
@@ -40,10 +40,10 @@ class AuthController implements BaseController {
 
   /**
    * Sucess callback after authentication
-   * 
+   *
    * @param {Request} req Request object
    * @param {Response} res Response object
-   * @private 
+   * @private
    */
   private success = (req ,res) => {
     res.redirect(successfulRedirectUrl)
@@ -51,7 +51,7 @@ class AuthController implements BaseController {
 
   /**
    * Logging out of a session
-   * 
+   *
    * @param {Request} req Request object
    * @param {Response} res Response object
    * @private

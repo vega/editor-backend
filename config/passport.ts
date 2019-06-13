@@ -30,16 +30,16 @@ passport.deserializeUser((user: object, done: Function) => {
 
 /**
  * GitHub OAuth strategy configuration
- * 
+ *
  * @param {Strategy} strategy OAuth strategy
- * @param {function} callback Callback after successful authentication  
+ * @param {function} callback Callback after successful authentication
  */
 passport.use(new GitHubStrategy({
   clientID: githubOauth.GITHUB_CLIENT_ID,
   clientSecret: githubOauth.GITHUB_CLIENT_SECRET,
   callbackURL: authUrl.callback,
 }, (accessToken, refreshToken, profile, done) => {
-  done(null, {...profile, accessToken})
+  done(null, { ...profile, accessToken })
 }))
 
 /**
