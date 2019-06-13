@@ -12,6 +12,7 @@
       "plugin:@typescript-eslint/recommended"
     ],
     "rules": {
+      "block-spacing": "error",
       "comma-dangle": ["error", "always-multiline"],
       "curly": ["error", "all"],
       "eol-last": ["error", "always"],
@@ -20,11 +21,13 @@
       "no-console": "off",
       "no-dupe-class-members": "error",
       "no-mixed-operators": "error",
+      "no-trailing-spaces": "error",
       "no-undef": "off",
       "object-curly-spacing": ["error", "always"],
       "quotes": ["error", "single"],
       "semi": ["error", "never"],
       "space-before-blocks": ["error", "always"],
+      "space-in-parens": ["error", "never"],
       "@typescript-eslint/explicit-function-return-type": "off",
       "@typescript-eslint/explicit-member-accessibility": "off",
       "@typescript-eslint/indent": ["error", 2],
