@@ -30,13 +30,15 @@ class AuthController implements BaseController {
    * @private
    */
   private initializeRoutes = () => {
-    this.router.get(this.path, passport.authenticate('github', { scope: 'gist' }))
+    this.router.get(this.path, passport.authenticate(
+      'github', { scope: 'gist' }
+    ))
     this.router.get(authUrl.callback,
       passport.authenticate('github'),
       this.success
     )
     this.router.get(authUrl.logout, this.logout)
-    this.router.get(authUrl.isAuthenticated,this.loggedIn)
+    this.router.get(authUrl.isAuthenticated, this.loggedIn)
   }
 
   /**
@@ -46,7 +48,7 @@ class AuthController implements BaseController {
    * @param {Response} res Response object
    * @private
    */
-  private success = (req ,res) => {
+  private success = (req, res) => {
     // gives info of user (returned by GitHub Strategy)
     // console.log(req.session.passport.user)
     res.redirect(successfulRedirectUrl)
