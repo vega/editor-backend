@@ -1,0 +1,10 @@
+{
+    "version": 2,
+    "name": "vega",
+    "builds": [
+      { "src": "src/**/*.ts", "use": "@now/node" }
+    ],
+    "routes": [
+        { "src": "/(.*)", "dest": "/$1" }
+      ]
+  }
