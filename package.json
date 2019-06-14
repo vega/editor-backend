@@ -2,9 +2,9 @@
   "name": "vega-editor-backend",
   "version": "0.1.0",
   "description": "Backend for Vega Editor",
+  "main": "src/server.ts",
   "scripts": {
     "start": "now dev",
-    "deploy": "now",
     "build": "tsc",
     "lint": "eslint {src/**/*.ts,config/*.ts}",
     "format": "eslint --fix {src/**/*.ts,config/*.ts}",

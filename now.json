@@ -1,7 +1,10 @@
 {
-  "version": 2,
-  "name": "vega-editor-backend",
-  "alias": "vega",
-  "builds": [{ "src": "src/**/*.ts", "use": "@now/node" }],
-  "routes": [{ "src": "/(.*)", "dest": "/src/app.ts" }]
-}
+    "version": 2,
+    "name": "vega",
+    "builds": [
+      { "src": "src/**/*.ts", "use": "@now/node" }
+    ],
+    "routes": [
+        { "src": "/(.*)", "dest": "/$1" }
+      ]
+  }
