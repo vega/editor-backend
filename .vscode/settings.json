@@ -1,0 +1,10 @@
+{
+    "editor.wordWrap": "bounded",
+    "editor.tabSize": 2,
+    "eslint.autoFixOnSave": true,
+    "eslint.options": {
+        "configFile": ".eslintrc.json"
+    },
+    "eslint.run": "onSave",
+    "eslint.validate": [ { "language": "typescript", "autoFix": true } ]
+}
