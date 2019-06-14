@@ -3,7 +3,7 @@ import session from 'express-session'
 import passport from 'passport'
 import cors from 'cors'
 
-import { sessionSecret } from '../config/index'
+import { sessionSecret, whitelist } from '../config/index'
 
 import Controller from './controllers/base'
 import AuthController from './controllers/auth'
@@ -43,11 +43,6 @@ class App {
       cookie: { httpOnly: false, maxAge: 1 * 24 * 60 * 60 * 1000 },
     }))
 
-    // Arrays of domains allowed
-    const whitelist = [
-      'http://localhost:8081',
-      'http://localhost:8080',
-    ]
     const corsOptions = {
       origin: (origin, callback) => {
         if (whitelist.indexOf(origin) !== -1 || !origin) {

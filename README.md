@@ -34,6 +34,8 @@
     # Frontend development server
     HOMEPAGE_URL=http://localhost:8080/
 
+    DOMAINS=http://localhost:8080,http://localhost:8081
+
     ```
 
 5.  Run the back-end server.
