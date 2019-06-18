@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.com/vega/editor-backend.svg?branch=master)](https://travis-ci.com/vega/editor-backend)
 
+Deployed at https://vega.now.sh. 
+
 ## Setup Instructions
 
 1. Clone the repository.
