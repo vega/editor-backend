@@ -1,0 +1,7 @@
+.env.sample
+.eslintignore
+.eslintrc.json
+.travis.yml
+build
+LICENSE
+static
