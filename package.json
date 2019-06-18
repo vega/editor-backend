@@ -2,7 +2,6 @@
   "name": "vega-editor-backend",
   "version": "0.1.0",
   "description": "Backend for Vega Editor",
-  "main": "src/server.ts",
   "scripts": {
     "start": "now dev",
     "build": "tsc",
