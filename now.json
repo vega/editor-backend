@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "vega",
+  "name": "editor-backend",
   "builds": [{ "src": "src/**/*.ts", "use": "@now/node" }],
   "routes": [{ "src": "/(.*)", "dest": "/src/app.ts" }]
 }
