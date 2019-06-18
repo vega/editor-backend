@@ -7,6 +7,7 @@ import { sessionSecret, whitelist } from '../config/index'
 
 import Controller from './controllers/base'
 import AuthController from './controllers/auth'
+import MainController from './controllers/home';
 
 
 /**
@@ -24,6 +25,7 @@ class App {
     this.initializeMiddleWares()
     this.initializeControllers([
       new AuthController(),
+      new MainController()
     ])
   }
 

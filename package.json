@@ -2,10 +2,9 @@
   "name": "vega-editor-backend",
   "version": "0.1.0",
   "description": "Backend for Vega Editor",
-  "main": "index.ts",
   "scripts": {
-    "start": "ts-node src/server.ts",
-    "dev": "nodemon",
+    "start": "now dev",
+    "deploy": "now",
     "build": "tsc",
     "lint": "eslint {src/**/*.ts,config/*.ts}",
     "format": "eslint --fix {src/**/*.ts,config/*.ts}",
@@ -26,6 +25,7 @@
     "@typescript-eslint/parser": "^1.10.2",
     "eslint": "^5.16.0",
     "nodemon": "^1.19.1",
+    "now": "^15.5.0",
     "ts-node": "^8.2.0",
     "typescript": "^3.5.2"
   },
