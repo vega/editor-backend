@@ -34,8 +34,8 @@ class MainController implements BaseController {
    * @param {Response} res Response object
    * @private
    */
-  private helloWorld = (req ,res) => {
-    res.send("Hello World")
+  private helloWorld = (req, res) => {
+    res.send('Hello World')
   }
 
 }
