@@ -12,8 +12,11 @@
       "plugin:@typescript-eslint/recommended"
     ],
     "rules": {
+      "arrow-parens": ["error", "as-needed"],
+      "arrow-spacing": "error",
       "block-spacing": "error",
       "comma-dangle": ["error", "always-multiline"],
+      "comma-spacing": ["error", { "before": false, "after": true }],
       "curly": ["error", "all"],
       "eol-last": ["error", "always"],
       "keyword-spacing": ["error", { "before": true, "after": true }],

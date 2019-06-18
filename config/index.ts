@@ -31,3 +31,9 @@ export const sessionSecret: string = process.env.SESSION_SECRET
  * Export successful redirect URL
  */
 export const homepageUrl: string = process.env.HOMEPAGE_URL
+
+/**
+ * Export array of allowed domains
+ */
+
+export const whitelist: string[] = process.env.DOMAINS.split(',')

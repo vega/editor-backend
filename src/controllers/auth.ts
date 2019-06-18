@@ -30,12 +30,15 @@ class AuthController implements BaseController {
    * @private
    */
   private initializeRoutes = () => {
-    this.router.get(this.path, passport.authenticate('github'))
+    this.router.get(this.path, passport.authenticate(
+      'github', { scope: 'gist' }
+    ))
     this.router.get(authUrl.callback,
       passport.authenticate('github'),
       this.success
     )
     this.router.get(authUrl.logout, this.logout)
+    this.router.get(authUrl.isAuthenticated, this.loggedIn)
   }
 
   /**
@@ -45,7 +48,9 @@ class AuthController implements BaseController {
    * @param {Response} res Response object
    * @private
    */
-  private success = (req ,res) => {
+  private success = (req, res) => {
+    // gives info of user (returned by GitHub Strategy)
+    // console.log(req.session.passport.user)
     res.redirect(successfulRedirectUrl)
   }
 
@@ -57,11 +62,42 @@ class AuthController implements BaseController {
    * @private
    */
   private logout = (req, res) => {
-    req.session.destroy()
-    res.clearCookie('user', { path: '/' }).status(200)
-    res.redirect(successfulRedirectUrl)
+    // gives info of user
+    // console.log(req.user)
+    if (req.user) {
+      req.session.destroy()
+      res.clearCookie('vegasessid', { path: '/' }).status(200)
+      res.redirect(successfulRedirectUrl)
+    }
+    else {
+      res.redirect(successfulRedirectUrl)
+    }
   }
 
+  /**
+   * Checks if a user is authenticated
+   *
+   * @param {Request} req Request object
+   * @param {Response} res Response object
+   * @private
+   */
+  private loggedIn = (req, res) => {
+    const data = {
+      isAuth: false,
+    }
+    if (req.user === undefined) {
+      res.send({
+        ...data,
+        isAuth: false,
+      })
+    }
+    else {
+      res.send({
+        ...data,
+        isAuth: true,
+      })
+    }
+  }
 }
 
 /**
