@@ -4,6 +4,7 @@
   "description": "Backend for Vega Editor",
   "scripts": {
     "start": "now dev",
+    "deploy": "now",
     "build": "tsc",
     "lint": "eslint {src/**/*.ts,config/*.ts}",
     "format": "eslint --fix {src/**/*.ts,config/*.ts}",
