@@ -1,7 +1,7 @@
 import passport from 'passport'
 import passportGitHub from 'passport-github2'
 
-import { githubOauth, nodeEnv} from './index'
+import { githubOauth, nodeEnv } from './index'
 import { authUrl } from '../src/urls'
 
 const GitHubStrategy = passportGitHub.Strategy
