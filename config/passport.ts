@@ -8,7 +8,7 @@ const GitHubStrategy = passportGitHub.Strategy
 
 let host = ''
 if (nodeEnv === 'production') {
-  // host = 'write host here'
+  host = 'https://vega.now.sh'
 }
 
 /**
