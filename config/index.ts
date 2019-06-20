@@ -27,7 +27,11 @@ export const homepageUrl: string = process.env.HOMEPAGE_URL
  * Export array of allowed domains
  */
 
-export const whitelist: string[] = process.env.DOMAINS.split(',')
+export const whitelist: string[] = [
+  'https://vega.github.io/editor',
+  'http://localhost:8081',
+  'http://localhost:8080',
+]
 
 /**
  * Export environment type

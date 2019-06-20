@@ -1,9 +1,4 @@
-import { homepageUrl } from '../config/index'
-
-/**
- * Export successful authentication redirect URL
- */
-export const successfulRedirectUrl: string = homepageUrl
+import { nodeEnv } from '../config/index'
 
 const authMain = '/auth/github'
 
@@ -16,3 +11,17 @@ export const authUrl: any = {
   logout: `${authMain}/logout`,
   isAuthenticated: `${authMain}/logged`,
 }
+
+/**
+ * Export successful authentication redirect URL
+ */
+let successfulRedirectUrl = ''
+if (nodeEnv === 'production') {
+  // hardcode url here
+  successfulRedirectUrl = 'https://vega.github.io/editor'
+}
+else if (nodeEnv === 'development') {
+  successfulRedirectUrl = authUrl.isAuthenticated
+}
+
+export { successfulRedirectUrl }
