@@ -83,18 +83,18 @@ class AuthController implements BaseController {
    */
   private loggedIn = (req, res) => {
     const data = {
-      isAuth: false,
+      isAuthenticated: false,
     }
     if (req.user === undefined) {
       res.send({
         ...data,
-        isAuth: false,
+        isAuthenticated: false,
       })
     }
     else {
       res.send({
         ...data,
-        isAuth: true,
+        isAuthenticated: true,
       })
     }
   }

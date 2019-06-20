@@ -9,7 +9,7 @@ export const authUrl: any = {
   main: authMain,
   callback: `${authMain}/callback`,
   logout: `${authMain}/logout`,
-  isAuthenticated: `${authMain}/logged`,
+  isAuthenticated: `${authMain}/check`,
 }
 
 /**
