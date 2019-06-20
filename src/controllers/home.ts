@@ -5,21 +5,21 @@ import BaseController from './base'
 /**
  * See [[IController]] for more details.
  */
-class MainController implements BaseController {
+class HomeController implements BaseController {
 
   public path = '/'
 
   public router = express.Router()
 
   /**
-   * Constructor of AuthController
+   * Constructor of HomeController
    */
   constructor() {
     this.initializeRoutes()
   }
 
   /**
-   * Initialization of routes of AuthController
+   * Initialization of routes of HomeController
    *
    * @private
    */
@@ -28,7 +28,7 @@ class MainController implements BaseController {
   }
 
   /**
-   * Sucess callback after authentication
+   * Welcome message!
    *
    * @param {Request} req Request object
    * @param {Response} res Response object
@@ -41,6 +41,6 @@ class MainController implements BaseController {
 }
 
 /**
- * Export AuthController
+ * Export HomeController
  */
-export default MainController
+export default HomeController

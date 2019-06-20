@@ -2,6 +2,13 @@
   "version": 2,
   "name": "vega-editor-backend",
   "alias": "vega",
+  "env": {
+    "GITHUB_CLIENT_ID": "@github-client-id",
+    "GITHUB_CLIENT_SECRET": "@github-client-secret",
+    "SESSION_SECRET": "@session-secret",
+    "DOMAINS": "@domains",
+    "HOMEPAGE_URL": "@homepage-url"
+  },
   "builds": [{ "src": "src/**/*.ts", "use": "@now/node" }],
   "routes": [{ "src": "/(.*)", "dest": "/src/app.ts" }]
 }

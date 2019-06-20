@@ -6,15 +6,6 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 /**
- * Export server configuration
- */
-export const server: any = {
-  NODE_ENV: process.env.NODE_ENV,
-  PORT: process.env.PORT,
-}
-
-
-/**
  * Export GitHub application credentials
  */
 export const githubOauth: any = {
@@ -37,3 +28,9 @@ export const homepageUrl: string = process.env.HOMEPAGE_URL
  */
 
 export const whitelist: string[] = process.env.DOMAINS.split(',')
+
+/**
+ * Export environment type
+ */
+
+ export const nodeEnv: string = process.env.NODE_ENV

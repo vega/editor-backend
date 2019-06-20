@@ -1,10 +1,15 @@
 import passport from 'passport'
 import passportGitHub from 'passport-github2'
 
-import { githubOauth } from './index'
+import { githubOauth, nodeEnv} from './index'
 import { authUrl } from '../src/urls'
 
 const GitHubStrategy = passportGitHub.Strategy
+
+let host = ''
+if (nodeEnv === 'production') {
+  // host = 'write host here'
+}
 
 /**
  * Serializes user profile returned after authentication
@@ -37,7 +42,7 @@ passport.deserializeUser((user: object, done: Function) => {
 passport.use(new GitHubStrategy({
   clientID: githubOauth.GITHUB_CLIENT_ID,
   clientSecret: githubOauth.GITHUB_CLIENT_SECRET,
-  callbackURL: authUrl.callback,
+  callbackURL: `${host}${authUrl.callback}`,
 }, (accessToken, refreshToken, profile, done) => {
   done(null, { ...profile, accessToken })
 }))
