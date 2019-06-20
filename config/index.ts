@@ -28,3 +28,9 @@ export const homepageUrl: string = process.env.HOMEPAGE_URL
  */
 
 export const whitelist: string[] = process.env.DOMAINS.split(',')
+
+/**
+ * Export environment type
+ */
+
+ export const nodeEnv: string = process.env.NODE_ENV
