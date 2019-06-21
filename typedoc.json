@@ -1,0 +1,9 @@
+{
+  "mode": "file",
+  "out": "docs",
+  "includes": [
+    "config",
+    "src"
+  ],
+  "name": "Vega Editor API documentation"
+}

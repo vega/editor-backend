@@ -3,7 +3,9 @@ import express from 'express'
 import BaseController from './base'
 
 /**
- * See [[IController]] for more details.
+ * Controller to serve the root URL of back-end service.
+ *
+ * See [[IBaseController]] for more details.
  */
 class HomeController implements BaseController {
 
@@ -12,14 +14,14 @@ class HomeController implements BaseController {
   public router = express.Router()
 
   /**
-   * Constructor of HomeController
+   * Constructor of `HomeController`.
    */
   constructor() {
     this.initializeRoutes()
   }
 
   /**
-   * Initialization of routes of HomeController
+   * Initialization of routes of `HomeController`.
    *
    * @private
    */
@@ -28,19 +30,20 @@ class HomeController implements BaseController {
   }
 
   /**
-   * Welcome message!
+   * Displays welcome message.
    *
    * @param {Request} req Request object
    * @param {Response} res Response object
    * @private
    */
-  private helloWorld = (req, res) => {
+  private helloWorld = (_, res) => {
+    console.log(__dirname)
     res.send('Hello World')
   }
 
 }
 
 /**
- * Export HomeController
+ * _Export `HomeController`._
  */
 export default HomeController
