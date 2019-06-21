@@ -1,19 +1,38 @@
 import { nodeEnv } from '../config/index'
 
+/**
+ * Prefix for URLs for authentication with GitHub.
+ */
 const authMain = '/auth/github'
 
 /**
- * Export urls for authentication with GitHub
+ * Stores the different types of URLs required for authentication.
+ *
+ * _Exported as `authUrl` for configuring endpoints of authentication._
  */
 export const authUrl: any = {
+  /**
+   * Endpoint for signing in with GitHub.
+   */
   main: authMain,
+  /**
+   * The URL redirected to after successful authentication with GitHub.
+   */
   callback: `${authMain}/callback`,
+  /**
+   * Endpoint for signing out of the back-end service.
+   */
   logout: `${authMain}/logout`,
+  /**
+   * Endpoint to verify if the user is authenticated.
+   */
   isAuthenticated: `${authMain}/check`,
 }
 
 /**
- * Export successful authentication redirect URL
+ * The URL redirected by this back-end service to homepage.
+ *
+ * _Exported as `successfulRedirectUrl` to `/auth/github/callback` route._
  */
 let successfulRedirectUrl = ''
 if (nodeEnv === 'production') {

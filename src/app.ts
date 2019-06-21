@@ -11,14 +11,19 @@ import HomeController from './controllers/home'
 
 
 /**
- * Configuration of the express application
+ * Configuration of the express application.
  */
 class App {
 
+  /**
+   * Stores the constructor of Express application.
+   *
+   * @public
+   */
   public app: express.Application
 
   /**
-   * Constructor to initialize application
+   * Constructor to initialize application.
    */
   constructor() {
     this.app = express()
@@ -30,12 +35,12 @@ class App {
   }
 
   /**
-   * Initializes middleware for accessing request and response objects
+   * Initializes middleware for accessing request and response objects.
    *
    * @private
    */
   private initializeMiddleWares() {
-    // Configuration for creating session cookies
+    // Configuration for creating session cookies.
     this.app.use(session({
       key: 'vegasessid',
       secret: sessionSecret,
@@ -61,7 +66,7 @@ class App {
   }
 
   /**
-   * Sets routes for each controller
+   * Sets routes for each controller.
    *
    * @param {Controller} controllers Array of controllers
    */
@@ -73,6 +78,6 @@ class App {
 }
 
 /**
- * Export instance of an express application
+ * _Exports an instance of Express application._
  */
 export default new App().app

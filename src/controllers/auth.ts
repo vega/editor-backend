@@ -4,28 +4,29 @@ import passport from 'passport'
 import BaseController from './base'
 import { successfulRedirectUrl, authUrl } from '../urls'
 
-// Enables passport to recognize the configuration
+// Enables passport to recognize the configuration.
 require('../../config/passport')
 
 /**
- * Controller for OAuthentication via GitHub
+ * Controller for OAuthentication via GitHub.
  *
- * See [[IController]] for more details.
+ * See [[IBaseController]] for more details.
  */
 class AuthController implements BaseController {
 
   public path = authUrl.main
+
   public router = express.Router()
 
   /**
-   * Constructor of AuthController
+   * Constructor of `AuthController`.
    */
   constructor() {
     this.initializeRoutes()
   }
 
   /**
-   * Initialization of routes of AuthController
+   * Initialization of routes of `AuthController`.
    *
    * @private
    */
@@ -42,20 +43,20 @@ class AuthController implements BaseController {
   }
 
   /**
-   * Sucess callback after authentication
+   * Sucess callback after authentication.
    *
    * @param {Request} req Request object
    * @param {Response} res Response object
    * @private
    */
-  private success = (req, res) => {
+  private success = (_, res) => {
     // gives info of user (returned by GitHub Strategy)
     // console.log(req.session.passport.user)
     res.redirect(successfulRedirectUrl)
   }
 
   /**
-   * Logging out of a session
+   * Logging out of a session.
    *
    * @param {Request} req Request object
    * @param {Response} res Response object
@@ -75,7 +76,7 @@ class AuthController implements BaseController {
   }
 
   /**
-   * Checks if a user is authenticated
+   * Checks if a user is authenticated.
    *
    * @param {Request} req Request object
    * @param {Response} res Response object
@@ -101,6 +102,6 @@ class AuthController implements BaseController {
 }
 
 /**
- * Export AuthController
+ * _Export `AuthController`._
  */
 export default AuthController

@@ -25,6 +25,7 @@
     "@typescript-eslint/parser": "^1.10.2",
     "eslint": "^5.16.0",
     "now": "^15.5.0",
+    "typedoc": "^0.14.2",
     "typescript": "^3.5.2"
   },
   "dependencies": {
