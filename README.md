@@ -36,6 +36,10 @@ Deployed at https://vega.now.sh.
     ```
     $ now dev
     ```
+    
+## Documentation
+
+Go to https://vega.github.io/editor-backend/.
 
 ## Code formatting
 
