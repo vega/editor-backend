@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.com/vega/editor-backend.svg?branch=master)](https://travis-ci.com/vega/editor-backend)
 
-Deployed at https://vega.now.sh. 
+Deployed at https://vega.now.sh. Code is at https://github.com/vega/editor-backend. 
 
 ## Setup Instructions
 
