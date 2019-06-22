@@ -1,0 +1,19 @@
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+  body
+    h2 Welcome to editor-backend!
+    p Here is the list of routes available in this project.
+    ul
+      each value, index in authUrl
+        if index == "main"
+          li Here you can log in: 
+            a(href=value) #{host}#{value}
+        else if index == "isAuthenticated"
+          li Check if you are authenticated or not: 
+            a(href=value) #{host}#{value}
+        else if index == "logout"
+          li Log out: 
+            a(href=value) #{host}#{value}

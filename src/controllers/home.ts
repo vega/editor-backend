@@ -1,6 +1,7 @@
 import express from 'express'
 
 import BaseController from './base'
+import { authUrl } from '../urls'
 
 /**
  * Controller to serve the root URL of back-end service.
@@ -26,7 +27,7 @@ class HomeController implements BaseController {
    * @private
    */
   private initializeRoutes = () => {
-    this.router.get(this.path, this.helloWorld)
+    this.router.get(this.path, this.listRoutes)
   }
 
   /**
@@ -36,9 +37,11 @@ class HomeController implements BaseController {
    * @param {Response} res Response object
    * @private
    */
-  private helloWorld = (_, res) => {
-    console.log(__dirname)
-    res.send('Hello World')
+  private listRoutes = (req, res) => {
+    res.render('index', {
+      authUrl,
+      host: req.headers.host,
+    })
   }
 
 }

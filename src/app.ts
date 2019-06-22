@@ -63,6 +63,10 @@ class App {
     this.app.use(cors(corsOptions))
     this.app.use(passport.initialize())
     this.app.use(passport.session())
+
+    this.app.engine('pug', require('pug').__express)
+    this.app.set('views', __dirname + '/views')
+    this.app.set('view engine', 'pug')
   }
 
   /**
