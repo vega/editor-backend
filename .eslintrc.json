@@ -21,7 +21,7 @@
       "eol-last": ["error", "always"],
       "keyword-spacing": ["error", { "before": true, "after": true }],
       "max-len": ["error", { "code": 80 }],
-      "no-console": "off",
+      "no-console": ["error", { "allow": ["warn", "error"] }],
       "no-dupe-class-members": "error",
       "no-mixed-operators": "error",
       "no-trailing-spaces": "error",
