@@ -35,12 +35,19 @@ export const authUrl: any = {
  * _Exported as `successfulRedirectUrl` to `/auth/github/callback` route._
  */
 let successfulRedirectUrl = ''
+/**
+ * Stores the domain name for callback url after successful authentication.
+ *
+ * _Exportes as `hostUrl` for callback after GitHub sends `code`._
+ */
+let hostUrl = ''
 if (nodeEnv === 'production') {
   // hardcode url here
   successfulRedirectUrl = 'https://vega.github.io/editor'
+  hostUrl = 'https://vega.now.sh'
 }
 else if (nodeEnv === 'development') {
   successfulRedirectUrl = authUrl.isAuthenticated
 }
 
-export { successfulRedirectUrl }
+export { successfulRedirectUrl, hostUrl }

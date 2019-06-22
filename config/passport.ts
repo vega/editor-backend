@@ -1,22 +1,14 @@
 import passport from 'passport'
 import passportGitHub from 'passport-github2'
 
-import { githubOauth, nodeEnv } from './index'
-import { authUrl } from '../src/urls'
+import { githubOauth } from './index'
+import { authUrl, hostUrl } from '../src/urls'
 
 /**
  * OAuth strategy to authenticate with GitHub. Reference:
  * http://www.passportjs.org/packages/passport-github2/
  */
 const GitHubStrategy = passportGitHub.Strategy
-
-/**
- * Stores the domain name for callback url after successful authentication.
- */
-let host = ''
-if (nodeEnv === 'production') {
-  host = 'https://vega.now.sh'
-}
 
 /**
  * Serializes user profile returned after authentication.
@@ -49,7 +41,7 @@ passport.deserializeUser((user: object, done: Function) => {
 passport.use(new GitHubStrategy({
   clientID: githubOauth.GITHUB_CLIENT_ID,
   clientSecret: githubOauth.GITHUB_CLIENT_SECRET,
-  callbackURL: `${host}${authUrl.callback}`,
+  callbackURL: `${hostUrl}${authUrl.callback}`,
 }, (accessToken, refreshToken, profile, done) => {
   done(null, { ...profile, accessToken })
 }))
