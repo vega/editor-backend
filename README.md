@@ -36,7 +36,7 @@ https://github.com/vega/editor-backend.
 
 5.  Run the back-end server.
     ```
-    $ now dev
+    $ yarn start
     ```
 
 6.  Go to the home route (which usually is `http://localhost:3000/`). Otherwise
