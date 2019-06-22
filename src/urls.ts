@@ -38,7 +38,7 @@ let successfulRedirectUrl = ''
 /**
  * Stores the domain name for callback url after successful authentication.
  *
- * _Exportes as `hostUrl` for callback after GitHub sends `code`._
+ * _Exported as `hostUrl` for callback after GitHub sends `code`._
  */
 let hostUrl = ''
 if (nodeEnv === 'production') {

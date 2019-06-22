@@ -1,8 +1,10 @@
 # editor-backend
 
-[![Build Status](https://travis-ci.com/vega/editor-backend.svg?branch=master)](https://travis-ci.com/vega/editor-backend)
+[![Build
+Status](https://travis-ci.com/vega/editor-backend.svg?branch=master)](https://travis-ci.com/vega/editor-backend)
 
-Deployed at https://vega.now.sh. Code is at https://github.com/vega/editor-backend. 
+Deployed at https://vega.now.sh. Code is at
+https://github.com/vega/editor-backend. 
 
 ## Setup Instructions
 
@@ -36,6 +38,9 @@ Deployed at https://vega.now.sh. Code is at https://github.com/vega/editor-backe
     ```
     $ now dev
     ```
+
+6.  Go to the home route (which usually is `http://localhost:3000/`). Otherwise
+    it will be mentioned in the console where the above command is run.
     
 ## Documentation
 
@@ -43,5 +48,5 @@ Go to https://vega.github.io/editor-backend/.
 
 ## Code formatting
 
-The project uses ESLint to format the code. Run `yarn format` to fix
-formatting where it's possible to do so automatically.
+The project uses ESLint to format the code. Run `yarn format` to fix formatting
+where it's possible to do so automatically.
