@@ -25,6 +25,8 @@
     "@typescript-eslint/eslint-plugin": "^1.10.2",
     "@typescript-eslint/parser": "^1.10.2",
     "eslint": "^5.16.0",
+    "husky": ">=1",
+    "lint-staged": ">=8",
     "now": "^15.5.0",
     "typedoc": "^0.14.2",
     "typescript": "^3.5.2"
@@ -37,5 +39,15 @@
     "passport": "^0.4.0",
     "passport-github2": "^0.1.11",
     "pug": "^2.0.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint"
+    ]
   }
 }
