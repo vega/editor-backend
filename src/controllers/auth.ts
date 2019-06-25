@@ -85,6 +85,7 @@ class AuthController implements BaseController {
   private loggedIn = (req, res) => {
     const data = {
       isAuthenticated: false,
+      profilePicUrl: '',
     }
     if (req.user === undefined) {
       res.send({
@@ -96,7 +97,7 @@ class AuthController implements BaseController {
       res.send({
         ...data,
         isAuthenticated: true,
-        profileUrl: req.user._json.avatar_url,
+        profilePicUrl: req.user._json.avatar_url,
       })
     }
   }
