@@ -96,6 +96,7 @@ class AuthController implements BaseController {
       res.send({
         ...data,
         isAuthenticated: true,
+        profileUrl: req.user._json.avatar_url,
       })
     }
   }
