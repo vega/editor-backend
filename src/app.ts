@@ -8,6 +8,7 @@ import { sessionSecret, whitelist } from '../config/index'
 import Controller from './controllers/base'
 import AuthController from './controllers/auth'
 import HomeController from './controllers/home'
+import GistController from './controllers/gist'
 
 
 /**
@@ -31,6 +32,7 @@ class App {
     this.initializeControllers([
       new AuthController(),
       new HomeController(),
+      new GistController(),
     ])
   }
 
