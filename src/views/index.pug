@@ -17,3 +17,7 @@ html(lang="en")
         else if index == "logout"
           li Log out: 
             a(href=value) #{host}#{value}
+      each value, index in gistUrl
+        if index == "allGists"
+          li Get a list of first 20 gists (authentication required): 
+            a(href=value) #{host}#{value}

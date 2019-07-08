@@ -51,3 +51,10 @@ else if (nodeEnv === 'development') {
 }
 
 export { successfulRedirectUrl, hostUrl }
+
+const gistMain = '/gists'
+
+export const gistUrl: any = {
+  main: gistMain,
+  allGists: `${gistMain}/user`,
+}

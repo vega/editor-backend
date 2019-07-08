@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>AuthController | Vega Editor API documentation</title>
+	<title>GistController | Vega Editor API documentation</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="authcontroller.html">AuthController</a>
+					<a href="gistcontroller.html">GistController</a>
 				</li>
 			</ul>
-			<h1>Class AuthController</h1>
+			<h1>Class GistController</h1>
 		</div>
 	</div>
 </header>
@@ -69,7 +69,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Controller for OAuthentication via GitHub.</p>
+						<p>Controller for interacting via GitHub Gist API.</p>
 					</div>
 					<p>See <a href="../interfaces/ibasecontroller.html">IBaseController</a> for more details.</p>
 				</div>
@@ -78,7 +78,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">AuthController</span>
+						<span class="target">GistController</span>
 					</li>
 				</ul>
 			</section>
@@ -95,23 +95,21 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="authcontroller.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="gistcontroller.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="authcontroller.html#path" class="tsd-kind-icon">path</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="authcontroller.html#router" class="tsd-kind-icon">router</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="gistcontroller.html#path" class="tsd-kind-icon">path</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="gistcontroller.html#router" class="tsd-kind-icon">router</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="authcontroller.html#initializeroutes" class="tsd-kind-icon">initialize<wbr>Routes</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="authcontroller.html#loggedin" class="tsd-kind-icon">logged<wbr>In</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="authcontroller.html#logout" class="tsd-kind-icon">logout</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="authcontroller.html#success" class="tsd-kind-icon">success</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="gistcontroller.html#fetchallgistsofuser" class="tsd-kind-icon">fetch<wbr>All<wbr>Gistsof<wbr>User</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="gistcontroller.html#initializeroutes" class="tsd-kind-icon">initialize<wbr>Routes</a></li>
 							</ul>
 						</section>
 					</div>
@@ -123,21 +121,21 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Auth<wbr>Controller<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="authcontroller.html" class="tsd-signature-type">AuthController</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Gist<wbr>Controller<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="gistcontroller.html" class="tsd-signature-type">GistController</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/controllers/auth.ts:19</li>
+									<li>Defined in src/controllers/gist.ts:16</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Constructor of <code>AuthController</code>.</p>
+									<p>Constructor of <code>GistController</code>.</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <a href="authcontroller.html" class="tsd-signature-type">AuthController</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="gistcontroller.html" class="tsd-signature-type">GistController</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -147,11 +145,11 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="path" class="tsd-anchor"></a>
 					<h3>path</h3>
-					<div class="tsd-signature tsd-kind-icon">path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;authUrl.main</span></div>
+					<div class="tsd-signature tsd-kind-icon">path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;gistUrl.main</span></div>
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/ibasecontroller.html">IBaseController</a>.<a href="../interfaces/ibasecontroller.html#path">path</a></p>
 						<ul>
-							<li>Defined in src/controllers/auth.ts:17</li>
+							<li>Defined in src/controllers/gist.ts:14</li>
 						</ul>
 					</aside>
 				</section>
@@ -162,13 +160,54 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/ibasecontroller.html">IBaseController</a>.<a href="../interfaces/ibasecontroller.html#router">router</a></p>
 						<ul>
-							<li>Defined in src/controllers/auth.ts:19</li>
+							<li>Defined in src/controllers/gist.ts:16</li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="fetchallgistsofuser" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> fetch<wbr>All<wbr>Gistsof<wbr>User</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">fetch<wbr>All<wbr>Gistsof<wbr>User<span class="tsd-signature-symbol">(</span>req<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, res<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in src/controllers/gist.ts:42</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Route to fetch all private and public gists of a user.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>req: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Request object</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5>res: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Response object</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
 					<a name="initializeroutes" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> initialize<wbr>Routes</h3>
@@ -179,132 +218,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/controllers/auth.ts:33</li>
+									<li>Defined in src/controllers/gist.ts:30</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Initialization of routes of <code>AuthController</code>.</p>
+									<p>Initialization of routes of <code>GistController</code>.</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a name="loggedin" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> logged<wbr>In</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">logged<wbr>In<span class="tsd-signature-symbol">(</span>req<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, res<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in src/controllers/auth.ts:84</li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Checks if a user is authenticated.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>req: <span class="tsd-signature-type">any</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>Request object</p>
-										</div>
-									</div>
-								</li>
-								<li>
-									<h5>res: <span class="tsd-signature-type">any</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>Response object</p>
-										</div>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a name="logout" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> logout</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">logout<span class="tsd-signature-symbol">(</span>req<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, res<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in src/controllers/auth.ts:64</li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Logging out of a session.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>req: <span class="tsd-signature-type">any</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>Request object</p>
-										</div>
-									</div>
-								</li>
-								<li>
-									<h5>res: <span class="tsd-signature-type">any</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>Response object</p>
-										</div>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a name="success" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> success</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">success<span class="tsd-signature-symbol">(</span>_<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, res<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in src/controllers/auth.ts:51</li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Sucess callback after authentication.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>_: <span class="tsd-signature-type">any</span></h5>
-								</li>
-								<li>
-									<h5>res: <span class="tsd-signature-type">any</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>Response object</p>
-										</div>
-									</div>
-								</li>
-							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -324,39 +245,33 @@
 					<li class=" tsd-kind-class tsd-is-not-exported">
 						<a href="app.html" class="tsd-kind-icon">App</a>
 					</li>
+					<li class=" tsd-kind-class">
+						<a href="authcontroller.html" class="tsd-kind-icon">Auth<wbr>Controller</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="authcontroller.html" class="tsd-kind-icon">Auth<wbr>Controller</a>
+						<a href="gistcontroller.html" class="tsd-kind-icon">Gist<wbr>Controller</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="authcontroller.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="gistcontroller.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="authcontroller.html#path" class="tsd-kind-icon">path</a>
+								<a href="gistcontroller.html#path" class="tsd-kind-icon">path</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="authcontroller.html#router" class="tsd-kind-icon">router</a>
+								<a href="gistcontroller.html#router" class="tsd-kind-icon">router</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-								<a href="authcontroller.html#initializeroutes" class="tsd-kind-icon">initialize<wbr>Routes</a>
+								<a href="gistcontroller.html#fetchallgistsofuser" class="tsd-kind-icon">fetch<wbr>All<wbr>Gistsof<wbr>User</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-								<a href="authcontroller.html#loggedin" class="tsd-kind-icon">logged<wbr>In</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-								<a href="authcontroller.html#logout" class="tsd-kind-icon">logout</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-								<a href="authcontroller.html#success" class="tsd-kind-icon">success</a>
+								<a href="gistcontroller.html#initializeroutes" class="tsd-kind-icon">initialize<wbr>Routes</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class">
-						<a href="gistcontroller.html" class="tsd-kind-icon">Gist<wbr>Controller</a>
-					</li>
 					<li class=" tsd-kind-class">
 						<a href="homecontroller.html" class="tsd-kind-icon">Home<wbr>Controller</a>
 					</li>

@@ -27,11 +27,12 @@
     "eslint": "^5.16.0",
     "husky": ">=1",
     "lint-staged": ">=8",
-    "now": "^15.5.0",
+    "now": "^15.7.0",
     "typedoc": "^0.14.2",
     "typescript": "^3.5.2"
   },
   "dependencies": {
+    "@octokit/graphql": "^2.1.2",
     "cors": "^2.8.5",
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
