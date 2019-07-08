@@ -50,11 +50,11 @@ class GistController implements BaseController {
         user(login: "${username}") {
           gists(first: 20, privacy: ALL) {
             nodes {
+              name
               description
               files {
                 name
                 extension
-                text
               }
               isPublic
             }
