@@ -72,6 +72,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-class tsd-is-not-exported"><a href="classes/app.html" class="tsd-kind-icon">App</a></li>
 								<li class="tsd-kind-class"><a href="classes/authcontroller.html" class="tsd-kind-icon">Auth<wbr>Controller</a></li>
+								<li class="tsd-kind-class"><a href="classes/gistcontroller.html" class="tsd-kind-icon">Gist<wbr>Controller</a></li>
 								<li class="tsd-kind-class"><a href="classes/homecontroller.html" class="tsd-kind-icon">Home<wbr>Controller</a></li>
 							</ul>
 						</section>
@@ -86,6 +87,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-variable tsd-is-not-exported"><a href="globals.html#githubstrategy" class="tsd-kind-icon">Git<wbr>Hub<wbr>Strategy</a></li>
 								<li class="tsd-kind-variable tsd-is-not-exported"><a href="globals.html#authmain" class="tsd-kind-icon">auth<wbr>Main</a></li>
+								<li class="tsd-kind-variable tsd-is-not-exported"><a href="globals.html#gistmain" class="tsd-kind-icon">gist<wbr>Main</a></li>
 								<li class="tsd-kind-variable tsd-is-not-exported"><a href="globals.html#hosturl" class="tsd-kind-icon">host<wbr>Url</a></li>
 								<li class="tsd-kind-variable"><a href="globals.html#nodeenv" class="tsd-kind-icon">node<wbr>Env</a></li>
 								<li class="tsd-kind-variable"><a href="globals.html#sessionsecret" class="tsd-kind-icon">session<wbr>Secret</a></li>
@@ -97,6 +99,7 @@
 							<h3>Object literals</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-object-literal"><a href="globals.html#authurl" class="tsd-kind-icon">auth<wbr>Url</a></li>
+								<li class="tsd-kind-object-literal"><a href="globals.html#gisturl" class="tsd-kind-icon">gist<wbr>Url</a></li>
 								<li class="tsd-kind-object-literal"><a href="globals.html#githuboauth" class="tsd-kind-icon">github<wbr>Oauth</a></li>
 							</ul>
 						</section>
@@ -135,6 +138,16 @@
 							<p>Prefix for URLs for authentication with GitHub.</p>
 						</div>
 					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-is-not-exported">
+					<a name="gistmain" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> gist<wbr>Main</h3>
+					<div class="tsd-signature tsd-kind-icon">gist<wbr>Main<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"/gists"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;/gists&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in src/urls.ts:55</li>
+						</ul>
+					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-is-not-exported">
 					<a name="hosturl" class="tsd-anchor"></a>
@@ -299,6 +312,36 @@
 					</section>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-object-literal">
+					<a name="gisturl" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> gist<wbr>Url</h3>
+					<div class="tsd-signature tsd-kind-icon">gist<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in src/urls.ts:57</li>
+						</ul>
+					</aside>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="gisturl.allgists" class="tsd-anchor"></a>
+						<h3>all<wbr>Gists</h3>
+						<div class="tsd-signature tsd-kind-icon">all<wbr>Gists<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;${gistMain}/user&#x60;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in src/urls.ts:59</li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="gisturl.main" class="tsd-anchor"></a>
+						<h3>main</h3>
+						<div class="tsd-signature tsd-kind-icon">main<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;gistMain</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in src/urls.ts:58</li>
+							</ul>
+						</aside>
+					</section>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-object-literal">
 					<a name="githuboauth" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> github<wbr>Oauth</h3>
 					<div class="tsd-signature tsd-kind-icon">github<wbr>Oauth<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
@@ -364,6 +407,9 @@
 						<a href="classes/authcontroller.html" class="tsd-kind-icon">Auth<wbr>Controller</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="classes/gistcontroller.html" class="tsd-kind-icon">Gist<wbr>Controller</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="classes/homecontroller.html" class="tsd-kind-icon">Home<wbr>Controller</a>
 					</li>
 					<li class=" tsd-kind-interface">
@@ -374,6 +420,9 @@
 					</li>
 					<li class=" tsd-kind-variable tsd-is-not-exported">
 						<a href="globals.html#authmain" class="tsd-kind-icon">auth<wbr>Main</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="globals.html#gistmain" class="tsd-kind-icon">gist<wbr>Main</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-is-not-exported">
 						<a href="globals.html#hosturl" class="tsd-kind-icon">host<wbr>Url</a>
@@ -392,6 +441,9 @@
 					</li>
 					<li class=" tsd-kind-object-literal">
 						<a href="globals.html#authurl" class="tsd-kind-icon">auth<wbr>Url</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#gisturl" class="tsd-kind-icon">gist<wbr>Url</a>
 					</li>
 					<li class=" tsd-kind-object-literal">
 						<a href="globals.html#githuboauth" class="tsd-kind-icon">github<wbr>Oauth</a>

@@ -27,17 +27,16 @@
     "eslint": "^5.16.0",
     "husky": ">=1",
     "lint-staged": ">=8",
-    "now": "^15.5.0",
+    "now": "^15.7.0",
     "typedoc": "^0.14.2",
     "typescript": "^3.5.2"
   },
   "dependencies": {
+    "@octokit/graphql": "^2.1.2",
     "cors": "^2.8.5",
     "dotenv": "^8.0.0",
-    "es6-promise": "^4.2.8",
     "express": "^4.17.1",
     "express-session": "^1.16.2",
-    "isomorphic-fetch": "^2.2.1",
     "passport": "^0.4.0",
     "passport-github2": "^0.1.11",
     "pug": "^2.0.4"

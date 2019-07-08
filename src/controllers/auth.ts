@@ -45,7 +45,6 @@ class AuthController implements BaseController {
   /**
    * Sucess callback after authentication.
    *
-   * @param {Request} req Request object
    * @param {Response} res Response object
    * @private
    */

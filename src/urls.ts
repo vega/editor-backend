@@ -52,8 +52,6 @@ else if (nodeEnv === 'development') {
 
 export { successfulRedirectUrl, hostUrl }
 
-export const githubGistApiUrl = 'https://api.github.com'
-
 const gistMain = '/gists'
 
 export const gistUrl: any = {

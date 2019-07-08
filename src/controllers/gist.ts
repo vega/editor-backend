@@ -1,52 +1,75 @@
 import express from 'express'
-import fetch from 'isomorphic-fetch'
+import graphql from '@octokit/graphql'
 
 import BaseController from './base'
-import { githubGistApiUrl, gistUrl, successfulRedirectUrl } from '../urls'
+import { gistUrl, successfulRedirectUrl } from '../urls'
 
+/**
+ * Controller for interacting via GitHub Gist API.
+ *
+ * See [[IBaseController]] for more details.
+ */
 class GistController implements BaseController {
 
   public path = gistUrl.main
 
   public router = express.Router()
 
+  /**
+   * Constructor of `GistController`.
+   */
   constructor() {
     this.initializeRoutes()
   }
 
+  /**
+   * Initialization of routes of `GistController`.
+   *
+   * @private
+   */
   private initializeRoutes = () => {
     this.router.get(gistUrl.allGists, this.fetchAllGistsofUser)
 
   }
 
-  private fetchAllGistsofUser = (req, res) => {
+  /**
+   * Route to fetch all private and public gists of a user.
+   *
+   * @param {Request} req Request object
+   * @param {Response} res Response object
+   * @private
+   */
+  public fetchAllGistsofUser = async (req, res) => {
     if (req.user === undefined) {
       res.redirect(successfulRedirectUrl)
     }
     else {
-      const requiredFields = ['files', 'public']
       const username = req.user.username
       const oauthToken = req.user.accessToken
-      fetch(
-        `${githubGistApiUrl}/users/${username}/gists?oauth_token=${oauthToken}`
-      )
-        .then(response => response.json())
-        .then(data => {
-          let requiredData = []
-          for (const gist of data) {
-            let requiredObj = {}
-            for (const field of requiredFields) {
-              requiredObj = {
-                ...requiredObj,
-                [field]: gist[field],
+      const data = await graphql(`{
+        user(login: "${username}") {
+          gists(first: 20, privacy: ALL) {
+            nodes {
+              files {
+                name
+                extension
+                text
               }
+              isPublic
             }
-            requiredData = [...requiredData, requiredObj]
           }
-          res.send(requiredData)
-        })
+        }
+      }`, {
+        headers: {
+          authorization: `token ${oauthToken}`,
+        },
+      })
+      res.send(data.user.gists.nodes)
     }
   }
 }
 
+/**
+ * _Export `GistController`._
+ */
 export default GistController
