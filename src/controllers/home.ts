@@ -1,7 +1,7 @@
 import express from 'express'
 
 import BaseController from './base'
-import { authUrl } from '../urls'
+import { authUrl, gistUrl } from '../urls'
 
 /**
  * Controller to serve the root URL of back-end service.
@@ -40,6 +40,7 @@ class HomeController implements BaseController {
   private listRoutes = (req, res) => {
     res.render('index', {
       authUrl,
+      gistUrl,
       host: req.headers.host,
     })
   }
