@@ -91,7 +91,6 @@
 								<li class="tsd-kind-variable tsd-is-not-exported"><a href="globals.html#hosturl" class="tsd-kind-icon">host<wbr>Url</a></li>
 								<li class="tsd-kind-variable"><a href="globals.html#nodeenv" class="tsd-kind-icon">node<wbr>Env</a></li>
 								<li class="tsd-kind-variable"><a href="globals.html#sessionsecret" class="tsd-kind-icon">session<wbr>Secret</a></li>
-								<li class="tsd-kind-variable tsd-is-not-exported"><a href="globals.html#successfulredirecturl" class="tsd-kind-icon">successful<wbr>Redirect<wbr>Url</a></li>
 								<li class="tsd-kind-variable"><a href="globals.html#whitelist" class="tsd-kind-icon">whitelist</a></li>
 							</ul>
 						</section>
@@ -101,6 +100,7 @@
 								<li class="tsd-kind-object-literal"><a href="globals.html#authurl" class="tsd-kind-icon">auth<wbr>Url</a></li>
 								<li class="tsd-kind-object-literal"><a href="globals.html#gisturl" class="tsd-kind-icon">gist<wbr>Url</a></li>
 								<li class="tsd-kind-object-literal"><a href="globals.html#githuboauth" class="tsd-kind-icon">github<wbr>Oauth</a></li>
+								<li class="tsd-kind-object-literal tsd-is-not-exported"><a href="globals.html#redirecturl" class="tsd-kind-icon">redirect<wbr>Url</a></li>
 							</ul>
 						</section>
 					</div>
@@ -145,7 +145,7 @@
 					<div class="tsd-signature tsd-kind-icon">gist<wbr>Main<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"/gists"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;/gists&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/urls.ts:55</li>
+							<li>Defined in src/urls.ts:65</li>
 						</ul>
 					</aside>
 				</section>
@@ -155,7 +155,7 @@
 					<div class="tsd-signature tsd-kind-icon">host<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/urls.ts:43</li>
+							<li>Defined in src/urls.ts:53</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -197,22 +197,6 @@
 							<p>Secret used to sign the session ID cookie.</p>
 						</div>
 						<p><em>Exported as <code>sessionSecret</code> to configure cookie creation.</em></p>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-variable tsd-is-not-exported">
-					<a name="successfulredirecturl" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagLet">Let</span> successful<wbr>Redirect<wbr>Url</h3>
-					<div class="tsd-signature tsd-kind-icon">successful<wbr>Redirect<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;&quot;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in src/urls.ts:37</li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The URL redirected by this back-end service to homepage.</p>
-						</div>
-						<p><em>Exported as <code>successfulRedirectUrl</code> to <code>/auth/github/callback</code> route.</em></p>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-variable">
@@ -317,7 +301,7 @@
 					<div class="tsd-signature tsd-kind-icon">gist<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/urls.ts:57</li>
+							<li>Defined in src/urls.ts:67</li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -326,7 +310,7 @@
 						<div class="tsd-signature tsd-kind-icon">all<wbr>Gists<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;${gistMain}/user&#x60;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in src/urls.ts:59</li>
+								<li>Defined in src/urls.ts:69</li>
 							</ul>
 						</aside>
 					</section>
@@ -336,7 +320,7 @@
 						<div class="tsd-signature tsd-kind-icon">main<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;gistMain</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in src/urls.ts:58</li>
+								<li>Defined in src/urls.ts:68</li>
 							</ul>
 						</aside>
 					</section>
@@ -388,6 +372,52 @@
 						</div>
 					</section>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-is-not-exported">
+					<a name="redirecturl" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> redirect<wbr>Url</h3>
+					<div class="tsd-signature tsd-kind-icon">redirect<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in src/urls.ts:37</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Stores redirection URL for successful and failed authentication.</p>
+						</div>
+						<p> <em>Exported as <code>redirectUrl</code> for redirections.</em></p>
+					</div>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+						<a name="redirecturl.failure" class="tsd-anchor"></a>
+						<h3>failure</h3>
+						<div class="tsd-signature tsd-kind-icon">failure<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;authUrl.isAuthenticated</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in src/urls.ts:41</li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>The URL redirected to if the user is not logged in.</p>
+							</div>
+						</div>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+						<a name="redirecturl.successful" class="tsd-anchor"></a>
+						<h3>successful</h3>
+						<div class="tsd-signature tsd-kind-icon">successful<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;&quot;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in src/urls.ts:45</li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>The URL redirected by this back-end service to homepage.</p>
+							</div>
+						</div>
+					</section>
+				</section>
 			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -433,9 +463,6 @@
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#sessionsecret" class="tsd-kind-icon">session<wbr>Secret</a>
 					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="globals.html#successfulredirecturl" class="tsd-kind-icon">successful<wbr>Redirect<wbr>Url</a>
-					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#whitelist" class="tsd-kind-icon">whitelist</a>
 					</li>
@@ -447,6 +474,9 @@
 					</li>
 					<li class=" tsd-kind-object-literal">
 						<a href="globals.html#githuboauth" class="tsd-kind-icon">github<wbr>Oauth</a>
+					</li>
+					<li class=" tsd-kind-object-literal tsd-is-not-exported">
+						<a href="globals.html#redirecturl" class="tsd-kind-icon">redirect<wbr>Url</a>
 					</li>
 				</ul>
 			</nav>

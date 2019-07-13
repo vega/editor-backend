@@ -30,11 +30,21 @@ export const authUrl: any = {
 }
 
 /**
- * The URL redirected by this back-end service to homepage.
+ * Stores redirection URL for successful and failed authentication.
  *
- * _Exported as `successfulRedirectUrl` to `/auth/github/callback` route._
+ *  _Exported as `redirectUrl` for redirections._
  */
-let successfulRedirectUrl = ''
+const redirectUrl = {
+  /**
+   * The URL redirected to if the user is not logged in.
+   */
+  failure: authUrl.isAuthenticated,
+  /**
+   * The URL redirected by this back-end service to homepage.
+   */
+  successful: '',
+}
+
 /**
  * Stores the domain name for callback url after successful authentication.
  *
@@ -43,14 +53,14 @@ let successfulRedirectUrl = ''
 let hostUrl = ''
 if (nodeEnv === 'production') {
   // hardcode url here
-  successfulRedirectUrl = 'https://vega.github.io/editor'
+  redirectUrl.successful = 'https://vega.github.io/editor'
   hostUrl = 'https://vega.now.sh'
 }
 else if (nodeEnv === 'development') {
-  successfulRedirectUrl = authUrl.isAuthenticated
+  redirectUrl.successful = authUrl.isAuthenticated
 }
 
-export { successfulRedirectUrl, hostUrl }
+export { redirectUrl, hostUrl }
 
 const gistMain = '/gists'
 

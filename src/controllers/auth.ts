@@ -2,7 +2,7 @@ import express from 'express'
 import passport from 'passport'
 
 import BaseController from './base'
-import { successfulRedirectUrl, authUrl } from '../urls'
+import { redirectUrl, authUrl } from '../urls'
 
 // Enables passport to recognize the configuration.
 require('../../config/passport')
@@ -51,7 +51,7 @@ class AuthController implements BaseController {
   private success = (_, res) => {
     // gives info of user (returned by GitHub Strategy)
     // console.log(req.session.passport.user)
-    res.redirect(successfulRedirectUrl)
+    res.redirect(redirectUrl.successful)
   }
 
   /**
@@ -67,10 +67,10 @@ class AuthController implements BaseController {
     if (req.user) {
       req.session.destroy()
       res.clearCookie('vegasessid', { path: '/' }).status(200)
-      res.redirect(successfulRedirectUrl)
+      res.redirect(redirectUrl.successful)
     }
     else {
-      res.redirect(successfulRedirectUrl)
+      res.redirect(redirectUrl.successful)
     }
   }
 

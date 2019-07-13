@@ -2,7 +2,7 @@ import express from 'express'
 import graphql from '@octokit/graphql'
 
 import BaseController from './base'
-import { gistUrl, successfulRedirectUrl } from '../urls'
+import { gistUrl, redirectUrl } from '../urls'
 
 /**
  * Controller for interacting via GitHub Gist API.
@@ -41,7 +41,7 @@ class GistController implements BaseController {
    */
   public fetchAllGistsofUser = async (req, res) => {
     if (req.user === undefined) {
-      res.redirect(successfulRedirectUrl)
+      res.redirect(redirectUrl.failure)
     }
     else {
       const username = req.user.username
