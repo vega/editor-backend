@@ -83,7 +83,9 @@ class AuthController implements BaseController {
    */
   private loggedIn = (req, res) => {
     const data = {
+      handle: '',
       isAuthenticated: false,
+      name: '',
       profilePicUrl: '',
     }
     if (req.user === undefined) {
@@ -95,7 +97,9 @@ class AuthController implements BaseController {
     else {
       res.send({
         ...data,
+        handle: req.user._json.login,
         isAuthenticated: true,
+        name: req.user._json.name,
         profilePicUrl: req.user._json.avatar_url,
       })
     }
