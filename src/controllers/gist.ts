@@ -2,7 +2,7 @@ import express from 'express'
 import graphql from '@octokit/graphql'
 
 import BaseController from './base'
-import { gistUrl, redirectUrl } from '../urls'
+import { gistUrl, redirectUrl, gistRawUrl } from '../urls'
 
 /**
  * Controller for interacting via GitHub Gist API.
@@ -39,14 +39,14 @@ class GistController implements BaseController {
    * @param {Response} res Response object
    * @private
    */
-  public fetchAllGistsofUser = async (req, res) => {
+  private fetchAllGistsofUser = async (req, res) => {
     if (req.user === undefined) {
       res.redirect(redirectUrl.failure)
     }
     else {
       const username = req.user.username
       const oauthToken = req.user.accessToken
-      const data = await graphql(`{
+      let data = await graphql(`{
         user(login: "${username}") {
           gists(first: 20, privacy: ALL) {
             nodes {
@@ -55,6 +55,7 @@ class GistController implements BaseController {
               files {
                 name
                 extension
+                isImage
               }
               isPublic
             }
@@ -65,9 +66,34 @@ class GistController implements BaseController {
           authorization: `token ${oauthToken}`,
         },
       })
-      res.send(data.user.gists.nodes)
+      data = data.user.gists.nodes.filter(gist =>
+        gist.files.some(file => file.extension === '.metadata')
+      )
+      data.forEach(gist =>
+        gist.files.map(file =>
+          file.rawUrl =
+            GistController.specUrlGenerator(file.name, gist.name, username)
+        )
+      )
+
+      res.send(data)
     }
   }
+
+  /**
+   * Static method to generate raw URL
+   *
+   * @param {string} fileName Name of file
+   * @param {string} gistId ID of gist
+   * @param {string} username Name of gist creator
+   * @private
+   * @static
+   */
+  private static specUrlGenerator =
+  (fileName: string, gistId: string, username: string) => {
+    return `${gistRawUrl}/${username}/${gistId}/raw/${fileName}`
+  }
+
 }
 
 /**

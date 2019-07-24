@@ -68,3 +68,5 @@ export const gistUrl: any = {
   main: gistMain,
   allGists: `${gistMain}/user`,
 }
+
+export const gistRawUrl = 'https://gist.githubusercontent.com'
