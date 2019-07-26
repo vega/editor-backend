@@ -56,6 +56,7 @@ class GistController implements BaseController {
                 name
                 extension
                 isImage
+                text
               }
               isPublic
             }
@@ -66,16 +67,38 @@ class GistController implements BaseController {
           authorization: `token ${oauthToken}`,
         },
       })
-      data = data.user.gists.nodes.filter(gist =>
-        gist.files.some(file => file.extension === '.metadata')
-      )
-      data.forEach(gist =>
-        gist.files.map(file =>
-          file.rawUrl =
-            GistController.specUrlGenerator(file.name, gist.name, username)
-        )
-      )
 
+      const schema = {
+        vega: 'https://vega.github.io/schema/vega/v5.json',
+        'vega-lite': 'https://vega.github.io/schema/vega-lite/v3.json',
+      }
+      data = data.user.gists.nodes.filter(gist =>
+        gist.files.some(file => {
+          if (file.extension === '.json') {
+            const spec = JSON.parse(file.text)
+            if (Object.values(schema).includes(spec['$schema'])) {
+              gist.type = Object.keys(schema).find(
+                key => spec['$schema'] === schema[key]
+              )
+              return true
+            }
+          }
+        })
+      )
+      data.forEach(gist => {
+        gist.files.map(file => {
+          if (file.extension === '.json') {
+            gist.specUrl =
+              GistController.specUrlGenerator(file.name, gist.name, username)
+          }
+          else if (file.isImage) {
+            gist.imageUrl =
+              GistController.specUrlGenerator(file.name, gist.name, username)
+          }
+        })
+        gist.imageUrl = gist.imageUrl === undefined ? '' : gist.imageUrl
+        delete gist.files
+      })
       res.send(data)
     }
   }
