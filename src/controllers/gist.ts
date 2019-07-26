@@ -96,8 +96,10 @@ class GistController implements BaseController {
               GistController.specUrlGenerator(file.name, gist.name, username)
           }
         })
+        gist.title = gist.description
         gist.imageUrl = gist.imageUrl === undefined ? '' : gist.imageUrl
         delete gist.files
+        delete gist.description
       })
       res.send(data)
     }
