@@ -56,7 +56,6 @@ class GistController implements BaseController {
                 name
                 extension
                 isImage
-                text
               }
               isPublic
             }
@@ -68,36 +67,33 @@ class GistController implements BaseController {
         },
       })
 
-      const schema = {
-        vega: 'https://vega.github.io/schema/vega/v5.json',
-        'vega-lite': 'https://vega.github.io/schema/vega-lite/v3.json',
-      }
       data = data.user.gists.nodes.filter(gist =>
-        gist.files.some(file => {
-          if (file.extension === '.json') {
-            const spec = JSON.parse(file.text)
-            if (Object.values(schema).includes(spec['$schema'])) {
-              gist.type = Object.keys(schema).find(
-                key => spec['$schema'] === schema[key]
-              )
-              return true
-            }
-          }
-        })
+        gist.files.some(file => file.extension === '.json')
       )
       data.forEach(gist => {
-        gist.files.map(file => {
+        gist.spec = []
+        gist.files.forEach(file => {
           if (file.extension === '.json') {
-            gist.specUrl =
+            const spec = {
+              name: '',
+              previewUrl: '',
+              rawUrl: '',
+            }
+            const name = file.name.split('.')[0]
+            spec.name = file.name
+            spec.rawUrl =
               GistController.specUrlGenerator(file.name, gist.name, username)
-          }
-          else if (file.isImage) {
-            gist.imageUrl =
-              GistController.specUrlGenerator(file.name, gist.name, username)
+            gist.files.forEach(image => {
+              if (image.isImage && image.name.split('.')[0] === name) {
+                spec.previewUrl = GistController.specUrlGenerator(
+                  image.name, gist.name, username
+                )
+              }
+            })
+            gist.spec.push(spec)
           }
         })
         gist.title = gist.description
-        gist.imageUrl = gist.imageUrl === undefined ? '' : gist.imageUrl
         delete gist.files
         delete gist.description
       })
