@@ -2106,10 +2106,10 @@ normalize-package-data@^2.5.0:
     semver "2 || 3 || 4 || 5"
     validate-npm-package-license "^3.0.1"
 
-now@^15.7.0:
-  version "15.7.0"
-  resolved "https://registry.yarnpkg.com/now/-/now-15.7.0.tgz#938aa882e0037228616dd248c12296b8d515ccf2"
-  integrity sha512-bvouSBREOd7zbCh2w3h8KPh5+O9Qu8Untbh+qkf/zSb7kslhKjy/CaJtp4/ed4CDxOsKgjrlC0u0BvlnL5IIuQ==
+now@^16.1.1:
+  version "16.1.1"
+  resolved "https://registry.yarnpkg.com/now/-/now-16.1.1.tgz#692c406158c21bb0371de137b5f9957c861a4810"
+  integrity sha512-SXro0fOBTVBn+A2wEYV63It706egm7swgo6qb8zp6g07pOK0PQ1smeO0wmdYbx2Kuk5+Deh5t92KnZQi8wZjzA==
 
 npm-path@^2.0.2:
   version "2.0.4"
