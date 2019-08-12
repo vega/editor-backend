@@ -44,7 +44,7 @@ class App {
   private initializeMiddleWares() {
     // Configuration for creating session cookies.
     this.app.use(session({
-      key: 'vegasessid',
+      key: 'vega_session',
       secret: sessionSecret,
       resave: false,
       saveUninitialized: true,

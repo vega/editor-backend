@@ -66,7 +66,7 @@ class AuthController implements BaseController {
     // console.log(req.user)
     if (req.user) {
       req.session.destroy()
-      res.clearCookie('vegasessid', { path: '/' }).status(200)
+      res.clearCookie('vega_session', { path: '/' }).status(200)
       res.redirect(redirectUrl.successful)
     }
     else {
