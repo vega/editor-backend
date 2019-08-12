@@ -32,7 +32,7 @@
     "typescript": "^3.5.2"
   },
   "dependencies": {
-    "@octokit/graphql": "^2.1.2",
+    "@octokit/graphql": "^3.0.1",
     "cors": "^2.8.5",
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
