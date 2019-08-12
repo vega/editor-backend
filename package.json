@@ -25,7 +25,7 @@
     "@typescript-eslint/eslint-plugin": "^1.13.0",
     "@typescript-eslint/parser": "^1.10.2",
     "eslint": "^5.16.0",
-    "husky": ">=1",
+    "husky": ">=3",
     "lint-staged": ">=8",
     "now": "^15.7.0",
     "typedoc": "^0.15.0",
