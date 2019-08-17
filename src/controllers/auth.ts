@@ -51,7 +51,16 @@ class AuthController implements BaseController {
   private success = (_, res) => {
     // gives info of user (returned by GitHub Strategy)
     // console.log(req.session.passport.user)
-    res.redirect(redirectUrl.successful)
+    res.send(
+      `<html>
+        <script>
+          window.opener.postMessage(
+            {type: "auth"}, "*"
+          );
+          window.close();
+        </script>
+      </html>`
+    )
   }
 
   /**
@@ -67,7 +76,16 @@ class AuthController implements BaseController {
     if (req.user) {
       req.session.destroy()
       res.clearCookie('vega_session', { path: '/' }).status(200)
-      res.redirect(redirectUrl.successful)
+      res.send(
+        `<html>
+          <script>
+            window.opener.postMessage(
+              {type: "auth"}, "*"
+            );
+            window.close();
+          </script>
+        </html>`
+      )
     }
     else {
       res.redirect(redirectUrl.successful)
