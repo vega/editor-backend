@@ -37,7 +37,7 @@ export const sessionSecret: string = process.env.SESSION_SECRET
  * _Exported as `whitelist` to pass as an argument to `cors()`._
  */
 export const whitelist: string[] = [
-  'https://vega.github.io/editor',
+  'https://vega.github.io',
   'http://localhost:8081',
   'http://localhost:8080',
 ]
