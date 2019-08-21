@@ -1,5 +1,5 @@
 import express from 'express'
-import graphql from '@octokit/graphql'
+import { graphql } from '@octokit/graphql'
 
 import BaseController from './base'
 import { gistUrl, redirectUrl, gistRawUrl } from '../urls'
@@ -43,7 +43,7 @@ class GistController implements BaseController {
     else {
       const username = req.user.username
       const oauthToken = req.user.accessToken
-      let data = await graphql(`{
+      const response: any = await graphql(`{
         user(login: "${username}") {
           gists(first: 20, privacy: ALL) {
             nodes {
@@ -64,7 +64,7 @@ class GistController implements BaseController {
         },
       })
 
-      data = data.user.gists.nodes.filter(gist =>
+      const data = response.user.gists.nodes.filter(gist =>
         gist.files.some(file => file.extension === '.json')
       )
       data.forEach(gist => {

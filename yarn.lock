@@ -49,10 +49,10 @@
     universal-user-agent "^3.0.0"
     url-template "^2.0.8"
 
-"@octokit/graphql@^3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@octokit/graphql/-/graphql-3.0.1.tgz#7559c3bb606a2aab7ba91e82633c044642b354c0"
-  integrity sha512-TiegCo0jueDPlkpcYlx8KSYa3ybs13ePBteoJutEHou0hu8sJHHhvIaQWvDH5jj4mHfJwZwD4r6/Xbl33UHLUw==
+"@octokit/graphql@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@octokit/graphql/-/graphql-4.0.0.tgz#a1b872b43461f86a9be123cc9ede208b18f3b974"
+  integrity sha512-ewOTBEmdSorKeo95b+jFkoDMmQ47w1ivJm1wYlYHd5zfqjRnEpz66OqvpZavA+3uG+QHnOnRKfkA2kBZG2oY1w==
   dependencies:
     "@octokit/request" "^5.0.0"
     universal-user-agent "^3.0.0"
