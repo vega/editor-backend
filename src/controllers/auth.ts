@@ -27,8 +27,6 @@ class AuthController implements BaseController {
 
   /**
    * Initialization of routes of `AuthController`.
-   *
-   * @private
    */
   private initializeRoutes = () => {
     this.router.get(this.path, passport.authenticate(
@@ -46,7 +44,6 @@ class AuthController implements BaseController {
    * Sucess callback after authentication.
    *
    * @param {Response} res Response object
-   * @private
    */
   private success = (_, res) => {
     // gives info of user (returned by GitHub Strategy)
@@ -68,7 +65,6 @@ class AuthController implements BaseController {
    *
    * @param {Request} req Request object
    * @param {Response} res Response object
-   * @private
    */
   private logout = (req, res) => {
     // gives info of user
@@ -97,7 +93,6 @@ class AuthController implements BaseController {
    *
    * @param {Request} req Request object
    * @param {Response} res Response object
-   * @private
    */
   private loggedIn = (req, res) => {
     const data = {

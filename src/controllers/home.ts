@@ -23,8 +23,6 @@ class HomeController implements BaseController {
 
   /**
    * Initialization of routes of `HomeController`.
-   *
-   * @private
    */
   private initializeRoutes = () => {
     this.router.get(this.path, this.listRoutes)
@@ -35,7 +33,6 @@ class HomeController implements BaseController {
    *
    * @param {Request} req Request object
    * @param {Response} res Response object
-   * @private
    */
   private listRoutes = (req, res) => {
     res.render('index', {

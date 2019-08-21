@@ -18,8 +18,6 @@ class App {
 
   /**
    * Stores the constructor of Express application.
-   *
-   * @public
    */
   public app: express.Application
 
@@ -38,8 +36,6 @@ class App {
 
   /**
    * Initializes middleware for accessing request and response objects.
-   *
-   * @private
    */
   private initializeMiddleWares() {
     // Configuration for creating session cookies.

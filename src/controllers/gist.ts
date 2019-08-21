@@ -24,8 +24,6 @@ class GistController implements BaseController {
 
   /**
    * Initialization of routes of `GistController`.
-   *
-   * @private
    */
   private initializeRoutes = () => {
     this.router.get(gistUrl.allGists, this.fetchAllGistsofUser)
@@ -37,7 +35,6 @@ class GistController implements BaseController {
    *
    * @param {Request} req Request object
    * @param {Response} res Response object
-   * @private
    */
   private fetchAllGistsofUser = async (req, res) => {
     if (req.user === undefined) {
@@ -107,8 +104,6 @@ class GistController implements BaseController {
    * @param {string} fileName Name of file
    * @param {string} gistId ID of gist
    * @param {string} username Name of gist creator
-   * @private
-   * @static
    */
   private static specUrlGenerator =
   (fileName: string, gistId: string, username: string) => {
