@@ -40,6 +40,7 @@ export const whitelist: string[] = [
   'https://vega.github.io',
   'http://localhost:8081',
   'http://localhost:8080',
+  'http://0.0.0.0:8080',
 ]
 
 /**
