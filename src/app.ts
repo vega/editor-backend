@@ -3,7 +3,7 @@ import session from 'express-session'
 import passport from 'passport'
 import cors from 'cors'
 
-import { sessionSecret, whitelist } from '../config/index'
+import { sessionSecret, whitelist, cookieExpiry } from '../config/index'
 
 import Controller from './controllers/base'
 import AuthController from './controllers/auth'
@@ -48,8 +48,8 @@ class App {
       secret: sessionSecret,
       resave: false,
       saveUninitialized: true,
-      // Cookie expires after 1 day
-      cookie: { httpOnly: false, maxAge: 1 * 24 * 60 * 60 * 1000 },
+      // Cookie expires after 1 month
+      cookie: { httpOnly: false, maxAge: cookieExpiry },
     }))
 
     const corsOptions = {
