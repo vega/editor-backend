@@ -1,5 +1,6 @@
 import express from 'express'
 import session from 'express-session'
+import bodyParser from 'body-parser'
 import passport from 'passport'
 import cors from 'cors'
 
@@ -47,6 +48,7 @@ class App {
       // Cookie expires after 1 month
       cookie: { httpOnly: false, maxAge: cookieExpiry },
     }))
+    this.app.use(bodyParser.json())
 
     const corsOptions = {
       origin: (origin, callback) => {

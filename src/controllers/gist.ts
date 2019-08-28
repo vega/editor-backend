@@ -1,8 +1,19 @@
 import express from 'express'
+import fetch from 'isomorphic-fetch'
 import { graphql } from '@octokit/graphql'
 
 import BaseController from './base'
 import { gistUrl, redirectUrl, gistRawUrl } from '../urls'
+
+/**
+ * Interface for defining structure of a received POST request
+ */
+interface ICreateGist {
+  content: string;
+  name: string;
+  privacy: boolean;
+  title?: string;
+}
 
 /**
  * Controller for interacting via GitHub Gist API.
@@ -27,7 +38,7 @@ class GistController implements BaseController {
    */
   private initializeRoutes = () => {
     this.router.get(gistUrl.allGists, this.fetchAllGistsofUser)
-
+    this.router.post(gistUrl.createGist, this.createGist)
   }
 
   /**
@@ -95,6 +106,44 @@ class GistController implements BaseController {
         delete gist.description
       })
       res.send(data)
+    }
+  }
+
+  /**
+   * Route to create a gist.
+   *
+   * @param {Request} req Request object
+   * @param {Response} res Response object
+   */
+  private createGist = (req, res) => {
+    if (req.user === undefined) {
+      res.redirect(redirectUrl.failure)
+    }
+    else {
+      const oauthToken = req.user.accessToken
+      const body = req.body as ICreateGist
+      const { content, name, privacy, title='' } = body
+      fetch(`https://api.github.com/gists?oauth_token=${oauthToken}`, {
+        method: 'post',
+        header: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          description: title,
+          public: !privacy,
+          files: {
+            [`${name}.json`]: {
+              content,
+            },
+          },
+        }),
+      })
+        .then(res => res.json())
+        .then(json => res.send(201))
+        .catch(error => {
+          console.error(error)
+          res.send(400)
+        })
     }
   }
 
