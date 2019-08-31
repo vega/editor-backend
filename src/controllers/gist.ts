@@ -56,7 +56,12 @@ class GistController implements BaseController {
       const oauthToken = req.user.accessToken
       const response: any = await graphql(`{
         user(login: "${username}") {
-          gists(first: 20, privacy: ALL) {
+          gists(
+            first: 20,
+            privacy: ALL,
+            orderBy: 
+              {field: CREATED_AT, direction: DESC}
+          ) {
             nodes {
               name
               description
