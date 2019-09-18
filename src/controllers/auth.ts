@@ -51,10 +51,15 @@ class AuthController implements BaseController {
     res.send(
       `<html>
         <script>
-          window.opener.postMessage(
-            {type: "auth"}, "*"
-          );
-          window.close();
+          if (window.opener === null) {
+            window.location = '${redirectUrl.successful}'
+          }
+          else {
+            window.opener.postMessage(
+              {type: 'auth'}, '*'
+            )
+            window.close()
+          }
         </script>
       </html>`
     )
@@ -75,10 +80,15 @@ class AuthController implements BaseController {
       res.send(
         `<html>
           <script>
-            window.opener.postMessage(
-              {type: "auth"}, "*"
-            );
-            window.close();
+            if (window.opener === null) {
+              window.location = '${redirectUrl.successful}'
+            }
+            else {
+              window.opener.postMessage(
+                {type: 'auth'}, '*'
+              )
+              window.close()
+            }
           </script>
         </html>`
       )

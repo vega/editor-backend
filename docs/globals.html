@@ -80,6 +80,7 @@
 							<h3>Interfaces</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-interface"><a href="interfaces/ibasecontroller.html" class="tsd-kind-icon">IBase<wbr>Controller</a></li>
+								<li class="tsd-kind-interface tsd-is-not-exported"><a href="interfaces/icreategist.html" class="tsd-kind-icon">ICreate<wbr>Gist</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -147,7 +148,7 @@
 					<div class="tsd-signature tsd-kind-icon">cookie<wbr>Expiry<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;30 * 24 * 60 * 60 * 1000</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in config/index.ts:59</li>
+							<li>Defined in config/index.ts:60</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -173,7 +174,7 @@
 					<div class="tsd-signature tsd-kind-icon">gist<wbr>Raw<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"https://gist.githubusercontent.com"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;https://gist.githubusercontent.com&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/urls.ts:72</li>
+							<li>Defined in src/urls.ts:73</li>
 						</ul>
 					</aside>
 				</section>
@@ -230,7 +231,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-variable">
 					<a name="whitelist" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> whitelist</h3>
-					<div class="tsd-signature tsd-kind-icon">whitelist<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[&#x27;https://vega.github.io&#x27;,&#x27;http://localhost:8081&#x27;,&#x27;http://localhost:8080&#x27;,&#x27;http://0.0.0.0&#x27;,]</span></div>
+					<div class="tsd-signature tsd-kind-icon">whitelist<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[&#x27;https://vega.github.io&#x27;,&#x27;http://localhost:8081&#x27;,&#x27;http://localhost:8080&#x27;,&#x27;http://0.0.0.0:8080&#x27;,]</span></div>
 					<aside class="tsd-sources">
 						<ul>
 							<li>Defined in config/index.ts:39</li>
@@ -339,6 +340,16 @@
 						<aside class="tsd-sources">
 							<ul>
 								<li>Defined in src/urls.ts:69</li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="gisturl.creategist" class="tsd-anchor"></a>
+						<h3>create<wbr>Gist</h3>
+						<div class="tsd-signature tsd-kind-icon">create<wbr>Gist<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;${gistMain}/create&#x60;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in src/urls.ts:70</li>
 							</ul>
 						</aside>
 					</section>
@@ -472,6 +483,9 @@
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/ibasecontroller.html" class="tsd-kind-icon">IBase<wbr>Controller</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-is-not-exported">
+						<a href="interfaces/icreategist.html" class="tsd-kind-icon">ICreate<wbr>Gist</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-is-not-exported">
 						<a href="globals.html#githubstrategy" class="tsd-kind-icon">Git<wbr>Hub<wbr>Strategy</a>

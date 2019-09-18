@@ -108,6 +108,7 @@
 						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="gistcontroller.html#creategist" class="tsd-kind-icon">create<wbr>Gist</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="gistcontroller.html#fetchallgistsofuser" class="tsd-kind-icon">fetch<wbr>All<wbr>Gistsof<wbr>User</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="gistcontroller.html#initializeroutes" class="tsd-kind-icon">initialize<wbr>Routes</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static"><a href="gistcontroller.html#specurlgenerator" class="tsd-kind-icon">spec<wbr>Url<wbr>Generator</a></li>
@@ -128,7 +129,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/controllers/gist.ts:16</li>
+									<li>Defined in src/controllers/gist.ts:27</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -150,7 +151,7 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/ibasecontroller.html">IBaseController</a>.<a href="../interfaces/ibasecontroller.html#path">path</a></p>
 						<ul>
-							<li>Defined in src/controllers/gist.ts:14</li>
+							<li>Defined in src/controllers/gist.ts:25</li>
 						</ul>
 					</aside>
 				</section>
@@ -161,13 +162,54 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/ibasecontroller.html">IBaseController</a>.<a href="../interfaces/ibasecontroller.html#router">router</a></p>
 						<ul>
-							<li>Defined in src/controllers/gist.ts:16</li>
+							<li>Defined in src/controllers/gist.ts:27</li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="creategist" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> create<wbr>Gist</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Gist<span class="tsd-signature-symbol">(</span>req<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, res<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in src/controllers/gist.ts:118</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Route to create a gist.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>req: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Request object</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5>res: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Response object</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
 					<a name="fetchallgistsofuser" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> fetch<wbr>All<wbr>Gistsof<wbr>User</h3>
@@ -178,7 +220,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/controllers/gist.ts:39</li>
+									<li>Defined in src/controllers/gist.ts:50</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -219,7 +261,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/controllers/gist.ts:28</li>
+									<li>Defined in src/controllers/gist.ts:39</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -241,7 +283,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/controllers/gist.ts:108</li>
+									<li>Defined in src/controllers/gist.ts:157</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -313,6 +355,9 @@
 								<a href="gistcontroller.html#router" class="tsd-kind-icon">router</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="gistcontroller.html#creategist" class="tsd-kind-icon">create<wbr>Gist</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
 								<a href="gistcontroller.html#fetchallgistsofuser" class="tsd-kind-icon">fetch<wbr>All<wbr>Gistsof<wbr>User</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
@@ -330,6 +375,9 @@
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/ibasecontroller.html" class="tsd-kind-icon">IBase<wbr>Controller</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-is-not-exported">
+						<a href="../interfaces/icreategist.html" class="tsd-kind-icon">ICreate<wbr>Gist</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-is-not-exported">
 						<a href="../globals.html#githubstrategy" class="tsd-kind-icon">Git<wbr>Hub<wbr>Strategy</a>
