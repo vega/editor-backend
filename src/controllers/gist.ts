@@ -149,7 +149,9 @@ class GistController implements BaseController {
               authorization: `token ${oauthToken}`,
             },
           })
-          res.send(GistController.sanitize(response.user.gists.nodes, username))
+          res.send({
+            data: GistController.sanitize(response.user.gists.nodes, username),
+          })
         }
         catch (error) {
           res.sendStatus(404)
