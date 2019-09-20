@@ -94,13 +94,22 @@ class GistController implements BaseController {
             authorization: `token ${oauthToken}`,
           },
         })
-        const cursors = []
+        const cursors = {}
         const filteredCursors = response.user.gists.edges.filter(cursor => (
           cursor.node.files.some(file => file.extension === '.json')
         ))
-        filteredCursors.forEach(edge => {
-          cursors.push(edge.cursor)
-        })
+        for (
+          let i = 0;
+          i < filteredCursors.length;
+          i+=paginationSize
+        ) {
+          if (i === 0) {
+            cursors['init'] = filteredCursors[i].cursor
+          }
+          else {
+            cursors[(i/paginationSize) + 1] = filteredCursors[i-1].cursor
+          }
+        }
         const initialData = GistController.sanitize(
           response.user.gists.nodes, username
         )
