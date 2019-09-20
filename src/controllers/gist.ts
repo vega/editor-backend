@@ -4,6 +4,7 @@ import { graphql } from '@octokit/graphql'
 
 import BaseController from './base'
 import { gistUrl, redirectUrl, gistRawUrl } from '../urls'
+import { paginationSize } from '../consts'
 
 /**
  * Interface for defining structure of a received POST request
@@ -54,63 +55,97 @@ class GistController implements BaseController {
     else {
       const username = req.user.username
       const oauthToken = req.user.accessToken
-      const response: any = await graphql(`{
-        user(login: "${username}") {
-          gists(
-            first: 20,
-            privacy: ALL,
-            orderBy: 
-              {field: CREATED_AT, direction: DESC}
-          ) {
-            nodes {
-              name
-              description
-              files {
+      if (req.query.cursor === undefined) {
+        res.sendStatus(400)
+      }
+      else if (req.query.cursor === 'init') {
+        const response: any = await graphql(`
+        query response($username: String!) {
+          user(login: $username) {
+            gists(
+              first: 100,
+              privacy: ALL,
+              orderBy:
+                {field: CREATED_AT, direction: DESC}
+            ) {
+              edges {
+                cursor
+                node {
+                  files {
+                    extension
+                  }
+                }
+              }
+              nodes {
                 name
-                extension
-                isImage
+                description
+                files {
+                  name
+                  extension
+                  isImage
+                }
+                isPublic
               }
-              isPublic
             }
           }
-        }
-      }`, {
-        headers: {
-          authorization: `token ${oauthToken}`,
-        },
-      })
-
-      const data = response.user.gists.nodes.filter(gist =>
-        gist.files.some(file => file.extension === '.json')
-      )
-      data.forEach(gist => {
-        gist.spec = []
-        gist.files.forEach(file => {
-          if (file.extension === '.json') {
-            const spec = {
-              name: '',
-              previewUrl: '',
-              rawUrl: '',
-            }
-            const name = file.name.split('.')[0]
-            spec.name = file.name
-            spec.rawUrl =
-              GistController.specUrlGenerator(file.name, gist.name, username)
-            gist.files.forEach(image => {
-              if (image.isImage && image.name.split('.')[0] === name) {
-                spec.previewUrl = GistController.specUrlGenerator(
-                  image.name, gist.name, username
-                )
-              }
-            })
-            gist.spec.push(spec)
-          }
+        }`, {
+          username: username,
+          headers: {
+            authorization: `token ${oauthToken}`,
+          },
         })
-        gist.title = gist.description
-        delete gist.files
-        delete gist.description
-      })
-      res.send(data)
+        const cursors = []
+        const filteredCursors = response.user.gists.edges.filter(cursor => (
+          cursor.node.files.some(file => file.extension === '.json')
+        ))
+        filteredCursors.forEach(edge => {
+          cursors.push(edge.cursor)
+        })
+        const initialData = GistController.sanitize(
+          response.user.gists.nodes, username
+        )
+        res.send({
+          cursors: cursors,
+          data: initialData,
+        })
+      }
+      else {
+        try {
+          const response: any = await graphql(`
+          query response($cursor: String!, $username: String!) {
+            user(login: $username) {
+              gists(
+                first: 100,
+                after: $cursor,
+                privacy: ALL,
+                orderBy: 
+                  {field: CREATED_AT, direction: DESC}
+              ) {
+                nodes {
+                  name
+                  description
+                  files {
+                    name
+                    extension
+                    isImage
+                  }
+                  isPublic
+                }
+              }
+            }
+          }`, {
+            cursor: req.query.cursor,
+            username: username,
+            headers: {
+              authorization: `token ${oauthToken}`,
+            },
+          })
+          res.send(GistController.sanitize(response.user.gists.nodes, username))
+        }
+        catch (error) {
+          res.sendStatus(404)
+        }
+      }
     }
   }
 
@@ -144,12 +179,49 @@ class GistController implements BaseController {
         }),
       })
         .then(res => res.json())
-        .then(json => res.send(201))
+        .then(_ => res.sendStatus(201))
         .catch(error => {
           console.error(error)
-          res.send(400)
+          res.sendStatus(400)
         })
     }
+  }
+
+  /**
+   * Static method to sanitize the output fetched by GitHub gist API.
+   *
+   * @param {Array} data Array of gists
+   * @param {string} username Name of gist creator
+   */
+  private static sanitize = (data: any, username: string) => {
+    const gists = data.filter(gist =>
+      gist.files.some(file => file.extension === '.json')
+    ).slice(0, paginationSize)
+    gists.forEach(gist => {
+      gist.spec = []
+      gist.files.forEach(file => {
+        if (file.extension === '.json') {
+          const spec = {
+            name: '',
+            previewUrl: '',
+          }
+          const name = file.name.split('.')[0]
+          spec.name = file.name
+          gist.files.forEach(image => {
+            if (image.isImage && image.name.split('.')[0] === name) {
+              spec.previewUrl = GistController.specUrlGenerator(
+                image.name, gist.name, username
+              )
+            }
+          })
+          gist.spec.push(spec)
+        }
+      })
+      gist.title = gist.description
+      delete gist.files
+      delete gist.description
+    })
+    return gists
   }
 
   /**
