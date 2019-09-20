@@ -55,16 +55,16 @@ class GistController implements BaseController {
     else {
       const username = req.user.username
       const oauthToken = req.user.accessToken
-      if (req.query.cursor === undefined) {
+      if (req.query.cursor === undefined || req.query.privacy === undefined) {
         res.sendStatus(400)
       }
       else if (req.query.cursor === 'init') {
         const response: any = await graphql(`
-        query response($username: String!) {
+        query response($privacy: GistPrivacy!, $username: String!) {
           user(login: $username) {
             gists(
               first: 100,
-              privacy: ALL,
+              privacy: $privacy,
               orderBy:
                 {field: CREATED_AT, direction: DESC}
             ) {
@@ -89,6 +89,7 @@ class GistController implements BaseController {
             }
           }
         }`, {
+          privacy: req.query.privacy,
           username: username,
           headers: {
             authorization: `token ${oauthToken}`,
@@ -121,7 +122,9 @@ class GistController implements BaseController {
       else {
         try {
           const response: any = await graphql(`
-          query response($cursor: String!, $username: String!) {
+          query response(
+            $cursor: String!, $privacy: GistPrivacy!, $username: String!
+          ) {
             user(login: $username) {
               gists(
                 first: 100,
@@ -144,6 +147,7 @@ class GistController implements BaseController {
             }
           }`, {
             cursor: req.query.cursor,
+            $privacy: req.query.privacy,
             username: username,
             headers: {
               authorization: `token ${oauthToken}`,
