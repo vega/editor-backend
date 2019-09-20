@@ -111,6 +111,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="gistcontroller.html#creategist" class="tsd-kind-icon">create<wbr>Gist</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="gistcontroller.html#fetchallgistsofuser" class="tsd-kind-icon">fetch<wbr>All<wbr>Gistsof<wbr>User</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="gistcontroller.html#initializeroutes" class="tsd-kind-icon">initialize<wbr>Routes</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static"><a href="gistcontroller.html#sanitize" class="tsd-kind-icon">sanitize</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static"><a href="gistcontroller.html#specurlgenerator" class="tsd-kind-icon">spec<wbr>Url<wbr>Generator</a></li>
 							</ul>
 						</section>
@@ -129,7 +130,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/controllers/gist.ts:27</li>
+									<li>Defined in src/controllers/gist.ts:28</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -151,7 +152,7 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/ibasecontroller.html">IBaseController</a>.<a href="../interfaces/ibasecontroller.html#path">path</a></p>
 						<ul>
-							<li>Defined in src/controllers/gist.ts:25</li>
+							<li>Defined in src/controllers/gist.ts:26</li>
 						</ul>
 					</aside>
 				</section>
@@ -162,7 +163,7 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/ibasecontroller.html">IBaseController</a>.<a href="../interfaces/ibasecontroller.html#router">router</a></p>
 						<ul>
-							<li>Defined in src/controllers/gist.ts:27</li>
+							<li>Defined in src/controllers/gist.ts:28</li>
 						</ul>
 					</aside>
 				</section>
@@ -179,7 +180,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/controllers/gist.ts:123</li>
+									<li>Defined in src/controllers/gist.ts:158</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -220,7 +221,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/controllers/gist.ts:50</li>
+									<li>Defined in src/controllers/gist.ts:51</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -261,7 +262,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/controllers/gist.ts:39</li>
+									<li>Defined in src/controllers/gist.ts:40</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -270,6 +271,47 @@
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static">
+					<a name="sanitize" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagPrivate">Private</span> sanitize</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">sanitize<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, username<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in src/controllers/gist.ts:196</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Static method to sanitize the output fetched by GitHub gist API.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>data: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Array of gists</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5>username: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Name of gist creator</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -283,7 +325,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/controllers/gist.ts:162</li>
+									<li>Defined in src/controllers/gist.ts:234</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -364,6 +406,9 @@
 								<a href="gistcontroller.html#initializeroutes" class="tsd-kind-icon">initialize<wbr>Routes</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static">
+								<a href="gistcontroller.html#sanitize" class="tsd-kind-icon">sanitize</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static">
 								<a href="gistcontroller.html#specurlgenerator" class="tsd-kind-icon">spec<wbr>Url<wbr>Generator</a>
 							</li>
 						</ul>
@@ -399,6 +444,9 @@
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="../globals.html#nodeenv" class="tsd-kind-icon">node<wbr>Env</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="../globals.html#paginationsize" class="tsd-kind-icon">pagination<wbr>Size</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="../globals.html#sessionsecret" class="tsd-kind-icon">session<wbr>Secret</a>
