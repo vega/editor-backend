@@ -1,0 +1,11 @@
+version: '3.6'
+
+services:
+  editor-backend:
+    container_name: editor-backend
+    image: editor-backend
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/editor-backend
