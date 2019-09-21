@@ -108,7 +108,7 @@ class GistController implements BaseController {
             cursors['init'] = filteredCursors[i].cursor
           }
           else {
-            cursors[(i/paginationSize) + 1] = filteredCursors[i-1].cursor
+            cursors[i/paginationSize] = filteredCursors[i-1].cursor
           }
         }
         const initialData = GistController.sanitize(
