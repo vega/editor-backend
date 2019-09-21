@@ -129,7 +129,7 @@ class GistController implements BaseController {
               gists(
                 first: 100,
                 after: $cursor,
-                privacy: ALL,
+                privacy: $privacy,
                 orderBy: 
                   {field: CREATED_AT, direction: DESC}
               ) {
@@ -147,7 +147,7 @@ class GistController implements BaseController {
             }
           }`, {
             cursor: req.query.cursor,
-            $privacy: req.query.privacy,
+            privacy: req.query.privacy,
             username: username,
             headers: {
               authorization: `token ${oauthToken}`,
