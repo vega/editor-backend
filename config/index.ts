@@ -35,6 +35,8 @@ export const sessionSecret: string = process.env.SESSION_SECRET
  * Requests from any other domain will be blocked by CORS policy.
  *
  * _Exported as `whitelist` to pass as an argument to `cors()`._
+ *
+ * @hidden
  */
 export const whitelist: string[] = [
   'https://vega.github.io',
