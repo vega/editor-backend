@@ -27,6 +27,10 @@ export const authUrl: any = {
    * Endpoint to verify if the user is authenticated.
    */
   isAuthenticated: `${authMain}/check`,
+  /**
+   * URL for Vega Editor API documentation
+   */
+  docs: 'https://vega.github.io/editor-backend',
 }
 
 /**
