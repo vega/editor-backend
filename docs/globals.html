@@ -89,6 +89,7 @@
 								<li class="tsd-kind-variable tsd-is-not-exported"><a href="globals.html#githubstrategy" class="tsd-kind-icon">Git<wbr>Hub<wbr>Strategy</a></li>
 								<li class="tsd-kind-variable tsd-is-not-exported"><a href="globals.html#authmain" class="tsd-kind-icon">auth<wbr>Main</a></li>
 								<li class="tsd-kind-variable"><a href="globals.html#cookieexpiry" class="tsd-kind-icon">cookie<wbr>Expiry</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#docsurl" class="tsd-kind-icon">docs<wbr>Url</a></li>
 								<li class="tsd-kind-variable tsd-is-not-exported"><a href="globals.html#gistmain" class="tsd-kind-icon">gist<wbr>Main</a></li>
 								<li class="tsd-kind-variable"><a href="globals.html#gistrawurl" class="tsd-kind-icon">gist<wbr>Raw<wbr>Url</a></li>
 								<li class="tsd-kind-variable tsd-is-not-exported"><a href="globals.html#hosturl" class="tsd-kind-icon">host<wbr>Url</a></li>
@@ -158,13 +159,23 @@
 						<p><em>Exported as <code>cookieExpiry</code></em>.</p>
 					</div>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="docsurl" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> docs<wbr>Url</h3>
+					<div class="tsd-signature tsd-kind-icon">docs<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"https://vega.github.io/editor-backend"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;https://vega.github.io/editor-backend&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in src/urls.ts:75</li>
+						</ul>
+					</aside>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-is-not-exported">
 					<a name="gistmain" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> gist<wbr>Main</h3>
 					<div class="tsd-signature tsd-kind-icon">gist<wbr>Main<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"/gists"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;/gists&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/urls.ts:69</li>
+							<li>Defined in src/urls.ts:65</li>
 						</ul>
 					</aside>
 				</section>
@@ -174,7 +185,7 @@
 					<div class="tsd-signature tsd-kind-icon">gist<wbr>Raw<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"https://gist.githubusercontent.com"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;https://gist.githubusercontent.com&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/urls.ts:77</li>
+							<li>Defined in src/urls.ts:73</li>
 						</ul>
 					</aside>
 				</section>
@@ -184,7 +195,7 @@
 					<div class="tsd-signature tsd-kind-icon">host<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/urls.ts:57</li>
+							<li>Defined in src/urls.ts:53</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -278,21 +289,6 @@
 						</div>
 					</section>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-						<a name="authurl.docs" class="tsd-anchor"></a>
-						<h3>docs</h3>
-						<div class="tsd-signature tsd-kind-icon">docs<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;https://vega.github.io/editor-backend&quot;</span></div>
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in src/urls.ts:33</li>
-							</ul>
-						</aside>
-						<div class="tsd-comment tsd-typography">
-							<div class="lead">
-								<p>URL for Vega Editor API documentation</p>
-							</div>
-						</div>
-					</section>
-					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
 						<a name="authurl.isauthenticated" class="tsd-anchor"></a>
 						<h3>is<wbr>Authenticated</h3>
 						<div class="tsd-signature tsd-kind-icon">is<wbr>Authenticated<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;${authMain}/check&#x60;</span></div>
@@ -344,7 +340,7 @@
 					<div class="tsd-signature tsd-kind-icon">gist<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/urls.ts:71</li>
+							<li>Defined in src/urls.ts:67</li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -353,7 +349,7 @@
 						<div class="tsd-signature tsd-kind-icon">all<wbr>Gists<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;${gistMain}/user&#x60;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in src/urls.ts:73</li>
+								<li>Defined in src/urls.ts:69</li>
 							</ul>
 						</aside>
 					</section>
@@ -363,7 +359,7 @@
 						<div class="tsd-signature tsd-kind-icon">create<wbr>Gist<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;${gistMain}/create&#x60;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in src/urls.ts:74</li>
+								<li>Defined in src/urls.ts:70</li>
 							</ul>
 						</aside>
 					</section>
@@ -373,7 +369,7 @@
 						<div class="tsd-signature tsd-kind-icon">main<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;gistMain</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in src/urls.ts:72</li>
+								<li>Defined in src/urls.ts:68</li>
 							</ul>
 						</aside>
 					</section>
@@ -431,7 +427,7 @@
 					<div class="tsd-signature tsd-kind-icon">redirect<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/urls.ts:41</li>
+							<li>Defined in src/urls.ts:37</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -446,7 +442,7 @@
 						<div class="tsd-signature tsd-kind-icon">failure<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;authUrl.isAuthenticated</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in src/urls.ts:45</li>
+								<li>Defined in src/urls.ts:41</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -461,7 +457,7 @@
 						<div class="tsd-signature tsd-kind-icon">successful<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in src/urls.ts:49</li>
+								<li>Defined in src/urls.ts:45</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -509,6 +505,9 @@
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#cookieexpiry" class="tsd-kind-icon">cookie<wbr>Expiry</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#docsurl" class="tsd-kind-icon">docs<wbr>Url</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-is-not-exported">
 						<a href="globals.html#gistmain" class="tsd-kind-icon">gist<wbr>Main</a>

@@ -27,10 +27,6 @@ export const authUrl: any = {
    * Endpoint to verify if the user is authenticated.
    */
   isAuthenticated: `${authMain}/check`,
-  /**
-   * URL for Vega Editor API documentation
-   */
-  docs: 'https://vega.github.io/editor-backend',
 }
 
 /**
@@ -75,3 +71,5 @@ export const gistUrl: any = {
 }
 
 export const gistRawUrl = 'https://gist.githubusercontent.com'
+
+export const docsUrl = 'https://vega.github.io/editor-backend'
