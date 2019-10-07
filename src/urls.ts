@@ -71,3 +71,5 @@ export const gistUrl: any = {
 }
 
 export const gistRawUrl = 'https://gist.githubusercontent.com'
+
+export const docsUrl = 'https://vega.github.io/editor-backend'
