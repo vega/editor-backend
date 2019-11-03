@@ -59,7 +59,7 @@
 					<a href="authinterface.html">AuthInterface</a>
 				</li>
 			</ul>
-			<h1>Interface AuthInterface&lt;AuthOptions, Authentication&gt;</h1>
+			<h1>Interface AuthInterface</h1>
 		</div>
 	</div>
 </header>
@@ -77,17 +77,6 @@
 					strategies, see <a href="https://github.com/octokit/auth.js">https://github.com/octokit/auth.js</a></p>
 				</div>
 			</section>
-			<section class="tsd-panel tsd-type-parameters">
-				<h3>Type parameters</h3>
-				<ul class="tsd-type-parameters">
-					<li>
-						<h4>AuthOptions<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4>
-					</li>
-					<li>
-						<h4>Authentication<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></h4>
-					</li>
-				</ul>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -98,14 +87,14 @@
 			</section>
 			<section class="tsd-panel">
 				<h3 class="tsd-before-signature">Callable</h3>
-				<ul class="tsd-signatures tsd-kind-interface tsd-has-type-parameter tsd-is-external">
-					<li class="tsd-signature tsd-kind-icon">__call<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">AuthOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Authentication</span><span class="tsd-signature-symbol">&gt;</span></li>
+				<ul class="tsd-signatures tsd-kind-interface tsd-is-external">
+					<li class="tsd-signature tsd-kind-icon">__call<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in node_modules/@octokit/types/src/AuthInterface.ts:18</li>
+								<li>Defined in node_modules/@octokit/types/src/AuthInterface.ts:15</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -120,10 +109,10 @@
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">AuthOptions</span></h5>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">any</span></h5>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Authentication</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 					</li>
 				</ul>
 			</section>
@@ -148,7 +137,7 @@
 					<div class="tsd-signature tsd-kind-icon">hook<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in node_modules/@octokit/types/src/AuthInterface.ts:21</li>
+							<li>Defined in node_modules/@octokit/types/src/AuthInterface.ts:18</li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -231,7 +220,7 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface tsd-has-type-parameter tsd-is-external">
+					<li class="current tsd-kind-interface tsd-is-external">
 						<a href="authinterface.html" class="tsd-kind-icon">Auth<wbr>Interface</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-external">

@@ -33,7 +33,9 @@
   },
   "dependencies": {
     "@octokit/graphql": "4.3.1",
+    "@types/connect-redis": "^0.0.11",
     "body-parser": "^1.19.0",
+    "connect-redis": "^4.0.3",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
@@ -41,7 +43,8 @@
     "isomorphic-fetch": "^2.2.1",
     "passport": "^0.4.0",
     "passport-github2": "^0.1.11",
-    "pug": "^2.0.4"
+    "pug": "^2.0.4",
+    "redis": "^2.8.0"
   },
   "husky": {
     "hooks": {
