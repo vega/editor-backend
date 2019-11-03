@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IBaseController | Vega Editor API documentation</title>
+	<title>StrategyInterface | Vega Editor API documentation</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,86 +56,59 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="ibasecontroller.html">IBaseController</a>
+					<a href="strategyinterface.html">StrategyInterface</a>
 				</li>
 			</ul>
-			<h1>Interface IBaseController</h1>
+			<h1>Interface StrategyInterface&lt;StrategyOptions, AuthOptions, Authentication&gt;</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Interface for defining structure of a controller</p>
-					</div>
-				</div>
+			<section class="tsd-panel tsd-type-parameters">
+				<h3>Type parameters</h3>
+				<ul class="tsd-type-parameters">
+					<li>
+						<h4>StrategyOptions<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4>
+					</li>
+					<li>
+						<h4>AuthOptions<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4>
+					</li>
+					<li>
+						<h4>Authentication<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
+					</li>
+				</ul>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IBaseController</span>
+						<span class="target">StrategyInterface</span>
 					</li>
 				</ul>
 			</section>
 			<section class="tsd-panel">
-				<h3>Implemented by</h3>
-				<ul class="tsd-hierarchy">
-					<li><a href="../classes/authcontroller.html" class="tsd-signature-type">AuthController</a></li>
-					<li><a href="../classes/gistcontroller.html" class="tsd-signature-type">GistController</a></li>
-					<li><a href="../classes/homecontroller.html" class="tsd-signature-type">HomeController</a></li>
+				<h3 class="tsd-before-signature">Callable</h3>
+				<ul class="tsd-signatures tsd-kind-interface tsd-has-type-parameter tsd-is-external">
+					<li class="tsd-signature tsd-kind-icon">__call<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">StrategyOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="authinterface.html" class="tsd-signature-type">AuthInterface</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">AuthOptions</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Authentication</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
-			</section>
-			<section class="tsd-panel-group tsd-index-group">
-				<h2>Index</h2>
-				<section class="tsd-panel tsd-index-panel">
-					<div class="tsd-index-content">
-						<section class="tsd-index-section ">
-							<h3>Properties</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ibasecontroller.html#path" class="tsd-kind-icon">path</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ibasecontroller.html#router" class="tsd-kind-icon">router</a></li>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in node_modules/@octokit/types/src/StrategyInterface.ts:7</li>
 							</ul>
-						</section>
-					</div>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="path" class="tsd-anchor"></a>
-					<h3>path</h3>
-					<div class="tsd-signature tsd-kind-icon">path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/vega/editor-backend/blob/4127652/src/controllers/base.ts#L11">src/controllers/base.ts:11</a></li>
+						</aside>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">StrategyOptions</span></h5>
+							</li>
 						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Property to store root path of route for accessing the controller
-							functions.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="router" class="tsd-anchor"></a>
-					<h3>router</h3>
-					<div class="tsd-signature tsd-kind-icon">router<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Router</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/vega/editor-backend/blob/4127652/src/controllers/base.ts#L15">src/controllers/base.ts:15</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Property to store routes of controller.</p>
-						</div>
-					</div>
-				</section>
+						<h4 class="tsd-returns-title">Returns <a href="authinterface.html" class="tsd-signature-type">AuthInterface</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">AuthOptions</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Authentication</span><span class="tsd-signature-symbol">&gt;</span></h4>
+					</li>
+				</ul>
 			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -150,16 +123,8 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface">
-						<a href="ibasecontroller.html" class="tsd-kind-icon">IBase<wbr>Controller</a>
-						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ibasecontroller.html#path" class="tsd-kind-icon">path</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ibasecontroller.html#router" class="tsd-kind-icon">router</a>
-							</li>
-						</ul>
+					<li class="current tsd-kind-interface tsd-has-type-parameter tsd-is-external">
+						<a href="strategyinterface.html" class="tsd-kind-icon">Strategy<wbr>Interface</a>
 					</li>
 				</ul>
 				<ul class="after-current">
