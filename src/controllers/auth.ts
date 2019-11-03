@@ -75,13 +75,15 @@ class AuthController implements BaseController {
     // gives info of user
     // console.log(req.user)
     if (req.user) {
-      req.session.destroy()
-      res.clearCookie('vega_session', { path: '/' }).status(200)
+      res.clearCookie('vega_session', { path: '/' })
+      req.session.destroy(err => {
+        if (err) { console.error('Session did not delete') }
+      })
       res.send(
         `<html>
           <script>
             if (window.opener === null) {
-              window.location = '${redirectUrl.successful}'
+              window.location.assign('${redirectUrl.successful}')
             }
             else {
               window.opener.postMessage(

@@ -80,12 +80,12 @@
 							<h3>Interfaces</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-interface tsd-has-type-parameter tsd-is-external"><a href="interfaces/authinterface.html" class="tsd-kind-icon">Auth<wbr>Interface</a></li>
+								<li class="tsd-kind-interface tsd-is-external"><a href="interfaces/authinterface.html" class="tsd-kind-icon">Auth<wbr>Interface</a></li>
 								<li class="tsd-kind-interface tsd-has-type-parameter tsd-is-external"><a href="interfaces/endpointinterface.html" class="tsd-kind-icon">Endpoint<wbr>Interface</a></li>
 								<li class="tsd-kind-interface tsd-is-external"><a href="interfaces/endpoints.html" class="tsd-kind-icon">Endpoints</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/ibasecontroller.html" class="tsd-kind-icon">IBase<wbr>Controller</a></li>
 								<li class="tsd-kind-interface tsd-is-not-exported"><a href="interfaces/icreategist.html" class="tsd-kind-icon">ICreate<wbr>Gist</a></li>
 								<li class="tsd-kind-interface tsd-has-type-parameter tsd-is-external"><a href="interfaces/requestinterface.html" class="tsd-kind-icon">Request<wbr>Interface</a></li>
-								<li class="tsd-kind-interface tsd-has-type-parameter tsd-is-external"><a href="interfaces/strategyinterface.html" class="tsd-kind-icon">Strategy<wbr>Interface</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-external">
@@ -1239,6 +1239,7 @@
 								<li class="tsd-kind-object-literal"><a href="globals.html#gisturl" class="tsd-kind-icon">gist<wbr>Url</a></li>
 								<li class="tsd-kind-object-literal"><a href="globals.html#githuboauth" class="tsd-kind-icon">github<wbr>Oauth</a></li>
 								<li class="tsd-kind-object-literal tsd-is-not-exported"><a href="globals.html#redirecturl" class="tsd-kind-icon">redirect<wbr>Url</a></li>
+								<li class="tsd-kind-object-literal"><a href="globals.html#redisconfiguration" class="tsd-kind-icon">redis<wbr>Configuration</a></li>
 							</ul>
 						</section>
 					</div>
@@ -40161,7 +40162,7 @@
 					<div class="tsd-signature tsd-kind-icon">Git<wbr>Hub<wbr>Strategy<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;passportGitHub.Strategy</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vega/editor-backend/blob/4127652/config/passport.ts#L11">config/passport.ts:11</a></li>
+							<li>Defined in config/passport.ts:11</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -40174,7 +40175,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-is-external">
 					<a name="version" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> VERSION</h3>
-					<div class="tsd-signature tsd-kind-icon">VERSION<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"2.0.0"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;2.0.0&quot;</span></div>
+					<div class="tsd-signature tsd-kind-icon">VERSION<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"1.1.0"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;1.1.0&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
 							<li>Defined in node_modules/@octokit/types/src/VERSION.ts:1</li>
@@ -40187,7 +40188,7 @@
 					<div class="tsd-signature tsd-kind-icon">auth<wbr>Main<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"/auth/github"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;/auth/github&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vega/editor-backend/blob/4127652/src/urls.ts#L6">src/urls.ts:6</a></li>
+							<li>Defined in src/urls.ts:6</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -40199,10 +40200,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-variable">
 					<a name="cookieexpiry" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> cookie<wbr>Expiry</h3>
-					<div class="tsd-signature tsd-kind-icon">cookie<wbr>Expiry<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;30 * 24 * 60 * 60 * 1000</span></div>
+					<div class="tsd-signature tsd-kind-icon">cookie<wbr>Expiry<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;5 * 24 * 60 * 60</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vega/editor-backend/blob/4127652/config/index.ts#L62">config/index.ts:62</a></li>
+							<li>Defined in config/index.ts:80</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -40218,7 +40219,7 @@
 					<div class="tsd-signature tsd-kind-icon">docs<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"https://vega.github.io/editor-backend"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;https://vega.github.io/editor-backend&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vega/editor-backend/blob/4127652/src/urls.ts#L75">src/urls.ts:75</a></li>
+							<li>Defined in src/urls.ts:76</li>
 						</ul>
 					</aside>
 				</section>
@@ -40228,7 +40229,7 @@
 					<div class="tsd-signature tsd-kind-icon">gist<wbr>Main<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"/gists"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;/gists&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vega/editor-backend/blob/4127652/src/urls.ts#L65">src/urls.ts:65</a></li>
+							<li>Defined in src/urls.ts:66</li>
 						</ul>
 					</aside>
 				</section>
@@ -40238,7 +40239,7 @@
 					<div class="tsd-signature tsd-kind-icon">gist<wbr>Raw<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"https://gist.githubusercontent.com"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;https://gist.githubusercontent.com&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vega/editor-backend/blob/4127652/src/urls.ts#L73">src/urls.ts:73</a></li>
+							<li>Defined in src/urls.ts:74</li>
 						</ul>
 					</aside>
 				</section>
@@ -40248,7 +40249,7 @@
 					<div class="tsd-signature tsd-kind-icon">host<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vega/editor-backend/blob/4127652/src/urls.ts#L53">src/urls.ts:53</a></li>
+							<li>Defined in src/urls.ts:53</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -40264,7 +40265,7 @@
 					<div class="tsd-signature tsd-kind-icon">node<wbr>Env<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;process.env.NODE_ENV</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vega/editor-backend/blob/4127652/config/index.ts#L55">config/index.ts:55</a></li>
+							<li>Defined in config/index.ts:73</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -40282,7 +40283,7 @@
 					<div class="tsd-signature tsd-kind-icon">pagination<wbr>Size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">8</span><span class="tsd-signature-symbol"> =&nbsp;8</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vega/editor-backend/blob/4127652/src/consts.ts#L6">src/consts.ts:6</a></li>
+							<li>Defined in src/consts.ts:6</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -40298,7 +40299,7 @@
 					<div class="tsd-signature tsd-kind-icon">session<wbr>Secret<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;process.env.SESSION_SECRET</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vega/editor-backend/blob/4127652/config/index.ts#L31">config/index.ts:31</a></li>
+							<li>Defined in config/index.ts:49</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -40317,7 +40318,7 @@
 					<div class="tsd-signature tsd-kind-icon">auth<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vega/editor-backend/blob/4127652/src/urls.ts#L13">src/urls.ts:13</a></li>
+							<li>Defined in src/urls.ts:13</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -40332,7 +40333,7 @@
 						<div class="tsd-signature tsd-kind-icon">callback<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;${authMain}/callback&#x60;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/vega/editor-backend/blob/4127652/src/urls.ts#L21">src/urls.ts:21</a></li>
+								<li>Defined in src/urls.ts:21</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -40347,7 +40348,7 @@
 						<div class="tsd-signature tsd-kind-icon">is<wbr>Authenticated<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;${authMain}/check&#x60;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/vega/editor-backend/blob/4127652/src/urls.ts#L29">src/urls.ts:29</a></li>
+								<li>Defined in src/urls.ts:29</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -40362,7 +40363,7 @@
 						<div class="tsd-signature tsd-kind-icon">logout<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;${authMain}/logout&#x60;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/vega/editor-backend/blob/4127652/src/urls.ts#L25">src/urls.ts:25</a></li>
+								<li>Defined in src/urls.ts:25</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -40377,7 +40378,7 @@
 						<div class="tsd-signature tsd-kind-icon">main<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;authMain</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/vega/editor-backend/blob/4127652/src/urls.ts#L17">src/urls.ts:17</a></li>
+								<li>Defined in src/urls.ts:17</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -40393,7 +40394,7 @@
 					<div class="tsd-signature tsd-kind-icon">gist<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vega/editor-backend/blob/4127652/src/urls.ts#L67">src/urls.ts:67</a></li>
+							<li>Defined in src/urls.ts:68</li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -40402,7 +40403,7 @@
 						<div class="tsd-signature tsd-kind-icon">all<wbr>Gists<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;${gistMain}/user&#x60;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/vega/editor-backend/blob/4127652/src/urls.ts#L69">src/urls.ts:69</a></li>
+								<li>Defined in src/urls.ts:70</li>
 							</ul>
 						</aside>
 					</section>
@@ -40412,7 +40413,7 @@
 						<div class="tsd-signature tsd-kind-icon">create<wbr>Gist<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;${gistMain}/create&#x60;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/vega/editor-backend/blob/4127652/src/urls.ts#L70">src/urls.ts:70</a></li>
+								<li>Defined in src/urls.ts:71</li>
 							</ul>
 						</aside>
 					</section>
@@ -40422,7 +40423,7 @@
 						<div class="tsd-signature tsd-kind-icon">main<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;gistMain</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/vega/editor-backend/blob/4127652/src/urls.ts#L68">src/urls.ts:68</a></li>
+								<li>Defined in src/urls.ts:69</li>
 							</ul>
 						</aside>
 					</section>
@@ -40433,7 +40434,7 @@
 					<div class="tsd-signature tsd-kind-icon">github<wbr>Oauth<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vega/editor-backend/blob/4127652/config/index.ts#L14">config/index.ts:14</a></li>
+							<li>Defined in config/index.ts:14</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -40449,7 +40450,7 @@
 						<div class="tsd-signature tsd-kind-icon">GITHUB_<wbr>CLIENT_<wbr>ID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;process.env.GITHUB_CLIENT_ID</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/vega/editor-backend/blob/4127652/config/index.ts#L18">config/index.ts:18</a></li>
+								<li>Defined in config/index.ts:18</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -40464,7 +40465,7 @@
 						<div class="tsd-signature tsd-kind-icon">GITHUB_<wbr>CLIENT_<wbr>SECRET<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;process.env.GITHUB_CLIENT_SECRET</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/vega/editor-backend/blob/4127652/config/index.ts#L22">config/index.ts:22</a></li>
+								<li>Defined in config/index.ts:22</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -40480,7 +40481,7 @@
 					<div class="tsd-signature tsd-kind-icon">redirect<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vega/editor-backend/blob/4127652/src/urls.ts#L37">src/urls.ts:37</a></li>
+							<li>Defined in src/urls.ts:37</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -40495,7 +40496,7 @@
 						<div class="tsd-signature tsd-kind-icon">failure<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;authUrl.isAuthenticated</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/vega/editor-backend/blob/4127652/src/urls.ts#L41">src/urls.ts:41</a></li>
+								<li>Defined in src/urls.ts:41</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -40510,12 +40511,72 @@
 						<div class="tsd-signature tsd-kind-icon">successful<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/vega/editor-backend/blob/4127652/src/urls.ts#L45">src/urls.ts:45</a></li>
+								<li>Defined in src/urls.ts:45</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
 								<p>The URL redirected by this back-end service to homepage.</p>
+							</div>
+						</div>
+					</section>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-object-literal">
+					<a name="redisconfiguration" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> redis<wbr>Configuration</h3>
+					<div class="tsd-signature tsd-kind-icon">redis<wbr>Configuration<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in config/index.ts:28</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Stores the configuration for redis store.</p>
+						</div>
+					</div>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="redisconfiguration.redis_host" class="tsd-anchor"></a>
+						<h3>REDIS_<wbr>HOST</h3>
+						<div class="tsd-signature tsd-kind-icon">REDIS_<wbr>HOST<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;process.env.REDIS_HOST</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in config/index.ts:32</li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Host name for redis store.</p>
+							</div>
+						</div>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="redisconfiguration.redis_password" class="tsd-anchor"></a>
+						<h3>REDIS_<wbr>PASSWORD</h3>
+						<div class="tsd-signature tsd-kind-icon">REDIS_<wbr>PASSWORD<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;process.env.REDIS_PASSWORD</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in config/index.ts:36</li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Host password for redis store.</p>
+							</div>
+						</div>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="redisconfiguration.redis_port" class="tsd-anchor"></a>
+						<h3>REDIS_<wbr>PORT</h3>
+						<div class="tsd-signature tsd-kind-icon">REDIS_<wbr>PORT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;process.env.REDIS_PORT</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in config/index.ts:40</li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Port number for redis store.</p>
 							</div>
 						</div>
 					</section>
@@ -40544,7 +40605,7 @@
 					<li class=" tsd-kind-class">
 						<a href="classes/homecontroller.html" class="tsd-kind-icon">Home<wbr>Controller</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-external">
+					<li class=" tsd-kind-interface tsd-is-external">
 						<a href="interfaces/authinterface.html" class="tsd-kind-icon">Auth<wbr>Interface</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-external">
@@ -40561,9 +40622,6 @@
 					</li>
 					<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-external">
 						<a href="interfaces/requestinterface.html" class="tsd-kind-icon">Request<wbr>Interface</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-external">
-						<a href="interfaces/strategyinterface.html" class="tsd-kind-icon">Strategy<wbr>Interface</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-is-external tsd-is-not-exported">
 						<a href="globals.html#activitycheckstarringrepoendpoint" class="tsd-kind-icon">Activity<wbr>Check<wbr>Starring<wbr>Repo<wbr>Endpoint</a>
@@ -43978,6 +44036,9 @@
 					</li>
 					<li class=" tsd-kind-object-literal tsd-is-not-exported">
 						<a href="globals.html#redirecturl" class="tsd-kind-icon">redirect<wbr>Url</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#redisconfiguration" class="tsd-kind-icon">redis<wbr>Configuration</a>
 					</li>
 				</ul>
 			</nav>

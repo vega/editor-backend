@@ -23,6 +23,24 @@ export const githubOauth: any = {
 }
 
 /**
+ * Stores the configuration for redis store.
+ */
+export const redisConfiguration: any = {
+  /**
+   * Host name for redis store.
+   */
+  REDIS_HOST: process.env.REDIS_HOST,
+  /**
+   * Host password for redis store.
+   */
+  REDIS_PASSWORD: process.env.REDIS_PASSWORD,
+  /**
+   * Port number for redis store.
+   */
+  REDIS_PORT: process.env.REDIS_PORT,
+}
+
+/**
  * Secret used to sign the session ID cookie.
  *
  * _Exported as `sessionSecret` to configure cookie creation._
@@ -59,4 +77,4 @@ export const nodeEnv: string = process.env.NODE_ENV
  *
  * _Exported as `cookieExpiry`_.
  */
-export const cookieExpiry: number = 30 * 24 * 60 * 60 * 1000 // 1 month
+export const cookieExpiry: number = 5 * 24 * 60 * 60 // 5 days
