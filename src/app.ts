@@ -69,6 +69,11 @@ class App {
         client: this.redisClient,
         ttl: cookieExpiry,
       }),
+      /**
+       * `cookieExpiry` is converted to milliseconds. Reference:
+       * https://www.npmjs.com/package/express-session#cookiemaxage
+       */
+      cookie: { maxAge: cookieExpiry * 1000 },
     }))
     this.app.use(bodyParser.json())
 
