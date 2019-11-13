@@ -62,7 +62,7 @@ class App {
       name: 'vega_session',
       secret: sessionSecret,
       resave: false,
-      saveUninitialized: true,
+      saveUninitialized: false,
       store: new redisStore({
         host: redisConfiguration.REDIS_HOST,
         port: redisConfiguration.REDIS_PORT,
