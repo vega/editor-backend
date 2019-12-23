@@ -29,7 +29,7 @@
     "lint-staged": ">=9",
     "now": "^16.7.0",
     "typedoc": "^0.15.5",
-    "typescript": "^3.7.3"
+    "typescript": "^3.7.4"
   },
   "dependencies": {
     "@octokit/graphql": "4.3.1",
