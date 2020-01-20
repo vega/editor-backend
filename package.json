@@ -28,7 +28,7 @@
     "husky": ">=3",
     "lint-staged": ">=10",
     "now": "^16.7.3",
-    "typedoc": "^0.15.6",
+    "typedoc": "^0.16.7",
     "typescript": "^3.7.5"
   },
   "dependencies": {
