@@ -27,7 +27,7 @@
     "eslint": "^6.8.0",
     "husky": ">=4",
     "lint-staged": ">=10",
-    "now": "^16.7.3",
+    "now": "^17.0.3",
     "typedoc": "^0.16.9",
     "typescript": "^3.7.5"
   },
