@@ -75,8 +75,8 @@ class App {
        */
       cookie: {
         maxAge: cookieExpiry * 1000,
-        secure: true,
-        sameSite: 'none',
+        // secure: true,
+        // sameSite: 'none',
       },
     }))
     this.app.use(bodyParser.json())
