@@ -73,7 +73,11 @@ class App {
        * `cookieExpiry` is converted to milliseconds. Reference:
        * https://www.npmjs.com/package/express-session#cookiemaxage
        */
-      cookie: { maxAge: cookieExpiry * 1000 },
+      cookie: {
+        maxAge: cookieExpiry * 1000,
+        secure: true,
+        sameSite: 'none',
+      },
     }))
     this.app.use(bodyParser.json())
 
