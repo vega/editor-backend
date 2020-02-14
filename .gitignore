@@ -13,3 +13,6 @@ build
 
 # Environment related files
 .env
+
+# Now
+.now
