@@ -74,7 +74,7 @@ class App {
          */
         cookie: {
           maxAge: cookieExpiry * 1000,
-          // secure: true,
+          secure: true,
           sameSite: 'none',
         },
       })
