@@ -216,17 +216,10 @@
     "@types/oauth" "*"
     "@types/passport" "*"
 
-"@types/passport@*":
+"@types/passport@*", "@types/passport@1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@types/passport/-/passport-1.0.2.tgz#f085033e2b301b1f97d4b57bfa73d8e934650c63"
   integrity sha512-Pf39AYKf8q+YoONym3150cEwfUD66dtwHJWvbeOzKxnA0GZZ/vAXhNWv9vMhKyRQBQZiQyWQnhYBEBlKW6G8wg==
-  dependencies:
-    "@types/express" "*"
-
-"@types/passport@0.4.5":
-  version "0.4.5"
-  resolved "https://registry.yarnpkg.com/@types/passport/-/passport-0.4.5.tgz#a6dd5bd2f96f2f15d350a688c3f59aa16d101c7a"
-  integrity sha512-Ow5akVXwEZlOPCWGbEGy0GX4ocdwKz7JJH1K+BMd/BSOxmJTo2obH2AKbsgcncQvw5z7AGopdIu1Ap/j9sMRnQ==
   dependencies:
     "@types/express" "*"
 
