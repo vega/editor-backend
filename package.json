@@ -11,6 +11,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs": "typedoc"
   },
+  "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vega/editor-backend.git"
@@ -36,7 +37,7 @@
     "@octokit/graphql": "4.3.1",
     "@types/connect-redis": "^0.0.13",
     "@types/cors": "^2.8.6",
-    "@types/passport": "0.4.5",
+    "@types/passport": "1.0.2",
     "body-parser": "^1.19.0",
     "connect-redis": "^4.0.4",
     "cors": "^2.8.5",
