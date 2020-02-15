@@ -1,7 +1,7 @@
-import express from 'express'
+import express from 'express';
 
-import BaseController from './base'
-import { authUrl, gistUrl, docsUrl } from '../urls'
+import BaseController from './base';
+import { authUrl, gistUrl, docsUrl } from '../urls';
 
 /**
  * Controller to serve the root URL of back-end service.
@@ -18,14 +18,14 @@ class HomeController implements BaseController {
    * Constructor of `HomeController`.
    */
   constructor() {
-    this.initializeRoutes()
+    this.initializeRoutes();
   }
 
   /**
    * Initialization of routes of `HomeController`.
    */
   private initializeRoutes = () => {
-    this.router.get(this.path, this.listRoutes)
+    this.router.get(this.path, this.listRoutes);
   }
 
   /**
@@ -40,7 +40,7 @@ class HomeController implements BaseController {
       gistUrl,
       host: req.headers.host,
       docsUrl,
-    })
+    });
   }
 
 }
@@ -48,4 +48,4 @@ class HomeController implements BaseController {
 /**
  * _Export `HomeController`._
  */
-export default HomeController
+export default HomeController;

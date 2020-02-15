@@ -3,4 +3,4 @@
  *
  * _Exported as `paginationSize`_.
  */
-export const paginationSize = 8
+export const paginationSize = 8;

@@ -1,9 +1,9 @@
-import dotenv from 'dotenv'
+import dotenv from 'dotenv';
 
 /**
  * Imports all the environment configuration from .env file.
  */
-dotenv.config()
+dotenv.config();
 
 /**
  * Stores the client ID and client secret of GitHub OAuth application created
@@ -20,7 +20,7 @@ export const githubOauth = {
    * Client secret of OAuth application.
    */
   GITHUB_CLIENT_SECRET: process.env.GITHUB_CLIENT_SECRET,
-}
+};
 
 /**
  * Stores the configuration for redis store.
@@ -38,7 +38,7 @@ export const redisConfiguration = {
    * Port number for redis store.
    */
   REDIS_PORT: +process.env.REDIS_PORT,
-}
+};
 
 /**
  * Secret used to sign the session ID cookie.
@@ -46,7 +46,7 @@ export const redisConfiguration = {
  * _Exported as `sessionSecret` to configure cookie creation._
  *
  */
-export const sessionSecret: string = process.env.SESSION_SECRET
+export const sessionSecret: string = process.env.SESSION_SECRET;
 
 /**
  * Array of domains from where requests to back-end (this project) are allowed.
@@ -61,7 +61,7 @@ export const whitelist: string[] = [
   'http://localhost:8081',
   'http://localhost:8080',
   'http://0.0.0.0:8080',
-]
+];
 
 /**
  * Stores the type of environment of project. It is either `development` or
@@ -70,11 +70,11 @@ export const whitelist: string[] = [
  * _Exported as `nodeEnv` to differentiate behaviour of app on development and
  * production server._
  */
-export const nodeEnv: string = process.env.NODE_ENV
+export const nodeEnv: string = process.env.NODE_ENV;
 
 /**
  * Stores the expiry date of the cookie set.
  *
  * _Exported as `cookieExpiry`_.
  */
-export const cookieExpiry: number = 90 * 24 * 60 * 60 // 90 days
+export const cookieExpiry: number = 90 * 24 * 60 * 60; // 90 days

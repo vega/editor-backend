@@ -1,16 +1,16 @@
-import { nodeEnv } from '../config/index'
+import { nodeEnv } from '../config/index';
 
 /**
  * Prefix for URLs for authentication with GitHub.
  */
-const authMain = '/auth/github'
+const authMain = '/auth/github';
 
 /**
  * Stores the different types of URLs required for authentication.
  *
  * _Exported as `authUrl` for configuring endpoints of authentication._
  */
-export const authUrl: any = {
+export const authUrl = {
   /**
    * Endpoint for signing in with GitHub.
    */
@@ -27,7 +27,7 @@ export const authUrl: any = {
    * Endpoint to verify if the user is authenticated.
    */
   isAuthenticated: `${authMain}/check`,
-}
+};
 
 /**
  * Stores redirection URL for successful and failed authentication.
@@ -43,33 +43,32 @@ const redirectUrl = {
    * The URL redirected by this back-end service to homepage.
    */
   successful: '',
-}
+};
 
 /**
  * Stores the domain name for callback url after successful authentication.
  *
  * _Exported as `hostUrl` for callback after GitHub sends `code`._
  */
-let hostUrl = ''
+let hostUrl = '';
 if (nodeEnv === 'production') {
   // hardcode url here
-  redirectUrl.successful = 'https://vega.github.io/editor'
-  hostUrl = 'https://vega.now.sh'
+  redirectUrl.successful = 'https://vega.github.io/editor';
+  hostUrl = 'https://vega.now.sh';
+} else if (nodeEnv === 'development') {
+  redirectUrl.successful = authUrl.isAuthenticated;
 }
-else if (nodeEnv === 'development') {
-  redirectUrl.successful = authUrl.isAuthenticated
-}
 
-export { redirectUrl, hostUrl }
+export { redirectUrl, hostUrl };
 
-const gistMain = '/gists'
+const gistMain = '/gists';
 
-export const gistUrl: any = {
+export const gistUrl = {
   main: gistMain,
   allGists: `${gistMain}/user`,
   createGist: `${gistMain}/create`,
-}
+};
 
-export const gistRawUrl = 'https://gist.githubusercontent.com'
+export const gistRawUrl = 'https://gist.githubusercontent.com';
 
-export const docsUrl = 'https://vega.github.io/editor-backend'
+export const docsUrl = 'https://vega.github.io/editor-backend';

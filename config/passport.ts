@@ -1,14 +1,14 @@
-import passport from 'passport'
-import passportGitHub from 'passport-github2'
+import passport from 'passport';
+import passportGitHub from 'passport-github';
 
-import { githubOauth } from './index'
-import { authUrl, hostUrl } from '../src/urls'
+import { githubOauth } from './index';
+import { authUrl, hostUrl } from '../src/urls';
 
 /**
  * OAuth strategy to authenticate with GitHub. Reference:
  * http://www.passportjs.org/packages/passport-github2/
  */
-const GitHubStrategy = passportGitHub.Strategy
+const GitHubStrategy = passportGitHub.Strategy;
 
 /**
  * Serializes user profile returned after authentication.
@@ -18,8 +18,8 @@ const GitHubStrategy = passportGitHub.Strategy
  * process
  */
 passport.serializeUser((user, done) => {
-  done(null, user)
-})
+  done(null, user);
+});
 
 /**
  * Deserializes cookie sent to know which user is logged in.
@@ -29,8 +29,8 @@ passport.serializeUser((user, done) => {
  * process
  */
 passport.deserializeUser((user: object, done: Function) => {
-  done(null, user)
-})
+  done(null, user);
+});
 
 /**
  * GitHub OAuth strategy configuration.
@@ -43,12 +43,12 @@ passport.use(new GitHubStrategy({
   clientSecret: githubOauth.GITHUB_CLIENT_SECRET,
   callbackURL: `${hostUrl}${authUrl.callback}`,
 }, (accessToken, refreshToken, profile, done) => {
-  done(null, { ...profile, accessToken })
-}))
+  done(null, { ...profile, accessToken });
+}));
 
 /**
  * Stores the configuration for OAuthentication with passport.
  *
  * _Exported as `passport` for initializing in `app.ts`._
  */
-export default passport
+export default passport;

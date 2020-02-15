@@ -1,4 +1,4 @@
-import { Router } from 'express'
+import { Router } from 'express';
 
 /**
  * Interface for defining structure of a controller
@@ -18,4 +18,4 @@ interface IBaseController {
 /**
  * _Export `IBaseController` interface._
  */
-export default IBaseController
+export default IBaseController;
