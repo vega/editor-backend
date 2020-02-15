@@ -27,11 +27,13 @@ https://github.com/vega/editor-backend.
     ```
     # [@domoritz](https://github.com/domoritz) created this app for OAuth testing.
     # You may create [your own application](https://github.com/settings/developers).
+
+    # GitHub OAuth app credentials
     GITHUB_CLIENT_ID=a901f0948b144d29fbdf 
     GITHUB_CLIENT_SECRET=dfdb84ff29fde4eaa160078d13e024530238ebe0
 
+    # Session ID configuration
     SESSION_SECRET=secret
-
     ```
 
 5.  Run the back-end server.
