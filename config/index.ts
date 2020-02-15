@@ -77,4 +77,4 @@ export const nodeEnv: string = process.env.NODE_ENV
  *
  * _Exported as `cookieExpiry`_.
  */
-export const cookieExpiry: number = 30 * 24 * 60 * 60 // 30 days
+export const cookieExpiry: number = 90 * 24 * 60 * 60 // 90 days
