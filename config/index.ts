@@ -11,7 +11,7 @@ dotenv.config()
  *
  * _Exported as `githubOauth` for configuring GitHub passport strategy._
  */
-export const githubOauth: any = {
+export const githubOauth = {
   /**
    * Client ID of OAuth application.
    */
@@ -25,7 +25,7 @@ export const githubOauth: any = {
 /**
  * Stores the configuration for redis store.
  */
-export const redisConfiguration: any = {
+export const redisConfiguration = {
   /**
    * Host name for redis store.
    */
@@ -37,7 +37,7 @@ export const redisConfiguration: any = {
   /**
    * Port number for redis store.
    */
-  REDIS_PORT: process.env.REDIS_PORT,
+  REDIS_PORT: +process.env.REDIS_PORT,
 }
 
 /**
