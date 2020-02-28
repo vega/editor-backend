@@ -74,7 +74,7 @@ class App {
          */
         cookie: {
           maxAge: cookieExpiry * 1000,
-          // secure: true,
+          secure: true,
           sameSite: 'none',
         },
       })
@@ -94,6 +94,9 @@ class App {
     this.app.use(cors(corsOptions));
     this.app.use(passport.initialize());
     this.app.use(passport.session());
+
+    // Put IP of https://vega.github.io/editor instead of 1
+    this.app.set('trust proxy', 1);
 
     this.app.engine('pug', require('pug').__express);
     this.app.set('views', __dirname + '/views');
