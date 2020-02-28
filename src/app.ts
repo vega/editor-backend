@@ -77,6 +77,7 @@ class App {
           secure: true,
           sameSite: 'none',
         },
+        rolling: true,
       })
     );
     this.app.use(bodyParser.json());
