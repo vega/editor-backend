@@ -40,6 +40,7 @@ class GistController implements BaseController {
   private initializeRoutes = () => {
     this.router.get(gistUrl.allGists, this.fetchAllGistsofUser);
     this.router.post(gistUrl.createGist, this.createGist);
+    this.router.post(gistUrl.updateGist, this.updateGist);
   }
 
   /**
@@ -177,7 +178,11 @@ class GistController implements BaseController {
     else {
       const oauthToken = req.user.accessToken;
       const body = req.body as ICreateGist;
-      const { content, name, privacy, title='' } = body;
+      const { content, privacy, title='' } = body;
+      let name = body.name;
+      if (!name.endsWith('.json')) {
+        name = `${name}.json`;
+      }
       fetch(`https://api.github.com/gists?oauth_token=${oauthToken}`, {
         method: 'post',
         header: {
@@ -187,7 +192,7 @@ class GistController implements BaseController {
           description: title,
           public: !privacy,
           files: {
-            [`${name}.json`]: {
+            [name]: {
               content,
             },
           },
@@ -195,6 +200,54 @@ class GistController implements BaseController {
       })
         .then(res => res.json())
         .then(_ => res.sendStatus(201))
+        .catch(error => {
+          console.error(error);
+          res.sendStatus(400);
+        });
+    }
+  }
+
+  /**
+   * Route to update a gist.
+   *
+   * @param {Request} req Request object
+   * @param {Response} res Response object
+   */
+  private updateGist = (req, res) => {
+    if (req.user === undefined) {
+      res.redirect(redirectUrl.failure);
+    }
+    else {
+      const oauthToken = req.user.accessToken;
+      const body = req.body;
+      const { gistId, privacy, title, content } = body;
+      let { fileName, fileNameEdited } = body;
+      if (!fileName.endsWith('.json')) {
+        fileName = `${fileName}.json`;
+      }
+      if (!fileNameEdited.endsWith('.json')) {
+        fileNameEdited = `${fileNameEdited}.json`;
+      }
+      fetch(
+        `https://api.github.com/gists/${gistId}?oauth_token=${oauthToken}`,
+        {
+          method: 'patch',
+          header: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            description: title,
+            public: !privacy,
+            files: {
+              [fileName]: {
+                filename: fileNameEdited,
+                content: content,
+              },
+            },
+          }),
+        })
+        .then(res => res.json())
+        .then(_ => res.sendStatus(205))
         .catch(error => {
           console.error(error);
           res.sendStatus(400);
