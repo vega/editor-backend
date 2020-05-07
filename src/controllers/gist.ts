@@ -199,10 +199,10 @@ class GistController implements BaseController {
         }),
       })
         .then(res => res.json())
-        .then(_ => res.sendStatus(201))
+        .then(json => res.status(201).send({ url: json.url }))
         .catch(error => {
           console.error(error);
-          res.sendStatus(400);
+          res.status(400).send('Gist could not be created');
         });
     }
   }
@@ -220,14 +220,7 @@ class GistController implements BaseController {
     else {
       const oauthToken = req.user.accessToken;
       const body = req.body;
-      const { gistId, privacy, title, content } = body;
-      let { fileName, fileNameEdited } = body;
-      if (!fileName.endsWith('.json')) {
-        fileName = `${fileName}.json`;
-      }
-      if (!fileNameEdited.endsWith('.json')) {
-        fileNameEdited = `${fileNameEdited}.json`;
-      }
+      const { gistId, content, fileName } = body;
       fetch(
         `https://api.github.com/gists/${gistId}?oauth_token=${oauthToken}`,
         {
@@ -236,21 +229,20 @@ class GistController implements BaseController {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            description: title,
-            public: !privacy,
             files: {
               [fileName]: {
-                filename: fileNameEdited,
                 content: content,
               },
             },
           }),
         })
         .then(res => res.json())
-        .then(_ => res.sendStatus(205))
+        .then(json => {
+          res.status(205).send({ url: json.url });
+        })
         .catch(error => {
           console.error(error);
-          res.sendStatus(400);
+          res.status(400).send(`${gistId} could not be updated`);
         });
     }
   }
