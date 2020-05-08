@@ -199,7 +199,7 @@ class GistController implements BaseController {
         }),
       })
         .then(res => res.json())
-        .then(json => res.status(201).send({ url: json.html_url }))
+        .then(json => res.status(201).send({ gistId: json.id, fileName: name }))
         .catch(error => {
           console.error(error);
           res.status(400).send('Gist could not be created');
@@ -238,7 +238,7 @@ class GistController implements BaseController {
         })
         .then(res => res.json())
         .then(json => {
-          res.status(205).send({ url: json.html_url });
+          res.status(205).send({ gistId: json.id, fileName: fileName });
         })
         .catch(error => {
           console.error(error);
