@@ -1,7 +1,6 @@
 # editor-backend
 
-[![Build
-Status](https://travis-ci.com/vega/editor-backend.svg?branch=master)](https://travis-ci.com/vega/editor-backend)
+[![Build Status](https://github.com/vega/editor-backend/workflows/Test/badge.svg)](https://github.com/vega/editor-backend/actions)
 
 Deployed at https://vega.now.sh and https://vega-editor-backend.domoritz.now.sh/. Code is at
 https://github.com/vega/editor-backend. 
