@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@octokit/graphql": "4.4.0",
-    "@types/connect-redis": "^0.0.13",
+    "@types/connect-redis": "^0.0.14",
     "@types/cors": "^2.8.6",
     "@types/passport": "1.0.3",
     "body-parser": "^1.19.0",
