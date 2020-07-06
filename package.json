@@ -34,7 +34,7 @@
     "typescript": "^3.9.6"
   },
   "dependencies": {
-    "@octokit/graphql": "4.4.0",
+    "@octokit/graphql": "4.5.1",
     "@types/connect-redis": "^0.0.14",
     "@types/cors": "^2.8.6",
     "@types/passport": "1.0.3",
