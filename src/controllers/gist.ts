@@ -4,17 +4,8 @@ import { graphql } from '@octokit/graphql';
 
 import BaseController from './base';
 import { gistUrl, redirectUrl, gistRawUrl } from '../urls';
-import { paginationSize } from '../consts';
+import { paginationSize, IGetGist, ICreateGist } from '../consts';
 
-/**
- * Interface for defining structure of a received POST request
- */
-interface ICreateGist {
-  content: string;
-  name: string;
-  privacy: boolean;
-  title?: string;
-}
 
 /**
  * Controller for interacting via GitHub Gist API.
@@ -60,7 +51,7 @@ class GistController implements BaseController {
         res.sendStatus(400);
       }
       else if (req.query.cursor === 'init') {
-        const response = await graphql(`
+        const response: IGetGist = await graphql(`
         query response($privacy: GistPrivacy!, $username: String!) {
           user(login: $username) {
             gists(
@@ -122,7 +113,7 @@ class GistController implements BaseController {
       }
       else {
         try {
-          const response = await graphql(`
+          const response: IGetGist = await graphql(`
           query response(
             $cursor: String!, $privacy: GistPrivacy!, $username: String!
           ) {
