@@ -16,3 +16,7 @@ build
 
 # Vercel
 .vercel
+
+# Keys
+*.key
+*.crt
