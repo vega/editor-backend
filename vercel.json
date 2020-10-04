@@ -10,6 +10,6 @@
     "REDIS_PORT": "@redis-port",
     "SESSION_SECRET": "@session-secret"
   },
-  "builds": [{ "src": "src/**/*.ts", "use": "@now/node" }],
+  "builds": [{ "src": "src/**/*.ts", "use": "@vercel/node" }],
   "routes": [{ "src": "/(.*)", "dest": "/src/app.ts" }]
 }
