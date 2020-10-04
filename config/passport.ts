@@ -28,7 +28,7 @@ passport.serializeUser((user, done) => {
  * @param {function} done Method called internally by passport.js to resume
  * process
  */
-passport.deserializeUser((user: object, done: Function) => {
+passport.deserializeUser((user, done) => {
   done(null, user);
 });
 

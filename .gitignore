@@ -14,5 +14,9 @@ build
 # Environment related files
 .env
 
-# Now
-.now
+# Vercel
+.vercel
+
+# Keys
+*.key
+*.crt

@@ -1,7 +1,6 @@
 {
   "version": 2,
-  "name": "vega-editor-backend",
-  "alias": "vega",
+  "alias": ["vega", "vega-editor-backend"],
   "env": {
     "GITHUB_CLIENT_ID": "@github-client-id",
     "GITHUB_CLIENT_SECRET": "@github-client-secret",
@@ -10,6 +9,6 @@
     "REDIS_PORT": "@redis-port",
     "SESSION_SECRET": "@session-secret"
   },
-  "builds": [{ "src": "src/**/*.ts", "use": "@now/node" }],
+  "builds": [{ "src": "src/**/*.ts", "use": "@vercel/node" }],
   "routes": [{ "src": "/(.*)", "dest": "/src/app.ts" }]
 }
