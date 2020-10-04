@@ -2,8 +2,8 @@
 
 [![Build Status](https://github.com/vega/editor-backend/workflows/Test/badge.svg)](https://github.com/vega/editor-backend/actions)
 
-Deployed at https://vega.now.sh and https://vega-editor-backend.domoritz.now.sh/. Code is at
-https://github.com/vega/editor-backend. 
+Deployed at https://vega-editor-backend.vercel.app/. Code is at
+https://github.com/vega/editor-backend.
 
 ## Setup Instructions
 
@@ -55,6 +55,6 @@ Go to https://vega.github.io/editor-backend/.
 - Install [Rewrap
   plugin](https://marketplace.visualstudio.com/items?itemName=stkb.rewrap) to
   assist formatting of markdown files. Press <kbd>Alt</kbd> + <kbd>Q</kbd> to
-  limit lines at 80 characters. 
+  limit lines at 80 characters.
 - The project uses ESLint to format the code. Run `yarn format` to fix
   formatting where it's possible to do so automatically.
