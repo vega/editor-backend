@@ -71,7 +71,7 @@ class GistController implements BaseController {
               nodes {
                 name
                 description
-                files {
+                files(limit: 300) {
                   name
                   extension
                   isImage
