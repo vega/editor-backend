@@ -74,7 +74,7 @@ class App {
          */
         cookie: {
           maxAge: cookieExpiry * 1000,
-          secure: true,
+          secure: process.env.NODE_ENV === 'production' ? true : false,
           sameSite: 'none',
         },
         rolling: true,
