@@ -174,10 +174,11 @@ class GistController implements BaseController {
       if (!name.endsWith('.json')) {
         name = `${name}.json`;
       }
-      fetch(`https://api.github.com/gists?oauth_token=${oauthToken}`, {
+      fetch('https://api.github.com/gists', {
         method: 'post',
-        header: {
+        headers: {
           'Content-Type': 'application/json',
+          'Authorization': `token ${oauthToken}`,
         },
         body: JSON.stringify({
           description: title,
@@ -190,7 +191,8 @@ class GistController implements BaseController {
         }),
       })
         .then(res => res.json())
-        .then(json => res.status(201).send({ gistId: json.id, fileName: name }))
+        .then(json => {
+          res.status(201).send({ gistId: json.id, fileName: name }); })
         .catch(error => {
           console.error(error);
           res.status(400).send('Gist could not be created');
@@ -213,11 +215,12 @@ class GistController implements BaseController {
       const body = req.body;
       const { gistId, content, fileName } = body;
       fetch(
-        `https://api.github.com/gists/${gistId}?oauth_token=${oauthToken}`,
+        `https://api.github.com/gists/${gistId}`,
         {
           method: 'patch',
-          header: {
+          headers: {
             'Content-Type': 'application/json',
+            'Authorization': `token ${oauthToken}`,
           },
           body: JSON.stringify({
             files: {
