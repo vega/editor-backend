@@ -9,7 +9,7 @@ import {
   cookieExpiry,
   redisConfiguration,
   sessionSecret,
-  whitelist,
+  allowedOrigins,
 } from '../config/index';
 import AuthController from './controllers/auth';
 import Controller from './controllers/base';
@@ -84,7 +84,7 @@ class App {
 
     const corsOptions = {
       origin: (origin, callback) => {
-        if (!origin || whitelist.includes(origin)) {
+        if (!origin || allowedOrigins.includes(origin)) {
           callback(null, true);
         } else {
           callback(new Error('Not allowed by CORS'));

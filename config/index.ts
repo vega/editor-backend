@@ -56,7 +56,7 @@ export const sessionSecret: string = process.env.SESSION_SECRET;
  *
  * @hidden
  */
-export const whitelist: string[] = [
+export const allowedOrigins: string[] = [
   'https://vega.github.io',
   'http://localhost:8081',
   'http://localhost:8080',
