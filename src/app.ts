@@ -100,7 +100,7 @@ class App {
     this.app.set('trust proxy', 1);
 
     this.app.engine('pug', require('pug').__express);
-    this.app.set('views', __dirname + '/views');
+    this.app.set('views', `${__dirname}/views`);
     this.app.set('view engine', 'pug');
   }
 
