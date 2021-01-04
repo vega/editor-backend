@@ -37,7 +37,7 @@
     "@octokit/graphql": "4.5.8",
     "@types/connect-redis": "0.0.15",
     "@types/cors": "^2.8.9",
-    "@types/passport": "1.0.4",
+    "@types/passport": "1.0.5",
     "body-parser": "^1.19.0",
     "connect-redis": "^5.0.0",
     "cors": "^2.8.5",
