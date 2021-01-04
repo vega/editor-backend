@@ -148,10 +148,10 @@
     "@types/connect" "*"
     "@types/node" "*"
 
-"@types/connect-redis@0.0.15":
-  version "0.0.15"
-  resolved "https://registry.yarnpkg.com/@types/connect-redis/-/connect-redis-0.0.15.tgz#941704729f2ea2b2d22be175f4000dde4dfcdb75"
-  integrity sha512-3HfilxHxTQRNA2m7bF6gAE/4sfEUwW3kD9mJD+8MDCmuEwXHvbW+qJxSiv6HYRK7xEKBlLr2RnEpI9tISTA3oA==
+"@types/connect-redis@0.0.16":
+  version "0.0.16"
+  resolved "https://registry.yarnpkg.com/@types/connect-redis/-/connect-redis-0.0.16.tgz#fd98a26ffbe6ac3037baa4aecc940951b9f78cdc"
+  integrity sha512-ToZRmwoeqRhzGIqMO9k8Hs1B9pFSGYCjHvMpPlgo+kQ4M7xaPwi2/5HjikJ0MOfPDFcAe9Qwl1SaULYCNE6jYg==
   dependencies:
     "@types/express" "*"
     "@types/express-session" "*"
