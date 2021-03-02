@@ -34,7 +34,7 @@
     "vercel": "^21.2.2"
   },
   "dependencies": {
-    "@octokit/graphql": "4.5.9",
+    "@octokit/graphql": "4.6.0",
     "@types/connect-redis": "0.0.16",
     "@types/cors": "^2.8.10",
     "@types/passport": "1.0.5",
