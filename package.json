@@ -26,7 +26,7 @@
     "@types/passport-github": "^1.1.5",
     "@typescript-eslint/eslint-plugin": "^4.20.0",
     "@typescript-eslint/parser": "^4.20.0",
-    "eslint": "^7.21.0",
+    "eslint": "^7.23.0",
     "husky": ">=6",
     "lint-staged": ">=10",
     "typedoc": "^0.20.34",
