@@ -23,7 +23,7 @@
   "homepage": "https://github.com/vega/editor-backend#readme",
   "devDependencies": {
     "@types/express": "4.17.13",
-    "@types/passport-github": "^1.1.5",
+    "@types/passport-github": "^1.1.6",
     "@typescript-eslint/eslint-plugin": "^4.28.5",
     "@typescript-eslint/parser": "^4.28.1",
     "eslint": "^7.32.0",
