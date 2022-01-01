@@ -2,7 +2,7 @@
     "editor.wordWrap": "bounded",
     "editor.tabSize": 2,
     "eslint.options": {
-        "configFile": ".eslintrc.json"
+        "overrideConfigFile": ".eslintrc.json"
     },
     "eslint.run": "onSave",
     "eslint.validate": [
