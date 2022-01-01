@@ -14,9 +14,9 @@ import { paginationSize, IGetGist, ICreateGist } from '../consts';
  */
 class GistController implements BaseController {
 
-  public path = gistUrl.main
+  public path = gistUrl.main;
 
-  public router = express.Router()
+  public router = express.Router();
 
   /**
    * Constructor of `GistController`.
@@ -32,7 +32,7 @@ class GistController implements BaseController {
     this.router.get(gistUrl.allGists, this.fetchAllGistsofUser);
     this.router.post(gistUrl.createGist, this.createGist);
     this.router.post(gistUrl.updateGist, this.updateGist);
-  }
+  };
 
   /**
    * Route to fetch all private and public gists of a user.
@@ -154,7 +154,7 @@ class GistController implements BaseController {
         }
       }
     }
-  }
+  };
 
   /**
    * Route to create a gist.
@@ -198,7 +198,7 @@ class GistController implements BaseController {
           res.status(400).send('Gist could not be created');
         });
     }
-  }
+  };
 
   /**
    * Route to update a gist.
@@ -239,7 +239,7 @@ class GistController implements BaseController {
           res.status(400).send(`${gistId} could not be updated`);
         });
     }
-  }
+  };
 
   /**
    * Static method to sanitize the output fetched by GitHub gist API.
@@ -276,7 +276,7 @@ class GistController implements BaseController {
       delete gist.description;
     });
     return gists;
-  }
+  };
 
   /**
    * Static method to generate raw URL
@@ -286,9 +286,9 @@ class GistController implements BaseController {
    * @param {string} username Name of gist creator
    */
   private static specUrlGenerator =
-  (fileName: string, gistId: string, username: string) => {
-    return `${gistRawUrl}/${username}/${gistId}/raw/${fileName}`;
-  }
+    (fileName: string, gistId: string, username: string) => {
+      return `${gistRawUrl}/${username}/${gistId}/raw/${fileName}`;
+    };
 
 }
 

@@ -10,9 +10,9 @@ import { authUrl, gistUrl, docsUrl } from '../urls';
  */
 class HomeController implements BaseController {
 
-  public path = '/'
+  public path = '/';
 
-  public router = express.Router()
+  public router = express.Router();
 
   /**
    * Constructor of `HomeController`.
@@ -26,7 +26,7 @@ class HomeController implements BaseController {
    */
   private initializeRoutes = () => {
     this.router.get(this.path, this.listRoutes);
-  }
+  };
 
   /**
    * Displays welcome message.
@@ -41,7 +41,7 @@ class HomeController implements BaseController {
       host: req.headers.host,
       docsUrl,
     });
-  }
+  };
 
 }
 
