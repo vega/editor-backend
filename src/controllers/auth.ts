@@ -56,10 +56,14 @@ class AuthController implements BaseController {
             window.location = '${redirectUrl.successful}'
           }
           else {
-            window.opener.postMessage(
-              {type: 'auth'}, '*'
-            )
-            window.close()
+            try {
+              window.opener.postMessage(
+                {type: 'auth'}, '*'
+              )
+              window.close()
+            } catch (e) {
+              window.location = '${redirectUrl.successful}'
+            }
           }
         </script>
       </html>`
@@ -88,10 +92,15 @@ class AuthController implements BaseController {
               window.location.assign('${redirectUrl.successful}')
             }
             else {
-              window.opener.postMessage(
-                {type: 'auth'}, '*'
-              )
-              window.close()
+              try {
+                window.opener.postMessage(
+                  {type: 'auth'}, '*'
+                )
+                window.close()
+              } catch (e) {
+
+                window.location.assign('${redirectUrl.successful}')
+              }
             }
           </script>
         </html>`
