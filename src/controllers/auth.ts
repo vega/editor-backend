@@ -76,6 +76,7 @@ class AuthController implements BaseController {
       login: user._json.login,
       name: user._json.name,
       avatar_url: user._json.avatar_url,
+      access_token: user.accessToken,
       randomId: randomPart,
       timestamp: Date.now()
     };
