@@ -87,7 +87,8 @@ class App {
 
     const corsOptions = {
       origin: (origin, callback) => {
-        if (!origin || allowedOrigins.includes(origin)) {
+
+        if (!origin || origin === 'null' || allowedOrigins.includes(origin)) {
           callback(null, true);
         } else {
           callback(new Error('Not allowed by CORS'));
@@ -98,6 +99,23 @@ class App {
     this.app.use(cors(corsOptions));
     this.app.use(passport.initialize());
     this.app.use(passport.session());
+
+    // Handle preflight OPTIONS requests explicitly
+    this.app.options('*', (req, res) => {
+      const origin = req.headers.origin || '*';
+
+      if (origin === 'null') {
+        res.header('Access-Control-Allow-Origin', 'null');
+      } else {
+        res.header('Access-Control-Allow-Origin', origin);
+      }
+
+      res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+      res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Auth-Token, Cache-Control, Pragma, Expires');
+      res.header('Access-Control-Allow-Credentials', 'true');
+      res.header('Access-Control-Expose-Headers', 'Content-Type, Authorization, X-Auth-Token');
+      res.status(200).end();
+    });
 
     // Put IP of https://vega.github.io/editor instead of 1
     this.app.set('trust proxy', 1);
