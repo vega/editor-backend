@@ -83,7 +83,7 @@ class AuthController implements BaseController {
 
     const dataString = JSON.stringify(userInfo);
     const signature = crypto
-      .createHmac('sha256', process.env.SESSION_SECRET || 'vega-editor-secret')
+      .createHmac('sha256', process.env.SESSION_SECRET)
       .update(dataString)
       .digest('hex');
 
@@ -108,7 +108,7 @@ class AuthController implements BaseController {
       const { data, signature } = decoded;
 
       const expectedSignature = crypto
-        .createHmac('sha256', process.env.SESSION_SECRET || 'vega-editor-secret')
+        .createHmac('sha256', process.env.SESSION_SECRET)
         .update(data)
         .digest('hex');
 
@@ -131,7 +131,9 @@ class AuthController implements BaseController {
           login: userInfo.login,
           name: userInfo.name,
           avatar_url: userInfo.avatar_url
-        }
+        },
+        username: userInfo.login,
+        accessToken: userInfo.access_token
       };
     } catch (error) {
       console.error('Token validation error:', error);
@@ -148,10 +150,12 @@ class AuthController implements BaseController {
     console.log('Authentication successful, generating token');
 
     let authToken = '';
+    let githubAccessToken = '';
     try {
       if (req.user) {
         console.log('User profile received:', req.user._json ? req.user._json.login : 'Unknown');
         authToken = this.generateToken(req.user);
+        githubAccessToken = req.user.accessToken;
         console.log('Token generated successfully');
       } else {
         console.error('No user data received from GitHub authentication');
@@ -164,9 +168,12 @@ class AuthController implements BaseController {
       `<html>
         <script>
           const authToken = "${authToken}";
+          const githubAccessToken = "${githubAccessToken}"; // Pass GitHub access token to frontend
+          
           if (authToken) {
             console.log("Storing auth token in localStorage");
             localStorage.setItem('vega_editor_auth_token', authToken);
+            localStorage.setItem('vega_editor_github_token', githubAccessToken);
           } else {
             console.error("No auth token received");
           }
@@ -177,7 +184,7 @@ class AuthController implements BaseController {
           else {
             try {
               window.opener.postMessage(
-                {type: 'auth'}, '*'
+                {type: 'auth', token: authToken, githubToken: githubAccessToken}, '*'
               )
               window.close()
             } catch (e) {
@@ -203,19 +210,15 @@ class AuthController implements BaseController {
     } else {
       res.header('Access-Control-Allow-Origin', origin);
     }
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, X-Auth-Token');
     res.header('Access-Control-Allow-Credentials', 'true');
-
-    if (req.query.token) {
-      const token = req.query.token as string;
-      console.log('Logging out with token from query parameter');
-      return res.status(204).send();
-    }
 
     res.send(
       `<html>
         <script>
-          // Clear token from localStorage
           localStorage.removeItem('vega_editor_auth_token');
+          localStorage.removeItem('vega_editor_github_token');
+          localStorage.removeItem('vega_editor_auth_data');
           
           if (window.opener === null) {
             window.location.assign('${redirectUrl.successful}')
@@ -227,7 +230,6 @@ class AuthController implements BaseController {
               )
               window.close()
             } catch (e) {
-              // If postMessage fails, redirect to the main page
               window.location.assign('${redirectUrl.successful}')
             }
           }
@@ -249,40 +251,31 @@ class AuthController implements BaseController {
     } else {
       res.header('Access-Control-Allow-Origin', origin);
     }
-
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, X-Auth-Token');
     res.header('Access-Control-Allow-Credentials', 'true');
 
-    const data = {
-      handle: '',
-      isAuthenticated: false,
-      name: '',
-      profilePicUrl: '',
-    };
-
     // Checking for token-based auth
     const authToken = req.headers['x-auth-token'] as string;
+    let tokenUser = null;
+
     if (authToken) {
-      console.log('Received auth token:', authToken.substring(0, 10) + '...');
-      const tokenUser = this.validateToken(authToken);
-      if (tokenUser && tokenUser._json) {
-        console.log('Token validated for user:', tokenUser._json.login);
-        return res.send({
-          handle: tokenUser._json.login,
-          isAuthenticated: true,
-          name: tokenUser._json.name,
-          profilePicUrl: tokenUser._json.avatar_url,
-          authToken
-        });
-      } else {
-        console.log('Token validation failed');
-      }
+      tokenUser = this.validateToken(authToken);
     }
 
-    // User is not authenticated
+    if (!req.isAuthenticated() && !tokenUser) {
+      return res.send({
+        isAuthenticated: false
+      });
+    }
+
+    const user = tokenUser || req.user;
     res.send({
-      ...data,
-      isAuthenticated: false
+      isAuthenticated: true,
+      handle: user.username,
+      name: user._json.name,
+      profilePicUrl: user._json.avatar_url,
+      authToken: tokenUser ? authToken : this.generateToken(user),
+      githubAccessToken: tokenUser.accessToken
     });
   };
 }

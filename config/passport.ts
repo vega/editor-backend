@@ -24,6 +24,7 @@ passport.use(new GitHubStrategy({
   clientID: githubOauth.GITHUB_CLIENT_ID,
   clientSecret: githubOauth.GITHUB_CLIENT_SECRET,
   callbackURL: `${hostUrl}${authUrl.callback}`,
+  scope: ['gist'],
 }, (accessToken, refreshToken, profile, done) => {
   console.log('GitHub OAuth callback received');
 

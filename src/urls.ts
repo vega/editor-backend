@@ -68,6 +68,7 @@ export const gistUrl = {
   allGists: `${gistMain}/user`,
   createGist: `${gistMain}/create`,
   updateGist: `${gistMain}/update`,
+  validateToken: `${gistMain}/validate-token`,
 };
 
 export const gistRawUrl = 'https://gist.githubusercontent.com';
