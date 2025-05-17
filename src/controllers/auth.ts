@@ -7,6 +7,7 @@ import crypto from 'crypto';
 
 // Enables passport to recognize the configuration.
 require('../../config/passport');
+
 /**
  * Controller for OAuthentication via GitHub.
  *
@@ -30,11 +31,11 @@ class AuthController implements BaseController {
   private initializeRoutes = () => {
     this.router.get(
       this.path,
-      passport.authenticate('github', { scope: 'gist' })
+      passport.authenticate('github', { scope: 'gist', session: false })
     );
     this.router.get(
       authUrl.callback,
-      passport.authenticate('github'),
+      passport.authenticate('github', { session: false }),
       this.success
     );
     this.router.get(authUrl.logout, this.logout);
@@ -65,7 +66,6 @@ class AuthController implements BaseController {
    * @returns {string} A secure token
    */
   private generateToken = (user: any): string => {
-
     if (!user || !user._json) return '';
 
     const randomPart = crypto.randomBytes(16).toString('hex');
@@ -104,10 +104,8 @@ class AuthController implements BaseController {
     if (!token) return null;
 
     try {
-
       const decoded = JSON.parse(Buffer.from(token, 'base64').toString());
       const { data, signature } = decoded;
-
 
       const expectedSignature = crypto
         .createHmac('sha256', process.env.SESSION_SECRET || 'vega-editor-secret')
@@ -147,18 +145,30 @@ class AuthController implements BaseController {
    * @param {Response} res Response object
    */
   private success = (req, res) => {
+    console.log('Authentication successful, generating token');
+
     let authToken = '';
-    if (req.user) {
-      authToken = this.generateToken(req.user);
+    try {
+      if (req.user) {
+        console.log('User profile received:', req.user._json ? req.user._json.login : 'Unknown');
+        authToken = this.generateToken(req.user);
+        console.log('Token generated successfully');
+      } else {
+        console.error('No user data received from GitHub authentication');
+      }
+    } catch (error) {
+      console.error('Error generating authentication token:', error);
     }
 
     res.send(
       `<html>
         <script>
-
           const authToken = "${authToken}";
           if (authToken) {
+            console.log("Storing auth token in localStorage");
             localStorage.setItem('vega_editor_auth_token', authToken);
+          } else {
+            console.error("No auth token received");
           }
           
           if (window.opener === null) {
@@ -171,6 +181,7 @@ class AuthController implements BaseController {
               )
               window.close()
             } catch (e) {
+              console.error("Error posting message to opener:", e);
               window.location = '${redirectUrl.successful}'
             }
           }
@@ -186,7 +197,6 @@ class AuthController implements BaseController {
    * @param {Response} res Response object
    */
   private logout = (req, res) => {
-
     const origin = req.headers.origin || '*';
     if (origin === 'null') {
       res.header('Access-Control-Allow-Origin', 'null');
@@ -198,40 +208,32 @@ class AuthController implements BaseController {
     if (req.query.token) {
       const token = req.query.token as string;
       console.log('Logging out with token from query parameter');
-
       return res.status(204).send();
     }
 
-    if (req.user) {
-      res.clearCookie('vega_session', { path: '/' });
-      req.session.destroy(err => {
-        if (err) {
-          console.error('Session did not delete');
-        }
-      });
-      res.send(
-        `<html>
-          <script>
-            if (window.opener === null) {
+    res.send(
+      `<html>
+        <script>
+          // Clear token from localStorage
+          localStorage.removeItem('vega_editor_auth_token');
+          
+          if (window.opener === null) {
+            window.location.assign('${redirectUrl.successful}')
+          }
+          else {
+            try {
+              window.opener.postMessage(
+                {type: 'auth'}, '*'
+              )
+              window.close()
+            } catch (e) {
+              // If postMessage fails, redirect to the main page
               window.location.assign('${redirectUrl.successful}')
             }
-            else {
-              try {
-                window.opener.postMessage(
-                  {type: 'auth'}, '*'
-                )
-                window.close()
-              } catch (e) {
-
-                window.location.assign('${redirectUrl.successful}')
-              }
-            }
-          </script>
-        </html>`
-      );
-    } else {
-      res.redirect(redirectUrl.successful);
-    }
+          }
+        </script>
+      </html>`
+    );
   };
 
   /**
@@ -241,7 +243,6 @@ class AuthController implements BaseController {
    * @param {Response} res Response object
    */
   private loggedIn = (req, res) => {
-
     const origin = req.headers.origin || '*';
     if (origin === 'null') {
       res.header('Access-Control-Allow-Origin', 'null');
@@ -278,21 +279,11 @@ class AuthController implements BaseController {
       }
     }
 
-    if (req.user === undefined) {
-      res.send({
-        ...data,
-        isAuthenticated: false
-      });
-    } else {
-      const token = this.generateToken(req.user);
-      res.send({
-        ...data,
-        handle: req.user._json.login,
-        isAuthenticated: true,
-        name: req.user._json.name,
-        profilePicUrl: req.user._json.avatar_url,
-      });
-    }
+    // User is not authenticated
+    res.send({
+      ...data,
+      isAuthenticated: false
+    });
   };
 }
 
