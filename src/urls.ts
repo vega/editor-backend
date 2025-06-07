@@ -27,6 +27,10 @@ export const authUrl = {
    * Endpoint to verify if the user is authenticated.
    */
   isAuthenticated: `${authMain}/check`,
+  /**
+   * Endpoint to get a GitHub token for API calls.
+   */
+  getGithubToken: `${authMain}/token`,
 };
 
 /**
