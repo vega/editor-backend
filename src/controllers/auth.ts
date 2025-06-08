@@ -6,7 +6,7 @@ import BaseController from './base.js';
 import { redirectUrl, authUrl } from '../urls.js';
 
 // Enables passport to recognize the configuration.
-import('../../config/passport.js');
+import '../../config/passport.js';
 
 /**
  * Controller for OAuthentication via GitHub.

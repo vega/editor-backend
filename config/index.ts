@@ -53,10 +53,3 @@ export const allowedOrigins: string[] = [
  * production server._
  */
 export const nodeEnv: string = process.env.NODE_ENV;
-
-/**
- * Stores the expiry date of the cookie set.
- *
- * _Exported as `cookieExpiry`_.
- */
-export const cookieExpiry: number = 90 * 24 * 60 * 60; // 90 days
