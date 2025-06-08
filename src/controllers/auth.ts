@@ -31,12 +31,12 @@ class AuthController implements BaseController {
   private initializeRoutes = () => {
     this.router.get(
       this.path,
-      passport.authenticate('github', { scope: 'gist', session: false })
+      passport.authenticate('github', { scope: 'gist', session: false }),
     );
     this.router.get(
       authUrl.callback,
       passport.authenticate('github', { session: false }),
-      this.success
+      this.success,
     );
     this.router.get(authUrl.logout, this.logout);
     this.router.get(authUrl.isAuthenticated, this.loggedIn);
@@ -174,7 +174,7 @@ class AuthController implements BaseController {
             }
           }
         </script>
-      </html>`
+      </html>`,
     );
   };
 
@@ -213,7 +213,7 @@ class AuthController implements BaseController {
             }
           }
         </script>
-      </html>`
+      </html>`,
     );
   };
 
