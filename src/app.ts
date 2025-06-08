@@ -23,14 +23,18 @@ class App {
    */
   public app: express.Application;
 
+  //needed to access controller methods
+  private authController: AuthController;
+
   /**
    * Constructor to initialize application.
    */
   constructor() {
     this.app = express();
+    this.authController = new AuthController();
     this.initializeMiddleWares();
     this.initializeControllers([
-      new AuthController(),
+      this.authController,
       new HomeController(),
     ]);
   }
@@ -54,27 +58,7 @@ class App {
     this.app.use(cors(corsOptions));
     this.app.use(passport.initialize());
 
-    // Handle preflight OPTIONS requests explicitly (required for CORS)
-    this.app.options('*', (req, res) => {
-      const origin = req.headers.origin || '*';
-
-      if (origin === 'null') {
-        res.header('Access-Control-Allow-Origin', 'null');
-      } else {
-        res.header('Access-Control-Allow-Origin', origin);
-      }
-
-      // Needed to handle CORS preflight requests.
-      // i.e. tell browsers which origins, methods, are allowed.
-
-      res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-      // Without this, browsers may block cross-origin requests, especially when credentials are involved.
-      res.header('Access-Control-Allow-Headers',
-        'Content-Type, Authorization, X-Auth-Token, Cache-Control, Pragma, Expires');
-      res.header('Access-Control-Allow-Credentials', 'true');
-      res.header('Access-Control-Expose-Headers', 'Content-Type, Authorization, X-Auth-Token');
-      res.status(200).end();
-    });
+    this.app.options('*', this.authController.handleOptions);
 
     // Put IP of https://vega.github.io/editor instead of 1
     this.app.set('trust proxy', 1);

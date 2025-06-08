@@ -46,7 +46,7 @@ class AuthController implements BaseController {
   /**
    * Handle OPTIONS requests (CORS preflight)
    */
-  private handleOptions = (req, res) => {
+  public handleOptions = (req, res) => {
     const origin = req.headers.origin || '*';
 
     if (origin === 'null') {
