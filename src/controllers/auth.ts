@@ -217,8 +217,6 @@ class AuthController implements BaseController {
       `<html>
         <script>
           localStorage.removeItem('vega_editor_auth_token');
-          localStorage.removeItem('vega_editor_github_token');
-          localStorage.removeItem('vega_editor_auth_data');
           
           if (window.opener === null) {
             window.location.assign('${redirectUrl.successful}')
