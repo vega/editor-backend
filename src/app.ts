@@ -4,10 +4,15 @@ import express from 'express';
 import passport from 'passport';
 import {
   allowedOrigins,
-} from '../config/index';
-import AuthController from './controllers/auth';
-import Controller from './controllers/base';
-import HomeController from './controllers/home';
+} from '../config/index.js';
+import AuthController from './controllers/auth.js';
+import Controller from './controllers/base.js';
+import HomeController from './controllers/home.js';
+
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 /**
  * Configuration of the express application.
@@ -63,8 +68,9 @@ class App {
       // i.e. tell browsers which origins, methods, are allowed.
 
       res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-      res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Auth-Token, Cache-Control, Pragma, Expires');
       // Without this, browsers may block cross-origin requests, especially when credentials are involved.
+      res.header('Access-Control-Allow-Headers',
+        'Content-Type, Authorization, X-Auth-Token, Cache-Control, Pragma, Expires');
       res.header('Access-Control-Allow-Credentials', 'true');
       res.header('Access-Control-Expose-Headers', 'Content-Type, Authorization, X-Auth-Token');
       res.status(200).end();
@@ -73,7 +79,6 @@ class App {
     // Put IP of https://vega.github.io/editor instead of 1
     this.app.set('trust proxy', 1);
 
-    this.app.engine('pug', require('pug').__express);
     this.app.set('views', `${__dirname}/views`);
     this.app.set('view engine', 'pug');
   }

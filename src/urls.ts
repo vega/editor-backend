@@ -1,4 +1,4 @@
-import { nodeEnv } from '../config/index';
+import { nodeEnv } from '../config/index.js';
 
 /**
  * Prefix for URLs for authentication with GitHub.

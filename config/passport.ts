@@ -1,8 +1,8 @@
 import passport from 'passport';
 import passportGitHub from 'passport-github2';
 
-import { githubOauth } from './index';
-import { authUrl, hostUrl } from '../src/urls';
+import { githubOauth } from './index.js';
+import { authUrl, hostUrl } from '../src/urls.js';
 
 /**
  * OAuth strategy to authenticate with GitHub. Reference:

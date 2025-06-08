@@ -1,7 +1,7 @@
 import express from 'express';
 
-import BaseController from './base';
-import { authUrl, docsUrl } from '../urls';
+import BaseController from './base.js';
+import { authUrl, docsUrl } from '../urls.js';
 
 /**
  * Controller to serve the root URL of back-end service.

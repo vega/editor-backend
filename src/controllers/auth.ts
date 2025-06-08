@@ -1,12 +1,12 @@
 import express from 'express';
 import passport from 'passport';
-
-import BaseController from './base';
-import { redirectUrl, authUrl } from '../urls';
 import crypto from 'crypto';
 
+import BaseController from './base.js';
+import { redirectUrl, authUrl } from '../urls.js';
+
 // Enables passport to recognize the configuration.
-require('../../config/passport');
+import('../../config/passport.js');
 
 /**
  * Controller for OAuthentication via GitHub.
@@ -56,7 +56,8 @@ class AuthController implements BaseController {
     }
 
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Auth-Token, Cache-Control, Pragma, Expires');
+    res.header('Access-Control-Allow-Headers',
+      'Content-Type, Authorization, X-Auth-Token, Cache-Control, Pragma, Expires');
     res.header('Access-Control-Allow-Credentials', 'true');
     res.header('Access-Control-Expose-Headers', 'Content-Type, Authorization, X-Auth-Token');
     res.status(200).end();
