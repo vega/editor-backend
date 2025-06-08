@@ -44,26 +44,6 @@ class AuthController implements BaseController {
   };
 
   /**
-   * Handle OPTIONS requests (CORS preflight)
-   */
-  public handleOptions = (req, res) => {
-    const origin = req.headers.origin || '*';
-
-    if (origin === 'null') {
-      res.header('Access-Control-Allow-Origin', 'null');
-    } else {
-      res.header('Access-Control-Allow-Origin', origin);
-    }
-
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-    res.header('Access-Control-Allow-Headers',
-      'Content-Type, Authorization, X-Auth-Token, Cache-Control, Pragma, Expires');
-    res.header('Access-Control-Allow-Credentials', 'true');
-    res.header('Access-Control-Expose-Headers', 'Content-Type, Authorization, X-Auth-Token');
-    res.status(200).end();
-  };
-
-  /**
    * Generate a secure token containing encrypted user data
    * @returns {string} A secure token
    */

@@ -1,4 +1,3 @@
-import bodyParser from 'body-parser';
 import cors from 'cors';
 import express from 'express';
 import passport from 'passport';
@@ -43,25 +42,21 @@ class App {
    * Initializes middleware for accessing request and response objects.
    */
   private initializeMiddleWares() {
-    this.app.use(bodyParser.json());
+    this.app.use(express.json());
 
     const corsOptions = {
       origin: (origin, callback) => {
+        console.log(`CORS request from origin: ${origin}`);
         if (!origin || origin === 'null' || allowedOrigins.includes(origin)) {
           callback(null, true);
         } else {
           callback(new Error('Not allowed by CORS'));
         }
       },
-      credentials: true,
+      credentials: true
     };
     this.app.use(cors(corsOptions));
     this.app.use(passport.initialize());
-
-    this.app.options('*', this.authController.handleOptions);
-
-    // Put IP of https://vega.github.io/editor instead of 1
-    this.app.set('trust proxy', 1);
 
     this.app.set('views', `${__dirname}/views`);
     this.app.set('view engine', 'pug');
