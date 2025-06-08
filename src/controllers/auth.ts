@@ -69,12 +69,10 @@ class AuthController implements BaseController {
       .update(dataString)
       .digest('hex');
 
-    const token = Buffer.from(JSON.stringify({
+    return Buffer.from(JSON.stringify({
       data: dataString,
       signature,
     })).toString('base64');
-
-    return token;
   };
 
   /**
@@ -266,6 +264,7 @@ class AuthController implements BaseController {
       githubAccessToken: user.accessToken,
     });
   };
+
 }
 
 /**

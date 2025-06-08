@@ -46,7 +46,6 @@ class App {
 
     const corsOptions = {
       origin: (origin, callback) => {
-        console.log(`CORS request from origin: ${origin}`);
         if (!origin || origin === 'null' || allowedOrigins.includes(origin)) {
           callback(null, true);
         } else {
