@@ -36,7 +36,7 @@ export const authUrl = {
 /**
  * Stores redirection URL for successful and failed authentication.
  *
- *  _Exported as `redirectUrl` for redirections._
+ *  _Exported as `redirectUrl` for redirects._
  */
 const redirectUrl = {
   /**
@@ -64,17 +64,5 @@ if (nodeEnv === 'production') {
 }
 
 export { redirectUrl, hostUrl };
-
-const gistMain = '/gists';
-
-export const gistUrl = {
-  main: gistMain,
-  allGists: `${gistMain}/user`,
-  createGist: `${gistMain}/create`,
-  updateGist: `${gistMain}/update`,
-  validateToken: `${gistMain}/validate-token`,
-};
-
-export const gistRawUrl = 'https://gist.githubusercontent.com';
 
 export const docsUrl = 'https://vega.github.io/editor-backend';

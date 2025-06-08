@@ -67,7 +67,7 @@ class AuthController implements BaseController {
    * @returns {string} A secure token
    */
   private generateToken = (user: any): string => {
-    if (!user || !user._json) return '';
+    if (!user || !user._json) { return ''; }
 
     const randomPart = crypto.randomBytes(16).toString('hex');
 
@@ -79,7 +79,7 @@ class AuthController implements BaseController {
       avatar_url: user._json.avatar_url,
       access_token: user.accessToken,
       randomId: randomPart,
-      timestamp: Date.now()
+      timestamp: Date.now(),
     };
 
     const dataString = JSON.stringify(userInfo);
@@ -90,7 +90,7 @@ class AuthController implements BaseController {
 
     const token = Buffer.from(JSON.stringify({
       data: dataString,
-      signature
+      signature,
     })).toString('base64');
 
     return token;
@@ -102,7 +102,7 @@ class AuthController implements BaseController {
    * @returns {any} The user info if token is valid, null otherwise
    */
   private validateToken = (token: string): any => {
-    if (!token) return null;
+    if (!token) { return null; }
 
     try {
       const decoded = JSON.parse(Buffer.from(token, 'base64').toString());
@@ -131,10 +131,10 @@ class AuthController implements BaseController {
           id: userInfo.id,
           login: userInfo.login,
           name: userInfo.name,
-          avatar_url: userInfo.avatar_url
+          avatar_url: userInfo.avatar_url,
         },
         username: userInfo.login,
-        accessToken: userInfo.access_token
+        accessToken: userInfo.access_token,
       };
     } catch (error) {
       console.error('Token validation error:', error);
@@ -263,7 +263,7 @@ class AuthController implements BaseController {
 
     if (!req.isAuthenticated() && !tokenUser) {
       return res.send({
-        isAuthenticated: false
+        isAuthenticated: false,
       });
     }
 
@@ -274,7 +274,7 @@ class AuthController implements BaseController {
       name: user._json.name,
       profilePicUrl: user._json.avatar_url,
       authToken: tokenUser ? authToken : this.generateToken(user),
-      githubAccessToken: tokenUser.accessToken
+      githubAccessToken: tokenUser.accessToken,
     });
   };
 
@@ -304,14 +304,14 @@ class AuthController implements BaseController {
 
     if (!req.isAuthenticated() && !tokenUser) {
       return res.status(401).send({
-        error: 'Not authenticated'
+        error: 'Not authenticated',
       });
     }
 
     const user = tokenUser || req.user;
 
     res.send({
-      githubAccessToken: user.accessToken
+      githubAccessToken: user.accessToken,
     });
   };
 }

@@ -11,6 +11,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs": "typedoc"
   },
+  "type": "module",
   "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
