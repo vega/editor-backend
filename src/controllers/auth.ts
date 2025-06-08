@@ -149,24 +149,10 @@ class AuthController implements BaseController {
    * @param {Response} res Response object
    */
   private success = (req, res) => {
-    // eslint-disable-next-line no-console
-    console.log('Authentication successful, generating token');
-
     let authToken = '';
-    try {
-      if (req.user) {
-        // eslint-disable-next-line no-console
-        console.log('User profile received:', req.user._json ? req.user._json.login : 'Unknown');
-        authToken = this.generateToken(req.user);
-        // eslint-disable-next-line no-console
-        console.log('Token generated successfully');
-      } else {
-        // eslint-disable-next-line no-console
-        console.error('No user data received from GitHub authentication');
-      }
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error('Error generating authentication token:', error);
+
+    if (req.user) {
+      authToken = this.generateToken(req.user);
     }
 
     res.send(
@@ -175,10 +161,7 @@ class AuthController implements BaseController {
           const authToken = "${authToken}";
           
           if (authToken) {
-            console.log("Storing auth token in localStorage");
             localStorage.setItem('vega_editor_auth_token', authToken);
-          } else {
-            console.error("No auth token received");
           }
           
           if (window.opener === null) {
@@ -191,7 +174,6 @@ class AuthController implements BaseController {
               )
               window.close()
             } catch (e) {
-              console.error("Error posting message to opener:", e);
               window.location = '${redirectUrl.successful}'
             }
           }
