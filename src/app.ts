@@ -26,7 +26,7 @@ class App {
     this.initializeMiddleWares();
     this.initializeControllers([
       new AuthController(),
-      new HomeController()
+      new HomeController(),
     ]);
   }
 
@@ -59,9 +59,8 @@ class App {
         res.header('Access-Control-Allow-Origin', origin);
       }
 
-      // Needed to handle CORS preflight requests. 
+      // Needed to handle CORS preflight requests.
       // i.e. tell browsers which origins, methods, are allowed.
-
 
       res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
       res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Auth-Token, Cache-Control, Pragma, Expires');

@@ -29,7 +29,7 @@ https://github.com/vega/editor-backend.
 
     # GitHub OAuth app credentials
     GITHUB_CLIENT_ID=a901f0948b144d29fbdf 
-    GITHUB_CLIENT_SECRET=dfdb84ff29fde4eaa160078d13e024530238ebe0
+    GITHUB_CLIENT_SECRET=8a2269fd225321f19f2a19e7629e3ad63d94df68
 
     # Session ID configuration
     SESSION_SECRET=secret
