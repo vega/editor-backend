@@ -149,11 +149,7 @@ class AuthController implements BaseController {
    * @param {Response} res Response object
    */
   private success = (req, res) => {
-    let authToken = '';
-
-    if (req.user) {
-      authToken = this.generateToken(req.user);
-    }
+    const authToken = req.user ? this.generateToken(req.user) : '';
 
     res.send(
       `<html>
@@ -239,11 +235,7 @@ class AuthController implements BaseController {
 
     // Checking for token-based auth
     const authToken = req.headers['x-auth-token'] as string;
-    let tokenUser = null;
-
-    if (authToken) {
-      tokenUser = this.validateToken(authToken);
-    }
+    const tokenUser = authToken ? this.validateToken(authToken) : null;
 
     if (!req.isAuthenticated() && !tokenUser) {
       return res.send({
@@ -280,11 +272,7 @@ class AuthController implements BaseController {
     res.header('Access-Control-Allow-Credentials', 'true');
 
     const authToken = req.headers['x-auth-token'] as string;
-    let tokenUser = null;
-
-    if (authToken) {
-      tokenUser = this.validateToken(authToken);
-    }
+    const tokenUser = authToken ? this.validateToken(authToken) : null;
 
     if (!req.isAuthenticated() && !tokenUser) {
       return res.status(401).send({
