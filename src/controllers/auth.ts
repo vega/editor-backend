@@ -149,20 +149,23 @@ class AuthController implements BaseController {
    * @param {Response} res Response object
    */
   private success = (req, res) => {
+    // eslint-disable-next-line no-console
     console.log('Authentication successful, generating token');
 
     let authToken = '';
-    let githubAccessToken = '';
     try {
       if (req.user) {
+        // eslint-disable-next-line no-console
         console.log('User profile received:', req.user._json ? req.user._json.login : 'Unknown');
         authToken = this.generateToken(req.user);
-        githubAccessToken = req.user.accessToken;
+        // eslint-disable-next-line no-console
         console.log('Token generated successfully');
       } else {
+        // eslint-disable-next-line no-console
         console.error('No user data received from GitHub authentication');
       }
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error('Error generating authentication token:', error);
     }
 

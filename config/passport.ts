@@ -10,10 +10,6 @@ import { authUrl, hostUrl } from '../src/urls.js';
  */
 const GitHubStrategy = passportGitHub.Strategy;
 
-console.log('Configuring GitHub strategy with callback URL:', `${hostUrl}${authUrl.callback}`);
-console.log('GitHub client ID is set:', !!githubOauth.GITHUB_CLIENT_ID);
-console.log('GitHub client secret is set:', !!githubOauth.GITHUB_CLIENT_SECRET);
-
 /**
  * GitHub OAuth strategy configuration.
  *
@@ -26,19 +22,15 @@ passport.use(new GitHubStrategy({
   callbackURL: `${hostUrl}${authUrl.callback}`,
   scope: ['gist'],
 }, (accessToken, refreshToken, profile, done) => {
-  console.log('GitHub OAuth callback received');
 
   if (!profile) {
-    console.error('No profile received from GitHub');
     return done(new Error('Failed to retrieve GitHub profile'));
   }
 
   if (!accessToken) {
-    console.error('No access token received from GitHub');
     return done(new Error('No access token provided'));
   }
 
-  console.log('GitHub OAuth successful for user:', profile.username ?? profile.displayName ?? 'Unknown');
   done(null, { ...profile, accessToken });
 }));
 
