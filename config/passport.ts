@@ -38,7 +38,7 @@ passport.use(new GitHubStrategy({
     return done(new Error('No access token provided'));
   }
 
-  console.log('GitHub OAuth successful for user:', profile.username || profile.displayName || 'Unknown');
+  console.log('GitHub OAuth successful for user:', profile.username ?? profile.displayName ?? 'Unknown');
   done(null, { ...profile, accessToken });
 }));
 
