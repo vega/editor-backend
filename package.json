@@ -8,7 +8,6 @@
     "build": "tsc",
     "lint": "eslint {src/**/*.ts,config/*.ts}",
     "format": "eslint --fix {src/**/*.ts,config/*.ts}",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "docs": "typedoc"
   },
   "type": "module",
@@ -23,24 +22,24 @@
   },
   "homepage": "https://github.com/vega/editor-backend#readme",
   "devDependencies": {
-    "@types/express": "^5.0.0",
-    "@types/passport-github": "^1.1.7",
-    "@typescript-eslint/eslint-plugin": "^8.0.0",
-    "@typescript-eslint/parser": "^8.0.0",
-    "eslint": "^9.0.0",
+    "@types/express": "^5.0.3",
+    "@types/passport-github": "^1.1.12",
+    "@typescript-eslint/eslint-plugin": "^8.33.1",
+    "@typescript-eslint/parser": "^8.33.1",
+    "eslint": "^9.28.0",
     "husky": ">=9",
     "lint-staged": ">=16",
     "typedoc": "^0.28.5",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.33.1",
-    "wrangler": "^3.0.0"
+    "wrangler": "^4.19.1"
   },
   "dependencies": {
     "@types/cors": "^2.8.19",
     "@types/passport": "1.0.17",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
-    "express": "^5.0.0",
+    "express": "^5.1.0",
     "passport": "^0.7.0",
     "passport-github2": "^0.1.12",
     "pug": "^3.0.3"
