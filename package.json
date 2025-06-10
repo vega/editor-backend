@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "description": "Backend for Vega Editor",
   "scripts": {
-    "start": "vercel dev",
-    "deploy": "vercel",
+    "start": "wrangler dev",
+    "deploy": "wrangler deploy",
     "build": "tsc",
     "lint": "eslint {src/**/*.ts,config/*.ts}",
     "format": "eslint --fix {src/**/*.ts,config/*.ts}",
@@ -33,7 +33,7 @@
     "typedoc": "^0.28.5",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.33.1",
-    "vercel": "^42.3.0"
+    "wrangler": "^3.0.0"
   },
   "dependencies": {
     "@types/cors": "^2.8.19",
