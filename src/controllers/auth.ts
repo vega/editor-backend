@@ -139,7 +139,7 @@ class AuthController implements BaseController {
           }
           
           if (window.opener === null) {
-            window.location = '${redirectUrl.successful}/#?auth_token=' + encodeURIComponent(authToken);
+            window.location = '/';
           }
           else {
             try {
@@ -178,7 +178,7 @@ class AuthController implements BaseController {
           localStorage.removeItem('vega_editor_auth_token');
           
           if (window.opener === null) {
-            window.location.assign('${redirectUrl.successful}/#?logout=true')
+            window.location.assign('/')
           }
           else {
             try {
