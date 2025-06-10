@@ -170,7 +170,6 @@ class AuthController implements BaseController {
       res.header('Access-Control-Allow-Origin', origin);
     }
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, X-Auth-Token');
-    res.header('Access-Control-Allow-Credentials', 'true');
 
     res.send(
       `<html>
@@ -209,7 +208,6 @@ class AuthController implements BaseController {
       res.header('Access-Control-Allow-Origin', origin);
     }
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, X-Auth-Token');
-    res.header('Access-Control-Allow-Credentials', 'true');
 
     // Checking for token-based auth
     const authToken = req.headers['x-auth-token'] as string;
@@ -247,7 +245,6 @@ class AuthController implements BaseController {
       res.header('Access-Control-Allow-Origin', origin);
     }
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, X-Auth-Token');
-    res.header('Access-Control-Allow-Credentials', 'true');
 
     const authToken = req.headers['x-auth-token'] as string;
     const tokenUser = authToken ? this.validateToken(authToken) : null;
