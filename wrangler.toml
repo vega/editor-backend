@@ -13,3 +13,6 @@ command = "npm run build"
 [[routes]]
 pattern = "*"
 custom_domain = true
+
+[observability.logs]
+enabled = true
