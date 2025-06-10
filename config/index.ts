@@ -23,24 +23,6 @@ export const githubOauth = {
 };
 
 /**
- * Stores the configuration for redis store.
- */
-export const redisConfiguration = {
-  /**
-   * Host name for redis store.
-   */
-  REDIS_HOST: process.env.REDIS_HOST,
-  /**
-   * Host password for redis store.
-   */
-  REDIS_PASSWORD: process.env.REDIS_PASSWORD,
-  /**
-   * Port number for redis store.
-   */
-  REDIS_PORT: +process.env.REDIS_PORT,
-};
-
-/**
  * Secret used to sign the session ID cookie.
  *
  * _Exported as `sessionSecret` to configure cookie creation._
@@ -60,6 +42,7 @@ export const allowedOrigins: string[] = [
   'https://vega.github.io',
   'http://localhost:8081',
   'http://localhost:8080',
+  'http://localhost:1234',
   'http://0.0.0.0:8080',
 ];
 
@@ -67,14 +50,7 @@ export const allowedOrigins: string[] = [
  * Stores the type of environment of project. It is either `development` or
  * `production`.
  *
- * _Exported as `nodeEnv` to differentiate behaviour of app on development and
+ * _Exported as `nodeEnv` to differentiate behavior of app on development and
  * production server._
  */
 export const nodeEnv: string = process.env.NODE_ENV;
-
-/**
- * Stores the expiry date of the cookie set.
- *
- * _Exported as `cookieExpiry`_.
- */
-export const cookieExpiry: number = 90 * 24 * 60 * 60; // 90 days

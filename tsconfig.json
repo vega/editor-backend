@@ -1,11 +1,12 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "module": "commonjs",
-    "lib": ["es2017", "dom"],
-    "moduleResolution": "node",
+    "module": "node16",
+    "lib": ["es2020"],
+    "moduleResolution": "node16",
     "sourceMap": true,
     "esModuleInterop": true,
+    "skipLibCheck": true,
     "outDir": "build"
   },
   "include": [

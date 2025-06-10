@@ -13,7 +13,7 @@ jobs:
         uses: actions/setup-node@v4
 
       - name: Install Node dependencies
-        run: yarn --frozen-lockfile
+        run: npm ci
 
-      - run: yarn lint
-      - run: yarn build
+      - run: npm run lint
+      - run: npm run build

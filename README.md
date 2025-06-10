@@ -14,7 +14,7 @@ https://github.com/vega/editor-backend.
 
 2. Install all dependencies.
     ```
-    $ yarn install
+    $ npm install
     ```
 
 3. Put configurations in a `.env` file in the root directory.
@@ -29,7 +29,7 @@ https://github.com/vega/editor-backend.
 
     # GitHub OAuth app credentials
     GITHUB_CLIENT_ID=a901f0948b144d29fbdf 
-    GITHUB_CLIENT_SECRET=dfdb84ff29fde4eaa160078d13e024530238ebe0
+    GITHUB_CLIENT_SECRET=8a2269fd225321f19f2a19e7629e3ad63d94df68
 
     # Session ID configuration
     SESSION_SECRET=secret
@@ -37,7 +37,7 @@ https://github.com/vega/editor-backend.
 
 5.  Run the back-end server.
     ```
-    $ yarn start
+    $ npm start
     ```
 
 6.  Go to the home route (which usually is `http://localhost:3000/`). Otherwise
@@ -56,5 +56,5 @@ Go to https://vega.github.io/editor-backend/.
   plugin](https://marketplace.visualstudio.com/items?itemName=stkb.rewrap) to
   assist formatting of markdown files. Press <kbd>Alt</kbd> + <kbd>Q</kbd> to
   limit lines at 80 characters.
-- The project uses ESLint to format the code. Run `yarn format` to fix
+- The project uses ESLint to format the code. Run `npm run format` to fix
   formatting where it's possible to do so automatically.

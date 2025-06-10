@@ -1,4 +1,4 @@
-import { nodeEnv } from '../config/index';
+import { nodeEnv } from '../config/index.js';
 
 /**
  * Prefix for URLs for authentication with GitHub.
@@ -27,12 +27,16 @@ export const authUrl = {
    * Endpoint to verify if the user is authenticated.
    */
   isAuthenticated: `${authMain}/check`,
+  /**
+   * Endpoint to get a GitHub token for API calls.
+   */
+  getGithubToken: `${authMain}/token`,
 };
 
 /**
  * Stores redirection URL for successful and failed authentication.
  *
- *  _Exported as `redirectUrl` for redirections._
+ *  _Exported as `redirectUrl` for redirects._
  */
 const redirectUrl = {
   /**
@@ -55,21 +59,11 @@ if (nodeEnv === 'production') {
   // hardcode url here
   redirectUrl.successful = 'https://vega.github.io/editor';
   hostUrl = 'https://vega-editor-backend.vercel.app';
-} else if (nodeEnv === 'development') {
-  redirectUrl.successful = authUrl.isAuthenticated;
+} else if (nodeEnv === 'development' || !nodeEnv) {
+  redirectUrl.successful = 'http://localhost:1234';
+  hostUrl = 'http://localhost:3000';
 }
 
 export { redirectUrl, hostUrl };
-
-const gistMain = '/gists';
-
-export const gistUrl = {
-  main: gistMain,
-  allGists: `${gistMain}/user`,
-  createGist: `${gistMain}/create`,
-  updateGist: `${gistMain}/update`,
-};
-
-export const gistRawUrl = 'https://gist.githubusercontent.com';
 
 export const docsUrl = 'https://vega.github.io/editor-backend';
