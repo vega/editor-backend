@@ -42,6 +42,7 @@ export const allowedOrigins: string[] = [
   'https://vega.github.io',
   'http://localhost:8081',
   'http://localhost:8080',
+  'http://localhost:1234',
   'http://0.0.0.0:8080',
 ];
 
@@ -53,10 +54,3 @@ export const allowedOrigins: string[] = [
  * production server._
  */
 export const nodeEnv: string = process.env.NODE_ENV;
-
-/**
- * Stores the expiry date of the cookie set.
- *
- * _Exported as `cookieExpiry`_.
- */
-export const cookieExpiry: number = 90 * 24 * 60 * 60; // 90 days

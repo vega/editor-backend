@@ -6,7 +6,7 @@ import BaseController from './base.js';
 import { redirectUrl, authUrl } from '../urls.js';
 
 // Enables passport to recognize the configuration.
-import('../../config/passport.js');
+import '../../config/passport.js';
 
 /**
  * Controller for OAuthentication via GitHub.
@@ -31,36 +31,16 @@ class AuthController implements BaseController {
   private initializeRoutes = () => {
     this.router.get(
       this.path,
-      passport.authenticate('github', { scope: 'gist', session: false })
+      passport.authenticate('github', { scope: 'gist', session: false }),
     );
     this.router.get(
       authUrl.callback,
       passport.authenticate('github', { session: false }),
-      this.success
+      this.success,
     );
     this.router.get(authUrl.logout, this.logout);
     this.router.get(authUrl.isAuthenticated, this.loggedIn);
     this.router.get(authUrl.getGithubToken, this.getGithubToken);
-  };
-
-  /**
-   * Handle OPTIONS requests (CORS preflight)
-   */
-  private handleOptions = (req, res) => {
-    const origin = req.headers.origin || '*';
-
-    if (origin === 'null') {
-      res.header('Access-Control-Allow-Origin', 'null');
-    } else {
-      res.header('Access-Control-Allow-Origin', origin);
-    }
-
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-    res.header('Access-Control-Allow-Headers',
-      'Content-Type, Authorization, X-Auth-Token, Cache-Control, Pragma, Expires');
-    res.header('Access-Control-Allow-Credentials', 'true');
-    res.header('Access-Control-Expose-Headers', 'Content-Type, Authorization, X-Auth-Token');
-    res.status(200).end();
   };
 
   /**
@@ -89,12 +69,10 @@ class AuthController implements BaseController {
       .update(dataString)
       .digest('hex');
 
-    const token = Buffer.from(JSON.stringify({
+    return Buffer.from(JSON.stringify({
       data: dataString,
       signature,
     })).toString('base64');
-
-    return token;
   };
 
   /**
@@ -149,22 +127,7 @@ class AuthController implements BaseController {
    * @param {Response} res Response object
    */
   private success = (req, res) => {
-    console.log('Authentication successful, generating token');
-
-    let authToken = '';
-    let githubAccessToken = '';
-    try {
-      if (req.user) {
-        console.log('User profile received:', req.user._json ? req.user._json.login : 'Unknown');
-        authToken = this.generateToken(req.user);
-        githubAccessToken = req.user.accessToken;
-        console.log('Token generated successfully');
-      } else {
-        console.error('No user data received from GitHub authentication');
-      }
-    } catch (error) {
-      console.error('Error generating authentication token:', error);
-    }
+    const authToken = req.user ? this.generateToken(req.user) : '';
 
     res.send(
       `<html>
@@ -172,14 +135,11 @@ class AuthController implements BaseController {
           const authToken = "${authToken}";
           
           if (authToken) {
-            console.log("Storing auth token in localStorage");
             localStorage.setItem('vega_editor_auth_token', authToken);
-          } else {
-            console.error("No auth token received");
           }
           
           if (window.opener === null) {
-            window.location = '${redirectUrl.successful}'
+            window.location = '/';
           }
           else {
             try {
@@ -188,12 +148,11 @@ class AuthController implements BaseController {
               )
               window.close()
             } catch (e) {
-              console.error("Error posting message to opener:", e);
               window.location = '${redirectUrl.successful}'
             }
           }
         </script>
-      </html>`
+      </html>`,
     );
   };
 
@@ -211,7 +170,6 @@ class AuthController implements BaseController {
       res.header('Access-Control-Allow-Origin', origin);
     }
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, X-Auth-Token');
-    res.header('Access-Control-Allow-Credentials', 'true');
 
     res.send(
       `<html>
@@ -219,7 +177,7 @@ class AuthController implements BaseController {
           localStorage.removeItem('vega_editor_auth_token');
           
           if (window.opener === null) {
-            window.location.assign('${redirectUrl.successful}')
+            window.location.assign('/')
           }
           else {
             try {
@@ -228,11 +186,11 @@ class AuthController implements BaseController {
               )
               window.close()
             } catch (e) {
-              window.location.assign('${redirectUrl.successful}')
+              window.location.assign('${redirectUrl.successful}/#?logout=true')
             }
           }
         </script>
-      </html>`
+      </html>`,
     );
   };
 
@@ -250,15 +208,10 @@ class AuthController implements BaseController {
       res.header('Access-Control-Allow-Origin', origin);
     }
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, X-Auth-Token');
-    res.header('Access-Control-Allow-Credentials', 'true');
 
     // Checking for token-based auth
     const authToken = req.headers['x-auth-token'] as string;
-    let tokenUser = null;
-
-    if (authToken) {
-      tokenUser = this.validateToken(authToken);
-    }
+    const tokenUser = authToken ? this.validateToken(authToken) : null;
 
     if (!req.isAuthenticated() && !tokenUser) {
       return res.send({
@@ -292,14 +245,9 @@ class AuthController implements BaseController {
       res.header('Access-Control-Allow-Origin', origin);
     }
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, X-Auth-Token');
-    res.header('Access-Control-Allow-Credentials', 'true');
 
     const authToken = req.headers['x-auth-token'] as string;
-    let tokenUser = null;
-
-    if (authToken) {
-      tokenUser = this.validateToken(authToken);
-    }
+    const tokenUser = authToken ? this.validateToken(authToken) : null;
 
     if (!req.isAuthenticated() && !tokenUser) {
       return res.status(401).send({
@@ -313,6 +261,7 @@ class AuthController implements BaseController {
       githubAccessToken: user.accessToken,
     });
   };
+
 }
 
 /**

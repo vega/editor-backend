@@ -59,8 +59,9 @@ if (nodeEnv === 'production') {
   // hardcode url here
   redirectUrl.successful = 'https://vega.github.io/editor';
   hostUrl = 'https://vega-editor-backend.vercel.app';
-} else if (nodeEnv === 'development') {
-  redirectUrl.successful = authUrl.isAuthenticated;
+} else if (nodeEnv === 'development' || !nodeEnv) {
+  redirectUrl.successful = 'http://localhost:1234';
+  hostUrl = 'http://localhost:3000';
 }
 
 export { redirectUrl, hostUrl };
