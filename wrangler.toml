@@ -1,13 +1,11 @@
 name = "editor-backend"
-main = "./dist/app.js"
+main = "./src/app.ts"
 compatibility_date = "2025-06-01"
+compatibility_flags = ["nodejs_compat"]
 
-[build]
-command = "npm run build"
+[vars]
+NODE_ENV = "development"
 
-[[routes]]
-pattern = "*"
-custom_domain = true
+[dev]
+port = 3000
 
-[observability.logs]
-enabled = true

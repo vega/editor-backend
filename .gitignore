@@ -18,3 +18,5 @@ build
 # Keys
 *.key
 *.crt
+.wrangler
+.dev.vars

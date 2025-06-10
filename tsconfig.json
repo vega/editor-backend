@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es6",
     "module": "node16",
-    "lib": ["es2020"],
+    "lib": ["es2020", "webworker"],
     "moduleResolution": "node16",
     "sourceMap": true,
     "esModuleInterop": true,
@@ -11,6 +11,7 @@
   },
   "include": [
     "src/**/*.ts",
+    "src/**/*.pug",
     "config"
   ],
   "exclude": [

@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "description": "Backend for Vega Editor",
   "scripts": {
-    "start": "wrangler dev",
+    "start": "vite dev",
+    "dev": "wrangler dev",
     "deploy": "wrangler deploy",
-    "build": "tsc",
+    "build": "vite build",
     "lint": "eslint {src/**/*.ts,config/*.ts}",
     "format": "eslint --fix {src/**/*.ts,config/*.ts}",
     "docs": "typedoc"
@@ -32,17 +33,12 @@
     "typedoc": "^0.28.5",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.33.1",
+    "vite": "^6.0.0",
     "wrangler": "^4.19.1"
   },
   "dependencies": {
-    "@types/cors": "^2.8.19",
-    "@types/passport": "1.0.17",
-    "cors": "^2.8.5",
     "dotenv": "^16.5.0",
-    "express": "^5.1.0",
-    "passport": "^0.7.0",
-    "passport-github2": "^0.1.12",
-    "pug": "^3.0.3"
+    "hono": "^4.6.11"
   },
   "husky": {
     "hooks": {
