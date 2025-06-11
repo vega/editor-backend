@@ -8,11 +8,6 @@ import AuthController from './controllers/auth.js';
 import Controller from './controllers/base.js';
 import HomeController from './controllers/home.js';
 
-import { dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-
 /**
  * Configuration of the express application.
  */
