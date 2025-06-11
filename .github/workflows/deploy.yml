@@ -26,8 +26,19 @@ jobs:
       - name: Run linter
         run: npm run lint
 
+      - name: Verify HTML template exists
+        run: |
+          if [ ! -f "src/views/index.html" ]; then
+            echo "Error: HTML template not found!"
+            exit 1
+          fi
+          echo "HTML template found"
+
       - name: Deploy to Vercel Production
         run: npx vercel --prod --yes --token ${{ secrets.VERCEL_TOKEN }}
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+      - name: Deployment Success
+        run: echo "Deployment completed successfully!"

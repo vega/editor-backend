@@ -1,6 +1,32 @@
 {
   "version": 2,
-  "alias": ["vega", "vega-editor-backend"],
-  "builds": [{ "src": "src/**/*.ts", "use": "@vercel/node" }],
-  "routes": [{ "src": "/(.*)", "dest": "/src/app.ts" }]
+  "alias": [
+    "vega",
+    "vega-editor-backend"
+  ],
+  "builds": [
+    {
+      "src": "src/**/*.ts",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": [
+          "src/views/**/*.html"
+        ]
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/src/app.ts"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "functions": {
+    "src/app.ts": {
+      "maxDuration": 30
+    }
+  }
 }

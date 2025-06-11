@@ -55,9 +55,6 @@ class App {
     };
     this.app.use(cors(corsOptions));
     this.app.use(passport.initialize());
-
-    this.app.set('views', `${__dirname}/views`);
-    this.app.set('view engine', 'pug');
   }
 
   /**

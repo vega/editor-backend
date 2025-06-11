@@ -1,7 +1,12 @@
 import express from 'express';
+import { readFileSync } from 'fs';
+import { dirname, join } from 'path';
+import { fileURLToPath } from 'url';
 
 import BaseController from './base.js';
 import { authUrl, docsUrl } from '../urls.js';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 /**
  * Controller to serve the root URL of back-end service.
@@ -35,11 +40,24 @@ class HomeController implements BaseController {
    * @param {Response} res Response object
    */
   private listRoutes = (req, res) => {
-    res.render('index', {
-      authUrl,
-      host: req.headers.host,
-      docsUrl,
-    });
+    try {
+      const htmlPath = join(__dirname, '../views/index.html');
+      let html = readFileSync(htmlPath, 'utf8');
+
+      const serverData = {
+        authUrl,
+        host: req.headers.host,
+        docsUrl,
+      };
+
+      const dataScript = `<script>window.SERVER_DATA = ${JSON.stringify(serverData)};</script>`;
+      html = html.replace('<!-- Server data will be injected here -->', dataScript);
+
+      res.setHeader('Content-Type', 'text/html');
+      res.send(html);
+    } catch (error) {
+      console.error('HTML Template Error:', error);
+    }
   };
 
 }
