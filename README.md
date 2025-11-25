@@ -1,6 +1,6 @@
 # editor-backend
 
-[![Build Status](https://github.com/vega/editor-backend/workflows/Test/badge.svg)](https://github.com/vega/editor-backend/actions)
+[![Test](https://github.com/vega/editor-backend/actions/workflows/test.yml/badge.svg)](https://github.com/vega/editor-backend/actions/workflows/test.yml)
 
 Deployed at https://vega-editor-backend.vercel.app/. Code is at
 https://github.com/vega/editor-backend.
