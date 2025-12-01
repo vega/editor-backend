@@ -30,7 +30,7 @@
     "eslint": "^9.39.1",
     "husky": ">=9",
     "lint-staged": ">=16",
-    "typedoc": "^0.28.14",
+    "typedoc": "^0.28.15",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.48.0",
     "vercel": "^48.12.0"
