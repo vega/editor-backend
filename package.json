@@ -40,7 +40,7 @@
     "@types/passport": "1.0.17",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
-    "express": "^5.1.0",
+    "express": "^5.2.0",
     "passport": "^0.7.0",
     "passport-github2": "^0.1.12"
   },
