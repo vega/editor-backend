@@ -38,7 +38,7 @@
   "dependencies": {
     "@types/cors": "^2.8.19",
     "@types/passport": "1.0.17",
-    "cors": "^2.8.5",
+    "cors": "^2.8.6",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
     "passport": "^0.7.0",
