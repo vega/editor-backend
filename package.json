@@ -33,7 +33,7 @@
     "typedoc": "^0.28.16",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.54.0",
-    "vercel": "^50.9.6"
+    "vercel": "^50.25.4"
   },
   "dependencies": {
     "@types/cors": "^2.8.19",
