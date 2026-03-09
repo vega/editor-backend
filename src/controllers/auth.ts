@@ -226,7 +226,7 @@ class AuthController implements BaseController {
       name: user._json.name,
       profilePicUrl: user._json.avatar_url,
       authToken: tokenUser ? authToken : this.generateToken(user),
-      githubAccessToken: tokenUser.accessToken,
+      githubAccessToken: user.accessToken,
     });
   };
 
