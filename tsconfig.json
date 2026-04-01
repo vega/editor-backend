@@ -3,6 +3,7 @@
     "target": "es6",
     "module": "node16",
     "lib": ["es2020"],
+    "types": ["node"],
     "moduleResolution": "node16",
     "sourceMap": true,
     "esModuleInterop": true,

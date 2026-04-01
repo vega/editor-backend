@@ -21,7 +21,7 @@ passport.use(new GitHubStrategy({
   clientSecret: githubOauth.GITHUB_CLIENT_SECRET,
   callbackURL: `${hostUrl}${authUrl.callback}`,
   scope: ['gist'],
-}, (accessToken, refreshToken, profile, done) => {
+}, (accessToken: string, refreshToken: string, profile: any, done: (error: any, user?: any) => void) => {
 
   if (!profile) {
     return done(new Error('Failed to retrieve GitHub profile'));

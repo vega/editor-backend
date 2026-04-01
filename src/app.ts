@@ -40,7 +40,7 @@ class App {
     this.app.use(express.json());
 
     const corsOptions = {
-      origin: (origin, callback) => {
+      origin: (origin: string | undefined, callback: (err: Error | null, allow?: boolean) => void) => {
         if (!origin || origin === 'null' || allowedOrigins.includes(origin)) {
           callback(null, true);
         } else {

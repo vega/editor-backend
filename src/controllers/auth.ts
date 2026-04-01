@@ -65,7 +65,7 @@ class AuthController implements BaseController {
 
     const dataString = JSON.stringify(userInfo);
     const signature = crypto
-      .createHmac('sha256', process.env.SESSION_SECRET)
+      .createHmac('sha256', process.env.SESSION_SECRET ?? '')
       .update(dataString)
       .digest('hex');
 
@@ -88,7 +88,7 @@ class AuthController implements BaseController {
       const { data, signature } = decoded;
 
       const expectedSignature = crypto
-        .createHmac('sha256', process.env.SESSION_SECRET)
+        .createHmac('sha256', process.env.SESSION_SECRET ?? '')
         .update(data)
         .digest('hex');
 
@@ -126,7 +126,7 @@ class AuthController implements BaseController {
    *
    * @param {Response} res Response object
    */
-  private success = (req, res) => {
+  private success = (req: express.Request, res: express.Response) => {
     const authToken = req.user ? this.generateToken(req.user) : '';
 
     res.send(
@@ -162,7 +162,7 @@ class AuthController implements BaseController {
    * @param {Request} req Request object
    * @param {Response} res Response object
    */
-  private logout = (req, res) => {
+  private logout = (req: express.Request, res: express.Response) => {
     const origin = req.headers.origin || '*';
     if (origin === 'null') {
       res.header('Access-Control-Allow-Origin', 'null');
@@ -200,7 +200,7 @@ class AuthController implements BaseController {
    * @param {Request} req Request object
    * @param {Response} res Response object
    */
-  private loggedIn = (req, res) => {
+  private loggedIn: express.RequestHandler = (req, res) => {
     const origin = req.headers.origin || '*';
     if (origin === 'null') {
       res.header('Access-Control-Allow-Origin', 'null');
@@ -214,9 +214,10 @@ class AuthController implements BaseController {
     const tokenUser = authToken ? this.validateToken(authToken) : null;
 
     if (!req.isAuthenticated() && !tokenUser) {
-      return res.send({
+      res.send({
         isAuthenticated: false,
       });
+      return;
     }
 
     const user = tokenUser || req.user;
@@ -237,7 +238,7 @@ class AuthController implements BaseController {
    * @param {Request} req Request object
    * @param {Response} res Response object
    */
-  private getGithubToken = (req, res) => {
+  private getGithubToken: express.RequestHandler = (req, res) => {
     const origin = req.headers.origin || '*';
     if (origin === 'null') {
       res.header('Access-Control-Allow-Origin', 'null');
@@ -250,9 +251,10 @@ class AuthController implements BaseController {
     const tokenUser = authToken ? this.validateToken(authToken) : null;
 
     if (!req.isAuthenticated() && !tokenUser) {
-      return res.status(401).send({
+      res.status(401).send({
         error: 'Not authenticated',
       });
+      return;
     }
 
     const user = tokenUser || req.user;
