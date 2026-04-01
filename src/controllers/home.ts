@@ -34,7 +34,7 @@ class HomeController implements BaseController {
    * @param {Request} req Request object
    * @param {Response} res Response object
    */
-  private listRoutes = (req, res) => {
+  private listRoutes = (req: express.Request, res: express.Response) => {
     const host = req.headers.host;
     const html = `<!DOCTYPE html>
 <html lang="en">

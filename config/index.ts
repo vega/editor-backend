@@ -11,6 +11,9 @@ dotenv.config();
  *
  * _Exported as `githubOauth` for configuring GitHub passport strategy._
  */
+if (!process.env.GITHUB_CLIENT_ID || !process.env.GITHUB_CLIENT_SECRET) {
+  throw new Error('GITHUB_CLIENT_ID and GITHUB_CLIENT_SECRET environment variables are required');
+}
 export const githubOauth = {
   /**
    * Client ID of OAuth application.
@@ -28,6 +31,9 @@ export const githubOauth = {
  * _Exported as `sessionSecret` to configure cookie creation._
  *
  */
+if (!process.env.SESSION_SECRET) {
+  throw new Error('SESSION_SECRET environment variable is required');
+}
 export const sessionSecret: string = process.env.SESSION_SECRET;
 
 /**
@@ -53,4 +59,4 @@ export const allowedOrigins: string[] = [
  * _Exported as `nodeEnv` to differentiate behavior of app on development and
  * production server._
  */
-export const nodeEnv: string = process.env.NODE_ENV;
+export const nodeEnv: string = process.env.NODE_ENV ?? 'development';

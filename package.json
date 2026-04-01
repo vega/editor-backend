@@ -24,15 +24,17 @@
   "homepage": "https://github.com/vega/editor-backend#readme",
   "devDependencies": {
     "@types/express": "^5.0.6",
+    "@types/node": "^22.0.0",
     "@types/passport-github": "^1.1.13",
+    "@types/passport-github2": "^1.2.9",
     "@typescript-eslint/eslint-plugin": "^8.58.0",
     "@typescript-eslint/parser": "^8.58.0",
     "eslint": "^9.39.2",
     "husky": ">=9",
     "lint-staged": ">=16",
     "typedoc": "^0.28.18",
-    "typescript": "^5.9.3",
-    "typescript-eslint": "^8.54.0",
+    "typescript": "^6.0.2",
+    "typescript-eslint": "^8.58.0",
     "vercel": "^50.32.5"
   },
   "dependencies": {
